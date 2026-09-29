@@ -38,30 +38,28 @@ CLIP rất giỏi trả lời "ảnh này có giống *một nữ diễn viên t
 | clip: độ khớp hình ảnh (0.5 khi tắt CLIP) | 10% | 40% |
 | quality: độ phân giải, tỉ lệ ngang | 5% | 20% |
 
-Loại cứng: domain agency có watermark (Getty, Alamy, Shutterstock...), domain trong blacklist, cạnh ngắn dưới 400px, license không hợp chính sách, ảnh stock cho người có tên.
+Loại cứng: domain agency có watermark (Getty, Alamy, Shutterstock...), domain trong blacklist, cạnh ngắn dưới 400px, ảnh stock cho người có tên. Pipeline không lọc theo bản quyền.
 
 ## Mẹo quan trọng nhất: category theo năm trên Commons
 
 Người nổi tiếng thường có category kiểu `Category:Winona Ryder in 1994`, `Category:Charlie Chaplin in 1915`. Ảnh trong đó đã được người thật phân loại đúng người, đúng năm. Pipeline luôn thử các category này trước khi tìm kiếm bằng từ khóa.
 
-## Nguồn và bản quyền
+## Nguồn
 
-| Nguồn | Dùng cho | License tier |
-|---|---|---|
-| Wikimedia Commons | người, sự kiện, địa điểm, poster cũ | cleared (PD, CC0) / attribution (CC BY, BY-SA) / review (NC, ND, fair use) |
-| Openverse (Flickr, bảo tàng...) | như trên | như trên |
-| Pexels (cần API key) | cảnh chung | cleared |
-| Brave Image Search (cần API key) | khám phá web: scan tạp chí, fan archive, trang Pinterest | unknown, luôn cần duyệt tay |
+| Nguồn | Dùng cho |
+|---|---|
+| Wikimedia Commons | người, sự kiện, địa điểm, poster cũ |
+| Openverse (Flickr, bảo tàng...) | như trên |
+| Pexels (cần API key) | cảnh chung |
+| Brave Image Search (cần `BRAVE_API_KEY`) | web: scan tạp chí, fan archive, trang Pinterest |
 
-- `DOCUGEN_LICENSE_POLICY=strict` (mặc định): chỉ dùng cleared + attribution. An toàn để kiếm tiền trên YouTube.
-- `DOCUGEN_LICENSE_POLICY=review`: mở thêm nguồn web. Mọi ảnh như vậy được liệt kê trong mục "RIGHTS REVIEW NEEDED" của `credits.txt`.
-- Ảnh CC BY / BY-SA được ghi công ngay trên hình (góc phải dưới) và trong `credits.txt` để dán vào mô tả video.
-
-**Về Pinterest:** điều khoản của Pinterest cấm thu thập tự động, và việc một ảnh nằm trên Pinterest không có nghĩa bạn được phép dùng. Pipeline không bao giờ scrape Pinterest hay Google Images. Kết quả Pinterest chỉ có thể xuất hiện gián tiếp qua API tìm kiếm (Brave) ở chế độ `review`, với điểm tin cậy nguồn thấp; nên lần ngược về nguồn gốc (Getty, tạp chí, Flickr) rồi quyết định có mua license hay không.
+- Không có bước kiểm tra bản quyền: mọi ảnh qua bộ lọc danh tính và chất lượng đều được dùng, kể cả ảnh web không rõ license. Loại license chỉ hiển thị trong `review.html` để tham khảo.
+- Ảnh CC BY / BY-SA vẫn được ghi tên tác giả trên hình (tắt bằng `showCredits: false` trong timeline) và trong `credits.txt`.
+- Pinterest chỉ xuất hiện gián tiếp qua API tìm kiếm Brave; pipeline không scrape Pinterest hay Google Images (điều khoản của họ cấm thu thập tự động).
 
 ## Duyệt và sửa tay
 
-1. Mở `projects/<slug>/review.html`: mỗi cảnh hiện ảnh đã chọn (viền vàng), các lựa chọn thay thế, điểm từng thành phần và license.
+1. Mở `projects/<slug>/review.html`: mỗi cảnh hiện ảnh đã chọn (viền vàng), các lựa chọn thay thế, điểm từng thành phần và license (tham khảo).
 2. Muốn thay ảnh cảnh 7: lưu file thành `projects/<slug>/manual/scene_007.jpg` (nhiều ảnh: `scene_007_a.jpg`, `scene_007_b.jpg`).
 3. Chạy lại `docugen run <slug> --force select`.
 

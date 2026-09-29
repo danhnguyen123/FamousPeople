@@ -38,9 +38,6 @@ class Settings:
             "DOCUGEN_USER_AGENT", "docugen/0.1 (documentary research tool; contact: set DOCUGEN_USER_AGENT)"
         )
     )
-    # License policy: "strict" keeps only openly licensed / public domain media.
-    # "review" also keeps web discoveries, flagged for manual rights review.
-    license_policy: str = field(default_factory=lambda: _env("DOCUGEN_LICENSE_POLICY", "strict"))
     blocked_domains: list[str] = field(default_factory=lambda: _env_list("DOCUGEN_BLOCKED_DOMAINS"))
     preferred_domains: list[str] = field(
         default_factory=lambda: _env_list("DOCUGEN_PREFERRED_DOMAINS")

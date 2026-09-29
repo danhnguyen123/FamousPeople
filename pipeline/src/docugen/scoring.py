@@ -128,6 +128,7 @@ def quality_score(cand: Candidate) -> float:
 
 
 def license_tier(cand: Candidate) -> LicenseTier:
+    """Informational only (shown in review.html, drives on-screen credits); never filters."""
     if cand.provider == "pexels":
         return "cleared"
     if cand.provider == "web":
@@ -142,12 +143,6 @@ def license_tier(cand: Candidate) -> LicenseTier:
     if "cc by" in lic.replace("-", " ") or lic.startswith("cc-by"):
         return "attribution"
     return "review"  # fair use, non-free, custom terms
-
-
-def allowed_by_policy(tier: LicenseTier, policy: str) -> bool:
-    if policy == "review":
-        return True
-    return tier in ("cleared", "attribution")
 
 
 def score_candidate(
@@ -177,8 +172,6 @@ def score_candidate(
         reason = "blocked domain"
     elif cand.width and cand.height and min(cand.width, cand.height) < MIN_SHORT_SIDE:
         reason = "resolution too low"
-    elif not allowed_by_policy(tier, settings.license_policy):
-        reason = f"license tier '{tier}' not allowed by policy '{settings.license_policy}'"
     elif brief.visual_type in IDENTITY_REQUIRED and needs_entity and scores["entity"] < 1.0:
         reason = "name not found in metadata"
     elif cand.provider == "pexels" and needs_entity:

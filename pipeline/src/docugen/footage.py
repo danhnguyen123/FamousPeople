@@ -22,7 +22,7 @@ def build_providers(settings: Settings) -> dict[str, Provider]:
     providers: dict[str, Provider] = {"wikimedia": WikimediaCommons(), "openverse": Openverse()}
     if settings.pexels_api_key:
         providers["pexels"] = Pexels(settings.pexels_api_key)
-    if settings.brave_api_key and settings.license_policy == "review":
+    if settings.brave_api_key:
         providers["web"] = BraveImages(settings.brave_api_key)
     return providers
 

@@ -1,8 +1,7 @@
 """Brave Image Search: open web discovery (magazine scans, fan archives, Pinterest pages...).
 
-Results have no license information, so they are only used when
-DOCUGEN_LICENSE_POLICY=review and every pick is flagged for manual rights review.
-This goes through a search API; it never scrapes Pinterest or Google directly.
+Enabled whenever BRAVE_API_KEY is set. This goes through a search API;
+it never scrapes Pinterest or Google directly.
 """
 
 from __future__ import annotations

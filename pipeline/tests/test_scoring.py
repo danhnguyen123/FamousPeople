@@ -62,18 +62,18 @@ def test_license_tiers():
     assert license_tier(cand(provider="web", license=None)) == "unknown"
 
 
-def test_strict_policy_rejects_web(settings, ryder):
-    s = score_candidate(cand(provider="web", license=None, source_domain="pinterest.com"),
-                        brief(), ryder, settings)
-    assert "policy" in (s.rejected_reason or "")
-    settings.license_policy = "review"
+def test_web_results_are_accepted(settings, ryder):
     s = score_candidate(cand(provider="web", license=None, source_domain="pinterest.com"),
                         brief(), ryder, settings)
     assert s.rejected_reason is None and s.license_tier == "unknown"
 
 
+def test_non_free_license_is_not_filtered(settings, ryder):
+    s = score_candidate(cand(license="CC BY-NC 2.0"), brief(), ryder, settings)
+    assert s.rejected_reason is None
+
+
 def test_watermarked_agency_rejected(settings, ryder):
-    settings.license_policy = "review"
     s = score_candidate(cand(provider="web", source_domain="gettyimages.com"), brief(), ryder, settings)
     assert s.rejected_reason == "watermarked stock agency"
 

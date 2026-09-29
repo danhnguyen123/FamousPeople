@@ -2,7 +2,7 @@
 
 Nothing is published without a human look: the contact sheet shows, per
 scene, the chosen images, the next best alternatives and every score, so a
-wrong face or a rights problem is caught before rendering. To override a
+wrong face is caught before rendering. To override a
 scene, save a file as manual/scene_007.jpg and rerun `docugen select`.
 """
 
@@ -82,8 +82,8 @@ def write_review(
 
 
 def write_credits(project: Project, footage: list[SceneFootage]) -> str:
-    """Attribution block for the video description, plus a rights checklist."""
-    lines, review = [], []
+    """Attribution block for the video description."""
+    lines = []
     seen: set[str] = set()
     for foot in footage:
         by_id = {s.candidate.id: s for s in foot.ranked}
@@ -96,11 +96,7 @@ def write_credits(project: Project, footage: list[SceneFootage]) -> str:
             if s.license_tier in ("attribution", "cleared") and c.provider != "pexels":
                 author = c.author or "Unknown author"
                 lines.append(f"{c.title or 'Image'} by {author}, {c.license or ''} ({c.page_url or c.image_url})")
-            elif s.license_tier in ("review", "unknown"):
-                review.append(f"scene {foot.scene_index}: {c.page_url or c.image_url} [{c.license or 'no license info'}]")
     out = ["IMAGE CREDITS", *lines]
-    if review:
-        out += ["", "RIGHTS REVIEW NEEDED BEFORE PUBLISHING (not for the description)", *review]
     path = project.path("credits.txt")
     path.write_text("\n".join(out) + "\n", encoding="utf-8")
     return os.fspath(path)

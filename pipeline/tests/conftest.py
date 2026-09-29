@@ -14,7 +14,6 @@ from docugen.models import Candidate, EntityInfo, VisualBrief
 @pytest.fixture
 def settings(tmp_path) -> Settings:
     s = Settings()
-    s.license_policy = "strict"
     s.blocked_domains = []
     s.preferred_domains = []
     s.enable_clip = False
