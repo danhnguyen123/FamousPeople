@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.venv/
+# Project outputs (scripts in examples/ are tracked)
+projects/*
+!projects/.gitkeep
