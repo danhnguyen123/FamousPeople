@@ -12,52 +12,63 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 
 load_dotenv(REPO_ROOT / ".env")
 
+SOURCES = ("dataforseo", "bing", "brave")
+
 
 def _env(name: str, default: str | None = None) -> str | None:
     value = os.environ.get(name)
     return value if value else default
 
 
-def _env_list(name: str) -> list[str]:
-    raw = _env(name, "") or ""
+def _env_list(name: str, default: str = "") -> list[str]:
+    raw = _env(name, default) or ""
     return [item.strip().lower() for item in raw.split(",") if item.strip()]
+
+
+def _env_int(name: str, default: int) -> int:
+    return int(_env(name, str(default)) or default)
 
 
 @dataclass
 class Settings:
-    anthropic_model: str = field(default_factory=lambda: _env("DOCUGEN_MODEL", "claude-opus-5-5"))
-    pexels_api_key: str | None = field(default_factory=lambda: _env("PEXELS_API_KEY"))
+    # Claude: plan (SRT to scenes, groups, keywords) and select (validate search results)
+    model: str = field(default_factory=lambda: _env("DOCUGEN_MODEL", "claude-opus-5-5"))
+    select_model: str = field(
+        default_factory=lambda: _env("DOCUGEN_SELECT_MODEL", _env("DOCUGEN_MODEL", "claude-opus-5-5"))
+    )
+    select_batch: bool = field(default_factory=lambda: _env("DOCUGEN_SELECT_BATCH", "0") == "1")
+
+    # Image search: every listed source is queried for each group
+    sources: list[str] = field(default_factory=lambda: _env_list("DOCUGEN_SEARCH", ",".join(SOURCES)))
+    candidates_per_source: int = field(
+        default_factory=lambda: _env_int("DOCUGEN_CANDIDATES_PER_SOURCE", 40)
+    )
+    dataforseo_login: str | None = field(default_factory=lambda: _env("DATAFORSEO_LOGIN"))
+    dataforseo_password: str | None = field(default_factory=lambda: _env("DATAFORSEO_PASSWORD"))
+    dataforseo_live: bool = field(default_factory=lambda: _env("DOCUGEN_DATAFORSEO_LIVE", "0") == "1")
+    dataforseo_location: int | None = field(
+        default_factory=lambda: int(v) if (v := _env("DATAFORSEO_LOCATION_CODE")) else None
+    )
+    searchapi_api_key: str | None = field(default_factory=lambda: _env("SEARCHAPI_API_KEY"))
     brave_api_key: str | None = field(default_factory=lambda: _env("BRAVE_API_KEY"))
-    serpapi_api_key: str | None = field(default_factory=lambda: _env("SERPAPI_API_KEY"))
-    serpapi_gl: str | None = field(default_factory=lambda: _env("SERPAPI_GL"))  # e.g. "us", "de"
-    serpapi_tbs: str | None = field(default_factory=lambda: _env("SERPAPI_TBS"))  # e.g. "isz:l"
-    # Image sources to query: google (SerpApi), wikimedia, openverse, pexels, web (Brave).
-    providers: list[str] = field(
-        default_factory=lambda: _env_list("DOCUGEN_PROVIDERS") or ["google"]
-    )
-    # Specific queries per scene; each one costs one search on paid APIs.
-    max_queries: int = field(default_factory=lambda: int(_env("DOCUGEN_MAX_QUERIES", "4") or 4))
-    elevenlabs_api_key: str | None = field(default_factory=lambda: _env("ELEVENLABS_API_KEY"))
-    elevenlabs_model: str = field(
-        default_factory=lambda: _env("ELEVENLABS_MODEL", "eleven_multilingual_v2")
-    )
-    # Wikimedia asks every API client to send a descriptive User-Agent with contact info.
+    brave_safesearch: str = field(default_factory=lambda: _env("DOCUGEN_BRAVE_SAFESEARCH", "strict"))
+    brave_country: str | None = field(default_factory=lambda: _env("DOCUGEN_BRAVE_COUNTRY"))
+    blocked_domains: list[str] = field(default_factory=lambda: _env_list("DOCUGEN_BLOCKED_DOMAINS"))
+
+    # Images
+    min_pool: int = field(default_factory=lambda: _env_int("DOCUGEN_MIN_POOL", 3))
+    min_side: int = field(default_factory=lambda: _env_int("DOCUGEN_MIN_SIDE", 600))
+    reuse_gap: float = field(default_factory=lambda: float(_env("DOCUGEN_REUSE_GAP", "30") or 30))
     user_agent: str = field(
         default_factory=lambda: _env(
-            "DOCUGEN_USER_AGENT", "docugen/0.1 (documentary research tool; contact: set DOCUGEN_USER_AGENT)"
+            "DOCUGEN_USER_AGENT",
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/126.0 Safari/537.36",
         )
     )
-    blocked_domains: list[str] = field(default_factory=lambda: _env_list("DOCUGEN_BLOCKED_DOMAINS"))
-    preferred_domains: list[str] = field(
-        default_factory=lambda: _env_list("DOCUGEN_PREFERRED_DOMAINS")
-    )
-    enable_clip: bool = field(default_factory=lambda: _env("DOCUGEN_CLIP", "auto") != "off")
+
     projects_dir: Path = field(default_factory=lambda: REPO_ROOT / "projects")
     remotion_dir: Path = field(default_factory=lambda: REPO_ROOT / "video")
-
-    def elevenlabs_voice(self, language: str) -> str | None:
-        """Voice per language (ELEVENLABS_VOICE_DE, ...), falling back to ELEVENLABS_VOICE_ID."""
-        return _env(f"ELEVENLABS_VOICE_{language.upper()}", _env("ELEVENLABS_VOICE_ID"))
 
 
 def get_settings() -> Settings:

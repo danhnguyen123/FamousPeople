@@ -1,32 +1,32 @@
-"""A project folder holds the script and every stage's JSON output.
+"""A project folder holds the inputs and every stage's output.
 
 projects/<slug>/
-  project.json      language, title
-  script.txt        the narration (for SRT projects: the cue text joined)
-  input.srt         SRT projects only: the subtitles with exact timings
-  audio/            SRT projects: the narration audio you supplied
-  scenes.json       stage 1  segment
-  subject.json      stage 2  subject + facts about the people (Claude)
-  briefs.json       stage 3  visual briefs from Claude
-  footage.json      stage 4  ranked candidates per scene
-  assets/           stage 5  downloaded images
-  manual/           put scene_007.jpg here to force an image for scene 7
-  narration.json    stage 5  TTS audio (or supplied audio) + scene timings
-  timeline.json     stage 7  Remotion props
-  review.html       contact sheet for manual review
-  credits.txt       attribution text for the video description
+  project.json     language, title, audio path
+  input.srt        the subtitles with exact timings
+  audio/           the narration audio
+  plan.json        stage plan: scenes, groups, keywords (Claude)
+  search.json      stage search: results per group from every source
+  select.json      stage select: accepted and rejected results per group (Claude)
+  images.json      stage download: the image shown in each scene
+  assets/          downloaded images
+  manual/          put scene_007.jpg here to force an image for scene 7
+  plan.csv         one row per scene, for review in a spreadsheet
+  candidates.csv   every search result with Claude's verdict
+  timeline.json    stage timeline: Remotion props
+  cache/           raw search API responses, reused on reruns
 """
 
 from __future__ import annotations
 
-import json
 import shutil
 from pathlib import Path
-from typing import Literal, TypeVar
+from typing import TypeVar
 
 from pydantic import BaseModel, TypeAdapter
 
 from .config import get_settings
+from .models import Cue
+from .srt import parse_srt
 
 T = TypeVar("T")
 
@@ -35,8 +35,7 @@ class ProjectMeta(BaseModel):
     slug: str
     language: str
     title: str | None = None
-    source: Literal["script", "srt"] = "script"
-    audio: str | None = None  # path relative to the project, SRT projects only
+    audio: str | None = None  # path relative to the project
 
 
 class Project:
@@ -54,35 +53,24 @@ class Project:
         return cls(path)
 
     @classmethod
-    def create(cls, slug: str, language: str, script: str, base: Path | None = None) -> "Project":
-        root = (base or get_settings().projects_dir) / slug
-        root.mkdir(parents=True, exist_ok=True)
-        (root / "manual").mkdir(exist_ok=True)
-        (root / "script.txt").write_text(script, encoding="utf-8")
-        meta = ProjectMeta(slug=slug, language=language)
-        (root / "project.json").write_text(meta.model_dump_json(indent=2))
-        return cls(root)
-
-    @classmethod
     def create_from_srt(
         cls, slug: str, language: str, srt: Path, audio: Path | None, base: Path | None = None
     ) -> "Project":
-        from .srt import parse_srt, srt_text
-
-        srt_content = srt.read_text(encoding="utf-8-sig")
-        cues = parse_srt(srt_content)
-        if not cues:
+        content = srt.read_text(encoding="utf-8-sig")
+        if not parse_srt(content):
             raise ValueError(f"No subtitle cues found in {srt}")
-        project = cls.create(slug, language, srt_text(cues), base=base)
-        project.path("input.srt").write_text(srt_content, encoding="utf-8")
-        project.meta.source = "srt"
+        root = (base or get_settings().projects_dir) / slug
+        root.mkdir(parents=True, exist_ok=True)
+        (root / "manual").mkdir(exist_ok=True)
+        (root / "input.srt").write_text(content, encoding="utf-8")
+        meta = ProjectMeta(slug=slug, language=language)
         if audio is not None:
-            target = project.path(f"audio/narration{audio.suffix.lower()}")
+            target = root / f"audio/narration{audio.suffix.lower()}"
             target.parent.mkdir(exist_ok=True)
             shutil.copy2(audio, target)
-            project.meta.audio = str(target.relative_to(project.root))
-        project.save_meta()
-        return project
+            meta.audio = str(target.relative_to(root))
+        (root / "project.json").write_text(meta.model_dump_json(indent=2))
+        return cls(root)
 
     @property
     def slug(self) -> str:
@@ -92,8 +80,8 @@ class Project:
     def language(self) -> str:
         return self.meta.language
 
-    def script(self) -> str:
-        return (self.root / "script.txt").read_text(encoding="utf-8")
+    def cues(self) -> list[Cue]:
+        return parse_srt(self.path("input.srt").read_text(encoding="utf-8"))
 
     def path(self, name: str) -> Path:
         return self.root / name
@@ -115,7 +103,3 @@ class Project:
 
     def save_meta(self) -> None:
         (self.root / "project.json").write_text(self.meta.model_dump_json(indent=2))
-
-
-def write_json(path: Path, data: object) -> None:
-    path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")

@@ -1,22 +1,23 @@
 # CLAUDE.md
 
-Script to documentary video tool. Input is an SRT plus its narration audio (or a .txt script with ElevenLabs TTS). Python pipeline (`pipeline/`, package `docugen`) produces `timeline.json`; the Remotion project (`video/`) renders it.
+SRT to documentary video tool. Input is an SRT plus its narration audio. The Python pipeline (`pipeline/`, package `docugen`) runs plan, search, select, download and timeline; the Remotion project (`video/`) renders `timeline.json`. Details: `docs/PIPELINE.md`.
 
 ## Commands
 
-- Pipeline tests (offline, all HTTP mocked): `cd pipeline && python -m pytest`
+- Install: `cd pipeline && pip install -e .`
 - Remotion typecheck + lint: `cd video && npm run lint`
-- Render: `docugen run <slug>` or `cd video && npx remotion render Documentary out.mp4 --props=<timeline.json>`
+- Run: `docugen new --srt x.srt --audio x.mp3 --lang de`, then `docugen run <slug>`
+- Render only: `cd video && npx remotion render Documentary out.mp4 --props=<timeline.json>`
 - In containers where Remotion cannot download Chrome, pass `--browser-executable` (or set `REMOTION_BROWSER_EXECUTABLE`).
+- There are no unit tests. Check changes with a dry run: a hand-written `plan.json` and the search APIs mocked through `docugen.http.set_client` with an `httpx.MockTransport`.
 
 ## Rules
 
+- Prompts live in `pipeline/src/docugen/prompts/` (`keyword_planner.md` for the plan, `image_selector.md` for the select step). To change how scenes, groups, keywords or image checks work, edit the prompt, not the code.
+- Claude calls live in `pipeline/src/docugen/llm.py`: structured outputs, streaming, `fallbacks: "default"` with beta `server-side-fallback-2026-07-01`. Model from `DOCUGEN_MODEL` / `DOCUGEN_SELECT_MODEL`, default `claude-opus-5-5`.
 - `video/src/schema.ts` and `pipeline/src/docugen/timeline.py` describe the same JSON. Change both together.
-- Identity of people is scored by metadata (name or alias from Claude's `PersonFacts` in title/source/page URL), never by CLIP. CLIP only reranks.
-- No hard filters besides user-blocked domains (`DOCUGEN_BLOCKED_DOMAINS`): missing names, low resolution and watermarks lower the score but never reject a candidate.
-- Google Images only through SerpApi (or a similar third-party search API such as DataForSEO). Never write our own scrapers for Google, Pinterest or YouTube.
-- Default source is `google` (`DOCUGEN_PROVIDERS`); Wikimedia/Openverse/Pexels/Brave code stays but is off by default. SerpApi responses are cached per project; keep that cache when changing the provider.
-- No copyright filtering: `scoring.license_tier` is informational only (review.html, on-screen credits) and must never reject candidates.
-- Claude calls live in `pipeline/src/docugen/llm.py` (structured outputs via `client.beta.messages.parse`, model from `DOCUGEN_MODEL`, default `claude-opus-5-5`).
-- Narration scripts and example scripts must not contain em dashes.
+- Identity is judged from metadata (name in the title or page URL), by Claude in the select step. Never by face recognition.
+- Image search only through third-party APIs: DataForSEO (Google), SearchAPI.io (Bing), Brave. Never write scrapers for Google, Bing, Pinterest or YouTube. Keep the per-project search cache (`projects/<slug>/cache/`) when changing a source.
+- No copyright filtering. The only hard filters are `DOCUGEN_BLOCKED_DOMAINS`, the minimum image side and duplicate detection.
+- Narration scripts and prompts must not contain em dashes.
 - For Remotion work, use the skills in `.claude/skills/` (remotion-best-practices first).

@@ -1,4 +1,4 @@
-"""Stage 8: render the MP4 with the Remotion project in video/."""
+"""Stage render: the MP4, made by the Remotion project in video/."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Supported narration languages and per-language defaults."""
+"""Supported narration languages and the search parameters that go with each."""
 
 from __future__ import annotations
 
@@ -7,18 +7,19 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class Language:
-    code: str  # ISO 639-1, also used as the Google "hl" parameter
+    code: str  # ISO 639-1: DataForSEO language_code, Brave search_lang
     name: str
-    words_per_minute: int  # used to estimate durations when TTS is skipped
+    dataforseo_location: int  # Google geotarget code of the main country
+    bing_market: str  # SearchAPI Bing market_code
 
 
 LANGUAGES: dict[str, Language] = {
-    "en": Language("en", "English", 150),
-    "fr": Language("fr", "French", 155),
-    "de": Language("de", "German", 130),
-    "it": Language("it", "Italian", 150),
-    "pl": Language("pl", "Polish", 125),
-    "nl": Language("nl", "Dutch", 140),
+    "en": Language("en", "English", 2840, "en-US"),
+    "fr": Language("fr", "French", 2250, "fr-FR"),
+    "de": Language("de", "German", 2276, "de-DE"),
+    "it": Language("it", "Italian", 2380, "it-IT"),
+    "pl": Language("pl", "Polish", 2616, "pl-PL"),
+    "nl": Language("nl", "Dutch", 2528, "nl-NL"),
 }
 
 

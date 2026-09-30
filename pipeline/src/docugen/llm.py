@@ -1,139 +1,133 @@
-"""Claude calls: identify the documentary subject and write per-scene visual briefs."""
+"""Claude calls. The prompts live in prompts/*.md: edit them there, not here."""
 
 from __future__ import annotations
 
-import json
+import logging
+import time
+from functools import cache
+from pathlib import Path
 from typing import TypeVar
 
 import anthropic
-from pydantic import BaseModel
+from anthropic.lib._parse._transform import transform_schema
+from pydantic import BaseModel, TypeAdapter
 
 from .config import get_settings
 from .languages import get_language
-from .models import BriefBatch, DocumentSubject, EntityInfo, Scene, VisualBrief
+from .models import Cue, Group, ImageHit, Plan, Verdict
+from .srt import numbered
+
+log = logging.getLogger(__name__)
 
 T = TypeVar("T", bound=BaseModel)
 
-BRIEF_BATCH_SIZE = 25
-
-SUBJECT_SYSTEM = """You read documentary narration scripts about famous people and identify \
-who the documentary is about. Scripts can be in English, French, German, Italian, Polish or Dutch. \
-Always return the canonical English name as used on English Wikipedia.
-
-For every person in `people` (the main person first, then up to 8 others who appear in the \
-script), give what you reliably know: aliases (birth name, stage names, nicknames, spellings \
-used in French, German, Italian, Polish and Dutch media), birth and death years, and their \
-best known works or public events with years. These facts are used to date scenes and to \
-recognize the person's name in image titles, so leave a field empty rather than guess."""
-
-BRIEF_SYSTEM = """You are the footage agent of an automated documentary editor. For every \
-narration scene you decide what picture should be on screen and write Google Images queries \
-that will find a real photo of it.
-
-How to think about a scene:
-- Work from what is spoken. Ignore stage directions.
-- Be entity first. If the scene is about a named person, the image must show that person, so \
-the query must contain their full name. Faces cannot be verified reliably, so the name in the \
-image title or page is what proves identity.
-- Anchor queries in time and events. "Winona Ryder 1994" is weak; "Winona Ryder Little Women \
-premiere 1994" or "Winona Ryder 66th Academy Awards" is strong, because an event produces many \
-captioned photos with the name, year and venue in their titles.
-- Use the facts provided about the subject (birth year, notable works) to infer the year and \
-event when the narration only implies them ("at 22 she ..." means birth year + 22).
-- Never use the narration sentence as a query. Queries are 2 to 6 words, like a photo caption.
-- Write 3 to 5 specific_queries, ordered from most specific to least. broad_queries are fallbacks that still \
-fit the scene (the person in that decade, or the place, or the work).
-- For scenes that are about a feeling, a general situation or a place with no named entity, \
-use visual_type "generic" and write stock photo style queries (no names).
-- If a scene refers back to someone ("she", "the actor"), resolve who it is from context.
-- Queries are in English, where Google has the most captioned photos. native_queries may add \
-one or two in the script language when local media would caption the photo that way (a \
-German TV appearance, a Polish magazine cover).
-- clip_prompt is one plain English sentence describing the ideal frame (composition, era, \
-setting) used to rank candidate images visually. Do not include the person's name in it."""
+PROMPTS = Path(__file__).parent / "prompts"
+# Retries a policy-declined request on a fallback model inside the same call.
+FALLBACK_BETA = "server-side-fallback-2026-07-01"
 
 
+@cache
+def prompt(name: str) -> str:
+    return (PROMPTS / f"{name}.md").read_text(encoding="utf-8")
+
+
+@cache
 def _client() -> anthropic.Anthropic:
     return anthropic.Anthropic()
 
 
-def _parse(system: str, user: str, output: type[T], max_tokens: int = 16000) -> T:
-    settings = get_settings()
-    response = _client().beta.messages.parse(
-        model=settings.anthropic_model,
+def _system(name: str) -> list[dict]:
+    return [{"type": "text", "text": prompt(name), "cache_control": {"type": "ephemeral"}}]
+
+
+def _ask(model: str, system: str, user: str, output: type[T], effort: str, max_tokens: int) -> T:
+    # Streaming, because the plan of a long SRT is a long answer.
+    with _client().beta.messages.stream(
+        model=model,
         max_tokens=max_tokens,
-        # Retries a policy-declined request on a fallback model inside the same call.
-        betas=["server-side-fallback-2026-07-01"],
+        betas=[FALLBACK_BETA],
         fallbacks="default",
-        output_config={"effort": "medium"},
-        system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
+        output_config={"effort": effort},
+        system=_system(system),
         messages=[{"role": "user", "content": user}],
         output_format=output,
-    )
+    ) as stream:
+        response = stream.get_final_message()
     if response.stop_reason == "refusal":
         raise RuntimeError(f"Claude declined the request: {response.stop_details}")
     if response.stop_reason == "max_tokens":
-        raise RuntimeError("Claude hit max_tokens; lower BRIEF_BATCH_SIZE")
-    parsed = response.parsed_output
-    if parsed is None:
+        raise RuntimeError(f"Claude hit max_tokens ({max_tokens})")
+    if response.parsed_output is None:
         raise RuntimeError("Claude returned no structured output")
-    return parsed
+    return response.parsed_output
 
 
-def identify_subject(script: str, language: str) -> DocumentSubject:
+def plan_srt(cues: list[Cue], language: str) -> Plan:
     lang = get_language(language)
     user = (
-        f"Script language: {lang.name}. Documentary title must be in {lang.name}.\n\n"
-        f"<script>\n{script}\n</script>"
+        f"Script language: {lang.name}. There are {len(cues)} cues, numbered 1 to {len(cues)}.\n\n"
+        f"<srt>\n{numbered(cues)}\n</srt>"
     )
-    return _parse(SUBJECT_SYSTEM, user, DocumentSubject, max_tokens=4000)
+    return _ask(get_settings().model, "keyword_planner", user, Plan, effort="high", max_tokens=64000)
 
 
-def _facts(entities: list[EntityInfo]) -> str:
+def _selector_message(group: Group, main_subject: str, lines: list[str], hits: list[ImageHit]) -> str:
     rows = []
-    for e in entities:
-        rows.append(
-            {
-                "name": e.name,
-                "description": e.description,
-                "born": e.birth_year,
-                "died": e.death_year,
-                "aliases": e.aliases[:8],
-                "notable_works": e.notable_works[:25],
-            }
-        )
-    return json.dumps(rows, ensure_ascii=False, indent=2)
-
-
-def write_briefs(
-    scenes: list[Scene],
-    subject: DocumentSubject,
-    entities: list[EntityInfo],
-    language: str,
-) -> list[VisualBrief]:
-    lang = get_language(language)
-    full_script = "\n".join(f"[{s.index}] {s.text}" for s in scenes)
-    # The whole script goes in the (cached) system prompt so every batch sees
-    # the full context for pronouns and dates, and only the batch varies.
-    system = (
-        f"{BRIEF_SYSTEM}\n\nDocumentary subject: {subject.main_person}\n"
-        f"Known facts:\n{_facts(entities)}\n\n"
-        f"Full script ({lang.name}), one scene per line:\n<script>\n{full_script}\n</script>"
+    for h in hits:
+        size = f"{h.width}x{h.height}" if h.width and h.height else "?"
+        page = (h.page_url or "")[:160]
+        rows.append(f"{h.id} | {h.source} | {size} | {h.domain or '?'} | {h.title[:160]} | {page}")
+    narration = "\n".join(f"- {line}" for line in lines)
+    return (
+        f"Documentary about: {main_subject}\n"
+        f"Group subject: {group.subject}\n"
+        f"Group context: {group.context}\n\n"
+        f"Narration shown over this group's images:\n{narration}\n\n"
+        f"Candidates (id | source | size | site | title | page URL):\n" + "\n".join(rows)
     )
 
-    briefs: list[VisualBrief] = []
-    for start in range(0, len(scenes), BRIEF_BATCH_SIZE):
-        batch = scenes[start : start + BRIEF_BATCH_SIZE]
-        wanted = ", ".join(str(s.index) for s in batch)
-        user = (
-            f"Write one visual brief for each of these scenes: {wanted}. "
-            "Return them in scene order with the matching scene_index."
-        )
-        result = _parse(system, user, BriefBatch)
-        by_index = {b.scene_index: b for b in result.briefs}
-        for scene in batch:
-            brief = by_index.get(scene.index)
-            if brief is None:
-                raise RuntimeError(f"Claude skipped scene {scene.index}")
-            briefs.append(brief)
-    return briefs
+
+def select_images(group: Group, main_subject: str, lines: list[str], hits: list[ImageHit]) -> Verdict:
+    user = _selector_message(group, main_subject, lines, hits)
+    return _ask(get_settings().select_model, "image_selector", user, Verdict, effort="medium",
+                max_tokens=16000)
+
+
+def select_images_batch(jobs: dict[int, tuple[Group, str, list[str], list[ImageHit]]]) -> dict[int, Verdict]:
+    """Same as select_images for many groups through the Batches API (half price, a few minutes).
+
+    Server-side fallbacks are not available on the Batches API, so a declined group
+    just comes back without a verdict and is logged.
+    """
+    settings = get_settings()
+    schema = transform_schema(TypeAdapter(Verdict).json_schema())
+    requests = [
+        {
+            "custom_id": f"group-{gid}",
+            "params": {
+                "model": settings.select_model,
+                "max_tokens": 16000,
+                "output_config": {"effort": "medium", "format": {"type": "json_schema", "schema": schema}},
+                "system": _system("image_selector"),
+                "messages": [{"role": "user", "content": _selector_message(*job)}],
+            },
+        }
+        for gid, job in jobs.items()
+    ]
+    batch = _client().messages.batches.create(requests=requests)
+    log.info("select batch %s: %d groups", batch.id, len(requests))
+    while _client().messages.batches.retrieve(batch.id).processing_status != "ended":
+        time.sleep(20)
+    out: dict[int, Verdict] = {}
+    for result in _client().messages.batches.results(batch.id):
+        gid = int(result.custom_id.removeprefix("group-"))
+        if result.result.type != "succeeded":
+            log.warning("group %d: batch request %s", gid, result.result.type)
+            continue
+        message = result.result.message
+        if message.stop_reason != "end_turn":
+            log.warning("group %d: stopped with %s", gid, message.stop_reason)
+            continue
+        text = next((b.text for b in message.content if b.type == "text"), "")
+        out[gid] = Verdict.model_validate_json(text)
+    return out
