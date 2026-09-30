@@ -18,30 +18,37 @@ BRIEF_BATCH_SIZE = 25
 
 SUBJECT_SYSTEM = """You read documentary narration scripts about famous people and identify \
 who the documentary is about. Scripts can be in English, French, German, Italian, Polish or Dutch. \
-Always return the canonical English name as used on English Wikipedia."""
+Always return the canonical English name as used on English Wikipedia.
+
+For every person in `people` (the main person first, then up to 8 others who appear in the \
+script), give what you reliably know: aliases (birth name, stage names, nicknames, spellings \
+used in French, German, Italian, Polish and Dutch media), birth and death years, and their \
+best known works or public events with years. These facts are used to date scenes and to \
+recognize the person's name in image titles, so leave a field empty rather than guess."""
 
 BRIEF_SYSTEM = """You are the footage agent of an automated documentary editor. For every \
-narration scene you decide what picture should be on screen and write image search queries \
+narration scene you decide what picture should be on screen and write Google Images queries \
 that will find a real photo of it.
 
 How to think about a scene:
 - Work from what is spoken. Ignore stage directions.
 - Be entity first. If the scene is about a named person, the image must show that person, so \
 the query must contain their full name. Faces cannot be verified reliably, so the name in the \
-image metadata is what proves identity.
+image title or page is what proves identity.
 - Anchor queries in time and events. "Winona Ryder 1994" is weak; "Winona Ryder Little Women \
 premiere 1994" or "Winona Ryder 66th Academy Awards" is strong, because an event produces many \
-captioned photos with the name, year and venue in the metadata.
+captioned photos with the name, year and venue in their titles.
 - Use the facts provided about the subject (birth year, notable works) to infer the year and \
 event when the narration only implies them ("at 22 she ..." means birth year + 22).
 - Never use the narration sentence as a query. Queries are 2 to 6 words, like a photo caption.
-- Order specific_queries from most specific to least. broad_queries are fallbacks that still \
+- Write 3 to 5 specific_queries, ordered from most specific to least. broad_queries are fallbacks that still \
 fit the scene (the person in that decade, or the place, or the work).
 - For scenes that are about a feeling, a general situation or a place with no named entity, \
 use visual_type "generic" and write stock photo style queries (no names).
 - If a scene refers back to someone ("she", "the actor"), resolve who it is from context.
-- Queries are in English because archive metadata is mostly English. native_queries may add \
-one or two in the script language when a local archive might caption the photo that way.
+- Queries are in English, where Google has the most captioned photos. native_queries may add \
+one or two in the script language when local media would caption the photo that way (a \
+German TV appearance, a Polish magazine cover).
 - clip_prompt is one plain English sentence describing the ideal frame (composition, era, \
 setting) used to rank candidate images visually. Do not include the person's name in it."""
 

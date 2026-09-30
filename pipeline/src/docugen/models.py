@@ -8,13 +8,25 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 
+class Cue(BaseModel):
+    """One subtitle block from an SRT file."""
+
+    text: str
+    start: float
+    end: float
+
+
 class Scene(BaseModel):
     """One narration unit (1 to 3 sentences) that gets its own visual."""
 
     index: int
     text: str
     sentences: list[str]
-    char_start: int  # offset in the normalized script, used to map TTS timings
+    char_start: int = 0  # offset in the normalized script, used to map TTS timings
+    # Set when the project comes from an SRT: exact timings, no TTS needed.
+    start: float | None = None
+    end: float | None = None
+    cues: list[Cue] = []
 
 
 VisualType = Literal[
@@ -44,7 +56,7 @@ class VisualBrief(BaseModel):
     )
     location: str | None
     specific_queries: list[str] = Field(
-        description="2 to 4 short English image-search queries, most specific first"
+        description="3 to 5 short English Google Images queries, most specific first"
     )
     broad_queries: list[str] = Field(description="1 to 2 fallback queries when specific ones fail")
     native_queries: list[str] = Field(
@@ -57,19 +69,32 @@ class BriefBatch(BaseModel):
     briefs: list[VisualBrief]
 
 
+class PersonFacts(BaseModel):
+    """What Claude knows about a person, used to anchor queries and check image titles."""
+
+    name: str = Field(description="Canonical English name, as on English Wikipedia")
+    aliases: list[str] = Field(description="Birth name, stage names, nicknames, spellings in other languages")
+    birth_year: int | None
+    death_year: int | None
+    notable_works: list[str] = Field(
+        description="Up to 25 films, albums, books or events with year, e.g. 'Beetlejuice (1988)'"
+    )
+
+
 class DocumentSubject(BaseModel):
     """The main person (and other recurring people) the documentary is about."""
 
     main_person: str = Field(description="Canonical English name, as on English Wikipedia")
-    wikipedia_title: str | None
-    other_people: list[str]
+    people: list[PersonFacts] = Field(
+        description="The main person first, then up to 8 other people who appear in the script"
+    )
     era_from: int | None
     era_to: int | None
     title: str = Field(description="A short documentary title in the script language")
 
 
 class EntityInfo(BaseModel):
-    """Facts from Wikidata used to disambiguate and anchor searches."""
+    """Facts about a person used to disambiguate and anchor searches."""
 
     name: str
     qid: str | None = None
@@ -78,8 +103,7 @@ class EntityInfo(BaseModel):
     aliases: list[str] = []
     birth_year: int | None = None
     death_year: int | None = None
-    commons_category: str | None = None
-    image_file: str | None = None  # P18, a reference portrait on Commons
+    commons_category: str | None = None  # only used when the wikimedia provider is enabled
     notable_works: list[str] = []
 
     def names(self) -> list[str]:

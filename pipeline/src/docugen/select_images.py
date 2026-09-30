@@ -25,9 +25,14 @@ def shots_needed(duration: float, max_shot: float) -> int:
     return max(1, math.ceil(duration / max_shot - 0.15))
 
 
-def _download(url: str, target: Path) -> Image.Image:
-    response = client().get(url)
+def _download(url: str, target: Path, referer: str | None = None) -> Image.Image:
+    # Many sites behind Google Images refuse hotlinks without the page as Referer.
+    headers = {"Referer": referer} if referer else None
+    response = client().get(url, headers=headers)
     response.raise_for_status()
+    content_type = response.headers.get("content-type", "")
+    if content_type and not content_type.startswith("image/"):
+        raise ValueError(f"not an image ({content_type})")
     image = Image.open(io.BytesIO(response.content))
     image = image.convert("RGB")
     image.thumbnail((MAX_LONG_SIDE, MAX_LONG_SIDE))
@@ -75,7 +80,7 @@ def select_images(
                 continue
             target = project.path(f"assets/{scene.scene_index:03d}_{cand.id}.jpg")
             try:
-                image = Image.open(target) if target.exists() else _download(cand.image_url, target)
+                image = Image.open(target) if target.exists() else _download(cand.image_url, target, cand.page_url)
             except Exception as exc:
                 log.warning("scene %d: download failed %s: %s", scene.scene_index, cand.image_url, exc)
                 continue

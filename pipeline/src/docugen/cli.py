@@ -34,13 +34,31 @@ def _slugify(text: str) -> str:
 
 @app.command()
 def new(
-    script: Path = typer.Argument(..., exists=True, readable=True, help="Narration script (.txt)"),
+    script: Path | None = typer.Argument(
+        None, exists=True, readable=True, help="Narration script (.txt); TTS makes the audio"
+    ),
     lang: str = typer.Option(..., "--lang", "-l", help=f"One of: {', '.join(LANGUAGES)}"),
-    slug: str | None = typer.Option(None, help="Project folder name (default: script file name)"),
+    srt: Path | None = typer.Option(
+        None, exists=True, readable=True, help="Subtitles with timings (use instead of a script)"
+    ),
+    audio: Path | None = typer.Option(
+        None, exists=True, readable=True, help="Narration audio matching the SRT (mp3, wav, m4a)"
+    ),
+    slug: str | None = typer.Option(None, help="Project folder name (default: input file name)"),
 ) -> None:
-    """Create a project from a script file."""
+    """Create a project from a script file, or from an SRT plus its audio."""
     get_language(lang)
-    project = Project.create(slug or _slugify(script.stem), lang.lower(), script.read_text(encoding="utf-8"))
+    if (script is None) == (srt is None):
+        raise typer.BadParameter("Give either a script file or --srt")
+    if srt is not None:
+        if audio is None:
+            console.print("[yellow]No --audio given: the video will be silent[/yellow]")
+        project = Project.create_from_srt(slug or _slugify(srt.stem), lang.lower(), srt, audio)
+    else:
+        assert script is not None
+        project = Project.create(
+            slug or _slugify(script.stem), lang.lower(), script.read_text(encoding="utf-8")
+        )
     console.print(f"Created [bold]{project.root}[/bold]")
 
 
@@ -49,7 +67,9 @@ def run_cmd(
     project: str = typer.Argument(..., help="Project slug or folder"),
     until: str = typer.Option("render", help=f"Last stage: {', '.join(STAGES)}"),
     force: list[str] = typer.Option([], "--force", "-f", help="Redo this stage and all after it"),
-    tts: bool = typer.Option(True, help="Use ElevenLabs; --no-tts estimates timings (silent preview)"),
+    tts: bool = typer.Option(
+        True, help="Script projects: use ElevenLabs; --no-tts estimates timings (silent preview)"
+    ),
     max_shot: float = typer.Option(6.0, help="Longest time one image stays on screen (seconds)"),
     captions: bool = typer.Option(False, help="Burn in captions"),
     verbose: bool = typer.Option(False, "--verbose", "-v"),

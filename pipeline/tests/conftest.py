@@ -17,6 +17,11 @@ def settings(tmp_path) -> Settings:
     s.blocked_domains = []
     s.preferred_domains = []
     s.enable_clip = False
+    s.providers = ["google"]
+    s.serpapi_api_key = "test-key"
+    s.serpapi_gl = None
+    s.serpapi_tbs = None
+    s.max_queries = 4
     s.projects_dir = tmp_path / "projects"
     s.remotion_dir = tmp_path / "video"
     return s

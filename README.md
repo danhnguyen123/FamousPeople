@@ -1,27 +1,25 @@
-# FamousPeople: tạo video documentary từ kịch bản
+# FamousPeople: tạo video documentary từ SRT
 
-Công cụ kiểu VidRush: đưa vào một kịch bản, nhận ra video MP4 gồm lời đọc, ảnh tư liệu chạy hiệu ứng keyframe (Ken Burns) và phụ đề. Chủ đề đầu tiên: documentary về người nổi tiếng, hỗ trợ **tiếng Anh, Pháp, Đức, Ý, Ba Lan, Hà Lan**.
+Công cụ kiểu VidRush: đưa vào file phụ đề SRT kèm audio lời đọc, nhận ra video MP4 gồm ảnh tư liệu chạy hiệu ứng keyframe (Ken Burns), lời đọc và phụ đề. Chủ đề đầu tiên: documentary về người nổi tiếng, hỗ trợ **tiếng Anh, Pháp, Đức, Ý, Ba Lan, Hà Lan**.
 
 ```
-kịch bản ──► Footage Agent (Python) ──► timeline.json ──► Remotion ──► MP4
-             Claude + Wikidata + Commons/Openverse/Pexels
-             + ElevenLabs (timestamps)
+SRT + audio ──► Claude Scene Analyzer ──► Google Images (SerpApi) ──► timeline.json ──► Remotion ──► MP4
+                3 đến 5 truy vấn/cảnh      chấm điểm, tải, chống trùng
 ```
 
 | Thư mục | Nội dung |
 |---|---|
-| `pipeline/` | Gói Python `docugen`: tách cảnh, Footage Agent, TTS, xuất timeline |
+| `pipeline/` | Gói Python `docugen`: đọc SRT, Scene Analyzer, tìm ảnh, xuất timeline |
 | `video/` | Dự án Remotion 4 dựng video từ timeline |
 | `.claude/skills/` | Bộ skill Remotion chính thức (`remotion-dev/skills`) cho Claude Code |
-| `docs/FOOTAGE_AGENT.md` | Kiến trúc tìm ảnh, công thức chấm điểm, bản quyền |
-| `docs/SCRIPT_GUIDE.md` | Cách viết kịch bản để tìm đúng ảnh |
-| `examples/` | Kịch bản mẫu (Charlie Chaplin, EN và FR) |
+| `docs/FOOTAGE_AGENT.md` | Kiến trúc, so sánh SerpApi / DataForSEO / Gemini, chi phí, chấm điểm |
+| `docs/SCRIPT_GUIDE.md` | Cách viết lời thoại để tìm đúng ảnh |
 | `projects/<slug>/` | Kết quả từng dự án (không commit) |
 
 ## Cài đặt
 
 ```bash
-cp .env.example .env            # điền ANTHROPIC_API_KEY, ELEVENLABS_*, DOCUGEN_USER_AGENT
+cp .env.example .env            # điền ANTHROPIC_API_KEY, SERPAPI_API_KEY
 cd pipeline && pip install -e ".[dev]"     # thêm ".[clip]" nếu muốn xếp hạng bằng CLIP
 cd ../video && npm i
 ```
@@ -29,20 +27,21 @@ cd ../video && npm i
 ## Chạy
 
 ```bash
-docugen new examples/chaplin_en.txt --lang en        # tạo projects/chaplin-en/
-docugen run chaplin-en --no-tts --until select       # xem trước, chưa tốn tiền TTS
-# mở projects/chaplin-en/review.html, thay ảnh sai bằng manual/scene_007.jpg
-docugen run chaplin-en --force narrate               # TTS thật + timeline + render
+docugen new --srt voice.srt --audio voice.mp3 --lang de --slug marlene
+docugen run marlene --until select      # dừng lại để duyệt ảnh
+# mở projects/marlene/review.html, thay ảnh sai bằng manual/scene_007.jpg
+docugen run marlene --force select      # chọn lại ảnh, dựng timeline, render
 ```
 
-Mỗi bước lưu JSON trong thư mục dự án và được bỏ qua ở lần chạy sau; `--force <bước>` làm lại bước đó và mọi bước sau. Các bước: `segment, subject, briefs, search, narrate, select, timeline, render`. Xem trước trong Remotion Studio: `cd video && npm run dev`.
+Mỗi bước lưu JSON trong thư mục dự án và được bỏ qua ở lần chạy sau; `--force <bước>` làm lại bước đó và mọi bước sau. Các bước: `segment, subject, briefs, search, narrate, select, timeline, render`. Kết quả tìm kiếm SerpApi được cache nên chạy lại không tốn thêm lượt. Xem trước trong Remotion Studio: `cd video && npm run dev`.
+
+Vẫn có thể bắt đầu từ kịch bản `.txt` (`docugen new examples/chaplin_en.txt --lang en`); khi đó audio được tạo bằng ElevenLabs.
 
 ## Cách tìm ảnh (tóm tắt)
 
-- **Entity first:** Claude đọc kịch bản, xác định người/sự kiện/năm của từng cảnh; Wikidata cho tên ở 6 ngôn ngữ, bí danh, năm sinh và danh sách tác phẩm để tạo truy vấn neo sự kiện ("Charlie Chaplin The Kid 1921").
-- **Danh tính bằng metadata, không bằng khuôn mặt:** ảnh có tên người trong chú thích/category được xếp trên hẳn ảnh không có tên (ảnh không tên vẫn giữ làm dự phòng). CLIP chỉ xếp hạng lại theo độ khớp với cảnh.
-- **Category theo năm của Commons** (`Charlie Chaplin in 1915`) được thử trước tiên.
-- **Nguồn:** Commons, Openverse, Pexels và web (Brave Image Search khi có API key). Không lọc theo bản quyền; ảnh CC BY vẫn được ghi công trên hình và trong `credits.txt`. Không scrape Pinterest/Google, web chỉ qua API.
+- **Entity first:** Claude xác định người, sự kiện, năm của từng cảnh và viết 3 đến 5 truy vấn neo sự kiện ("Charlie Chaplin The Kid 1921"), cộng truy vấn dự phòng.
+- **Danh tính bằng tiêu đề ảnh, không bằng khuôn mặt:** ảnh có tên người trong tiêu đề hoặc trang nguồn được xếp trên hẳn ảnh không có tên. CLIP (tùy chọn) chỉ xếp hạng lại theo độ khớp với cảnh.
+- **Nguồn:** Google Images qua SerpApi. Wikimedia, Openverse, Pexels, Brave vẫn còn trong code, bật lại bằng `DOCUGEN_PROVIDERS`.
 
 Chi tiết: [docs/FOOTAGE_AGENT.md](docs/FOOTAGE_AGENT.md).
 

@@ -28,6 +28,15 @@ class Settings:
     anthropic_model: str = field(default_factory=lambda: _env("DOCUGEN_MODEL", "claude-opus-5-5"))
     pexels_api_key: str | None = field(default_factory=lambda: _env("PEXELS_API_KEY"))
     brave_api_key: str | None = field(default_factory=lambda: _env("BRAVE_API_KEY"))
+    serpapi_api_key: str | None = field(default_factory=lambda: _env("SERPAPI_API_KEY"))
+    serpapi_gl: str | None = field(default_factory=lambda: _env("SERPAPI_GL"))  # e.g. "us", "de"
+    serpapi_tbs: str | None = field(default_factory=lambda: _env("SERPAPI_TBS"))  # e.g. "isz:l"
+    # Image sources to query: google (SerpApi), wikimedia, openverse, pexels, web (Brave).
+    providers: list[str] = field(
+        default_factory=lambda: _env_list("DOCUGEN_PROVIDERS") or ["google"]
+    )
+    # Specific queries per scene; each one costs one search on paid APIs.
+    max_queries: int = field(default_factory=lambda: int(_env("DOCUGEN_MAX_QUERIES", "4") or 4))
     elevenlabs_api_key: str | None = field(default_factory=lambda: _env("ELEVENLABS_API_KEY"))
     elevenlabs_model: str = field(
         default_factory=lambda: _env("ELEVENLABS_MODEL", "eleven_multilingual_v2")

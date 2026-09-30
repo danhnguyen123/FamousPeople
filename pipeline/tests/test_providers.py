@@ -1,6 +1,5 @@
 import httpx
 
-from docugen import wikidata
 from docugen.providers import Openverse, WikimediaCommons
 
 COMMONS = {
@@ -52,28 +51,3 @@ def test_openverse_parsing(mock_http):
     assert c.license == "CC BY 2.0"
     assert c.source_domain == "flickr.com"
     assert c.tags == ["actress"]
-
-
-def test_wikidata_resolution(mock_http):
-    entity = {
-        "id": "Q106997",
-        "labels": {"en": {"value": "Winona Ryder"}, "de": {"value": "Winona Ryder"}},
-        "aliases": {"en": [{"value": "Winona Laura Horowitz"}]},
-        "descriptions": {"en": {"value": "American actress"}},
-        "claims": {
-            "P31": [{"mainsnak": {"datavalue": {"value": {"id": "Q5"}}}}],
-            "P569": [{"mainsnak": {"datavalue": {"value": {"time": "+1971-10-29T00:00:00Z"}}}}],
-            "P373": [{"mainsnak": {"datavalue": {"value": "Winona Ryder"}}}],
-        },
-    }
-    mock_http["query.wikidata.org"] = httpx.Response(200, json={"results": {"bindings": [
-        {"workLabel": {"value": "Beetlejuice"}, "year": {"value": "1988"}},
-        {"workLabel": {"value": "Q123"}},
-    ]}})
-    mock_http["wbgetentities"] = httpx.Response(200, json={"entities": {"Q106997": entity}})
-    info = wikidata.resolve_person("Winona Ryder", "Winona Ryder")
-    assert info.qid == "Q106997"
-    assert info.birth_year == 1971
-    assert info.commons_category == "Winona Ryder"
-    assert "Winona Laura Horowitz" in info.aliases
-    assert info.notable_works == ["Beetlejuice (1988)"]

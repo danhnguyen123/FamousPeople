@@ -2,15 +2,16 @@
 
 projects/<slug>/
   project.json      language, title
-  script.txt        the narration (write it visually, see docs/SCRIPT_GUIDE.md)
+  script.txt        the narration (for SRT projects: the cue text joined)
+  input.srt         SRT projects only: the subtitles with exact timings
+  audio/            SRT projects: the narration audio you supplied
   scenes.json       stage 1  segment
-  subject.json      stage 2  subject + Wikidata facts
+  subject.json      stage 2  subject + facts about the people (Claude)
   briefs.json       stage 3  visual briefs from Claude
   footage.json      stage 4  ranked candidates per scene
   assets/           stage 5  downloaded images
   manual/           put scene_007.jpg here to force an image for scene 7
-  narration.json    stage 6  TTS audio + scene timings
-  audio/
+  narration.json    stage 5  TTS audio (or supplied audio) + scene timings
   timeline.json     stage 7  Remotion props
   review.html       contact sheet for manual review
   credits.txt       attribution text for the video description
@@ -19,8 +20,9 @@ projects/<slug>/
 from __future__ import annotations
 
 import json
+import shutil
 from pathlib import Path
-from typing import TypeVar
+from typing import Literal, TypeVar
 
 from pydantic import BaseModel, TypeAdapter
 
@@ -33,6 +35,8 @@ class ProjectMeta(BaseModel):
     slug: str
     language: str
     title: str | None = None
+    source: Literal["script", "srt"] = "script"
+    audio: str | None = None  # path relative to the project, SRT projects only
 
 
 class Project:
@@ -58,6 +62,27 @@ class Project:
         meta = ProjectMeta(slug=slug, language=language)
         (root / "project.json").write_text(meta.model_dump_json(indent=2))
         return cls(root)
+
+    @classmethod
+    def create_from_srt(
+        cls, slug: str, language: str, srt: Path, audio: Path | None, base: Path | None = None
+    ) -> "Project":
+        from .srt import parse_srt, srt_text
+
+        srt_content = srt.read_text(encoding="utf-8-sig")
+        cues = parse_srt(srt_content)
+        if not cues:
+            raise ValueError(f"No subtitle cues found in {srt}")
+        project = cls.create(slug, language, srt_text(cues), base=base)
+        project.path("input.srt").write_text(srt_content, encoding="utf-8")
+        project.meta.source = "srt"
+        if audio is not None:
+            target = project.path(f"audio/narration{audio.suffix.lower()}")
+            target.parent.mkdir(exist_ok=True)
+            shutil.copy2(audio, target)
+            project.meta.audio = str(target.relative_to(project.root))
+        project.save_meta()
+        return project
 
     @property
     def slug(self) -> str:

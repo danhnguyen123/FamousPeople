@@ -2,7 +2,7 @@
 
 CLIP cannot tell two actresses apart, so identity comes from metadata: a
 candidate whose title, caption, categories or page URL contain the person's
-name (or a Wikidata alias) ranks far higher. Nothing is filtered out except
+name (or a known alias) ranks far higher. Nothing is filtered out except
 user-blocked domains; weak candidates simply rank lower. Final score for
 scenes about a named entity:
 
@@ -121,7 +121,7 @@ def license_tier(cand: Candidate) -> LicenseTier:
     """Informational only (shown in review.html, drives on-screen credits); never filters."""
     if cand.provider == "pexels":
         return "cleared"
-    if cand.provider == "web":
+    if cand.provider in ("web", "google"):
         return "unknown"
     lic = (cand.license or "").lower()
     if not lic:

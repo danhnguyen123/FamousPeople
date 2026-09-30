@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class Language:
-    code: str  # ISO 639-1, also the Wikipedia / Wikidata language code
+    code: str  # ISO 639-1, also used as the Google "hl" parameter
     name: str
     words_per_minute: int  # used to estimate durations when TTS is skipped
 

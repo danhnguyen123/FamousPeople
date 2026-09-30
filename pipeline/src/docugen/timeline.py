@@ -66,7 +66,13 @@ def build_timeline(
 
     for scene in scenes:
         timing = timings[scene.index]
-        captions.extend(caption_chunks(scene, timing.start, timing.end))
+        if scene.cues:  # SRT: keep the subtitle timings exactly
+            captions.extend(
+                {"text": c.text, "startSec": round(c.start, 3), "endSec": round(c.end, 3)}
+                for c in scene.cues
+            )
+        else:
+            captions.extend(caption_chunks(scene, timing.start, timing.end))
         scene_footage = by_scene.get(scene.index)
         chosen = scene_footage.chosen if scene_footage else []
         if not chosen:

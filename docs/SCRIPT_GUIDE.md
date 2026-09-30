@@ -1,6 +1,6 @@
 # Viết kịch bản để Footage Agent tìm đúng ảnh
 
-Footage Agent chỉ đọc lời thoại. Nó không hiểu chỉ dẫn kiểu `[SHOW BANK]` hay `(CUT TO ...)`; pipeline xóa các dòng này trước khi xử lý.
+Footage Agent chỉ đọc lời thoại (nội dung file SRT hoặc kịch bản .txt). Nó không hiểu chỉ dẫn kiểu `[SHOW BANK]` hay `(CUT TO ...)`; pipeline xóa các dòng này trước khi xử lý.
 
 ## Nguyên tắc: viết bằng hình ảnh, không đạo diễn bằng hình ảnh
 
@@ -13,7 +13,7 @@ Footage Agent chỉ đọc lời thoại. Nó không hiểu chỉ dẫn kiểu `
 Mỗi đoạn nên chứa ít nhất một trong các "neo" sau:
 
 1. **Tên đầy đủ** của người đang được nói tới (ít nhất ở câu đầu của mỗi đoạn; đại từ "cô ấy", "anh ta" vẫn được, Claude sẽ tự suy ra).
-2. **Năm** hoặc mốc tuổi ("năm 22 tuổi" cũng được, pipeline cộng với năm sinh từ Wikidata).
+2. **Năm** hoặc mốc tuổi ("năm 22 tuổi" cũng được, Claude cộng với năm sinh mà nó biết).
 3. **Sự kiện cụ thể**: phim, album, lễ trao giải, phiên tòa, buổi phỏng vấn, chương trình TV.
 4. **Địa điểm có tên**: thành phố, nhà hát, trường học, studio.
 
@@ -23,8 +23,8 @@ Sự kiện là neo mạnh nhất: một buổi công chiếu sinh ra hàng tră
 
 - Chủ đề quá hẹp (một vụ việc địa phương năm 1990) sẽ buộc video lặp lại vài tấm ảnh ít ỏi. Hãy mở rộng bối cảnh: thành phố, thời đại, những người liên quan.
 - Đoạn cảm xúc thuần túy ("nỗi cô đơn gặm nhấm anh") sẽ được tính là cảnh `generic` và dùng ảnh stock (mưa, phố đêm). Đừng để quá 1 trên 4 cảnh là loại này.
-- Người càng nổi tiếng trước năm 1990 càng có nhiều ảnh public domain trên Wikimedia Commons. Người nổi tiếng hiện đại có ít ảnh tự do hơn: xem mục bản quyền trong `FOOTAGE_AGENT.md`.
+- Người càng nổi tiếng, càng nhiều ảnh trên Google có ghi tên trong tiêu đề. Nhân vật ít tên tuổi sẽ nhận nhiều ảnh không đúng người hơn: kiểm tra kỹ `review.html`.
 
 ## Đa ngôn ngữ
 
-Kịch bản có thể viết bằng tiếng Anh, Pháp, Đức, Ý, Ba Lan hoặc Hà Lan. Truy vấn tìm ảnh luôn được sinh bằng tiếng Anh (metadata lưu trữ phần lớn là tiếng Anh), kèm 1 đến 2 truy vấn bằng ngôn ngữ kịch bản. Tên riêng giữ nguyên dạng gốc.
+Kịch bản có thể viết bằng tiếng Anh, Pháp, Đức, Ý, Ba Lan hoặc Hà Lan. Truy vấn Google Images luôn được sinh bằng tiếng Anh (nơi có nhiều ảnh có chú thích nhất), kèm 1 đến 2 truy vấn bằng ngôn ngữ kịch bản. Tên riêng giữ nguyên dạng gốc.

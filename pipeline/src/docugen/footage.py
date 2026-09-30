@@ -3,37 +3,56 @@
 from __future__ import annotations
 
 import logging
+from pathlib import Path
 
 from .clip_rank import ClipRanker
 from .config import Settings
 from .models import Candidate, EntityInfo, SceneFootage, ScoredCandidate, VisualBrief
-from .providers import BraveImages, Openverse, Pexels, Provider, WikimediaCommons
+from .providers import BraveImages, Openverse, Pexels, Provider, SerpApiGoogleImages, WikimediaCommons
 from .queries import broad_queries, commons_categories, find_entity, specific_queries
 from .scoring import score_candidate
 
 log = logging.getLogger(__name__)
 
-GOOD_ENOUGH = 8  # accepted candidates after which broad queries are skipped
+GOOD_ENOUGH = 8  # on-target candidates after which broad queries are skipped
 KEEP = 30  # ranked candidates stored per scene
 CLIP_TOP = 20  # candidates reranked with CLIP
 
 
-def build_providers(settings: Settings) -> dict[str, Provider]:
-    providers: dict[str, Provider] = {"wikimedia": WikimediaCommons(), "openverse": Openverse()}
-    if settings.pexels_api_key:
+def build_providers(
+    settings: Settings, language: str = "en", cache_dir: Path | None = None
+) -> dict[str, Provider]:
+    """Providers named in DOCUGEN_PROVIDERS (default: google only)."""
+    wanted = set(settings.providers)
+    providers: dict[str, Provider] = {}
+    if "google" in wanted:
+        if not settings.serpapi_api_key:
+            raise RuntimeError("Set SERPAPI_API_KEY (or change DOCUGEN_PROVIDERS)")
+        providers["google"] = SerpApiGoogleImages(
+            settings.serpapi_api_key,
+            language=language,
+            gl=settings.serpapi_gl,
+            tbs=settings.serpapi_tbs,
+            cache_dir=cache_dir,
+        )
+    if "wikimedia" in wanted:
+        providers["wikimedia"] = WikimediaCommons()
+    if "openverse" in wanted:
+        providers["openverse"] = Openverse()
+    if "pexels" in wanted and settings.pexels_api_key:
         providers["pexels"] = Pexels(settings.pexels_api_key)
-    if settings.brave_api_key:
+    if "web" in wanted and settings.brave_api_key:
         providers["web"] = BraveImages(settings.brave_api_key)
     return providers
 
 
 def providers_for(brief: VisualBrief, providers: dict[str, Provider]) -> list[Provider]:
     if brief.visual_type == "generic":
-        order = ["pexels", "openverse", "wikimedia"]
+        order = ["google", "pexels", "openverse", "wikimedia"]
     elif brief.visual_type == "place":
-        order = ["wikimedia", "openverse", "pexels", "web"]
+        order = ["google", "wikimedia", "openverse", "pexels", "web"]
     else:
-        order = ["wikimedia", "openverse", "web"]
+        order = ["google", "wikimedia", "openverse", "web"]
     return [providers[name] for name in order if name in providers]
 
 
@@ -75,6 +94,10 @@ class FootageSearch:
             scored = [score_candidate(c, brief, entity, self.settings) for c in pool.values()]
             return [s for s in scored if s.rejected_reason is None]
 
+        def on_target() -> int:
+            """Candidates that actually show the entity (all of them for generic scenes)."""
+            return sum(1 for s in accepted() if entity is None or s.scores["entity"] >= 1.0)
+
         commons = self.providers.get("wikimedia")
         if isinstance(commons, WikimediaCommons):
             for category in commons_categories(brief, entity):
@@ -84,11 +107,11 @@ class FootageSearch:
                     log.debug("category %s: %s", category, exc)
 
         sources = providers_for(brief, self.providers)
-        for query in specific_queries(brief):
+        for query in specific_queries(brief)[: self.settings.max_queries]:
             for provider in sources:
                 add(self._run(provider, query))
 
-        if len(accepted()) < GOOD_ENOUGH:
+        if on_target() < GOOD_ENOUGH:
             for query in broad_queries(brief):
                 for provider in sources:
                     add(self._run(provider, query))
