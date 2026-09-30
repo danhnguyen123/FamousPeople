@@ -40,7 +40,7 @@ Mỗi bước lưu JSON trong thư mục dự án và được bỏ qua ở lầ
 ## Cách tìm ảnh (tóm tắt)
 
 - **Entity first:** Claude đọc kịch bản, xác định người/sự kiện/năm của từng cảnh; Wikidata cho tên ở 6 ngôn ngữ, bí danh, năm sinh và danh sách tác phẩm để tạo truy vấn neo sự kiện ("Charlie Chaplin The Kid 1921").
-- **Danh tính bằng metadata, không bằng khuôn mặt:** ảnh cảnh có người bị loại nếu tên không nằm trong chú thích/category. CLIP chỉ xếp hạng lại theo độ khớp với cảnh.
+- **Danh tính bằng metadata, không bằng khuôn mặt:** ảnh có tên người trong chú thích/category được xếp trên hẳn ảnh không có tên (ảnh không tên vẫn giữ làm dự phòng). CLIP chỉ xếp hạng lại theo độ khớp với cảnh.
 - **Category theo năm của Commons** (`Charlie Chaplin in 1915`) được thử trước tiên.
 - **Nguồn:** Commons, Openverse, Pexels và web (Brave Image Search khi có API key). Không lọc theo bản quyền; ảnh CC BY vẫn được ghi công trên hình và trong `credits.txt`. Không scrape Pinterest/Google, web chỉ qua API.
 

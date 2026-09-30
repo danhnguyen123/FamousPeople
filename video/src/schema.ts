@@ -42,7 +42,7 @@ export const documentarySchema = z.object({
   durationSec: z.number(),
   crossfadeSec: z.number().default(0.6),
   showCaptions: z.boolean().default(false),
-  showCredits: z.boolean().default(true),
+  showCredits: z.boolean().default(false),
   audio: z.array(audioClipSchema),
   shots: z.array(shotSchema),
   captions: z.array(captionSchema),

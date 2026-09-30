@@ -12,7 +12,8 @@ Script to documentary video tool. Python pipeline (`pipeline/`, package `docugen
 ## Rules
 
 - `video/src/schema.ts` and `pipeline/src/docugen/timeline.py` describe the same JSON. Change both together.
-- Identity of people is decided by metadata (name or Wikidata alias in title/caption/categories), never by CLIP. CLIP only reranks.
+- Identity of people is scored by metadata (name or Wikidata alias in title/caption/categories), never by CLIP. CLIP only reranks.
+- No hard filters besides user-blocked domains (`DOCUGEN_BLOCKED_DOMAINS`): missing names, low resolution and watermarks lower the score but never reject a candidate.
 - Never add scrapers for Pinterest, Google Images or YouTube. New sources go through official APIs.
 - No copyright filtering: `scoring.license_tier` is informational only (review.html, on-screen credits) and must never reject candidates.
 - Claude calls live in `pipeline/src/docugen/llm.py` (structured outputs via `client.beta.messages.parse`, model from `DOCUGEN_MODEL`, default `claude-opus-5-5`).

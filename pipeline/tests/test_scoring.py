@@ -21,16 +21,6 @@ def test_alias_counts_as_identity(settings, ryder):
     assert s.scores["entity"] == 1.0
 
 
-def test_person_without_name_in_metadata_is_rejected(settings, ryder):
-    s = score_candidate(cand(title="Actress at a premiere, 1994"), brief(), ryder, settings)
-    assert s.rejected_reason == "name not found in metadata"
-
-
-def test_lookalike_name_is_rejected(settings, ryder):
-    s = score_candidate(cand(title="Jennifer Connelly at a premiere 1994"), brief(), ryder, settings)
-    assert s.rejected_reason is not None
-
-
 def test_wrong_decade_scores_lower(settings, ryder):
     right = score_candidate(cand(), brief(), ryder, settings)
     wrong = score_candidate(cand(title="Winona Ryder in 2016"), brief(), ryder, settings)
@@ -45,11 +35,6 @@ def test_generic_scene_accepts_stock(settings):
              source_domain="pexels.com"), b, None, settings)
     assert s.rejected_reason is None
     assert s.license_tier == "cleared"
-
-
-def test_stock_never_used_for_named_person(settings, ryder):
-    s = score_candidate(cand(provider="pexels", license="Pexels License"), brief(), ryder, settings)
-    assert s.rejected_reason is not None
 
 
 def test_license_tiers():
@@ -73,14 +58,22 @@ def test_non_free_license_is_not_filtered(settings, ryder):
     assert s.rejected_reason is None
 
 
-def test_watermarked_agency_rejected(settings, ryder):
-    s = score_candidate(cand(provider="web", source_domain="gettyimages.com"), brief(), ryder, settings)
-    assert s.rejected_reason == "watermarked stock agency"
+def test_nameless_photo_ranks_below_named_one(settings, ryder):
+    named = score_candidate(cand(), brief(), ryder, settings)
+    nameless = score_candidate(cand(title="Actress at a premiere, 1994"), brief(), ryder, settings)
+    lookalike = score_candidate(cand(title="Jennifer Connelly at a premiere 1994"), brief(), ryder, settings)
+    assert nameless.rejected_reason is None and lookalike.rejected_reason is None
+    assert named.total > nameless.total + 0.3
+    assert named.total > lookalike.total + 0.3
 
 
-def test_low_resolution_rejected(settings, ryder):
-    s = score_candidate(cand(width=300, height=380), brief(), ryder, settings)
-    assert s.rejected_reason == "resolution too low"
+def test_only_blocked_domains_are_rejected(settings, ryder):
+    for c in [cand(provider="web", source_domain="gettyimages.com"), cand(width=300, height=380),
+              cand(provider="pexels", license="Pexels License")]:
+        assert score_candidate(c, brief(), ryder, settings).rejected_reason is None
+    settings.blocked_domains = ["fandom.com"]
+    s = score_candidate(cand(provider="web", source_domain="x.fandom.com"), brief(), ryder, settings)
+    assert s.rejected_reason == "blocked domain"
 
 
 def test_entity_names_longest_first():

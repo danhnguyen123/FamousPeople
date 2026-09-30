@@ -11,7 +11,7 @@ export const sampleProps: DocumentaryProps = {
   durationSec: 9,
   crossfadeSec: 0.6,
   showCaptions: true,
-  showCredits: true,
+  showCredits: false,
   audio: [],
   shots: [
     {

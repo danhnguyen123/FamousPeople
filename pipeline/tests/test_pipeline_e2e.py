@@ -64,10 +64,13 @@ def test_full_pipeline(tmp_path, settings, mock_http, monkeypatch):
     scenes = json.loads(project.path("scenes.json").read_text())
     assert all("SHOW RAIN" not in s["text"] for s in scenes)
     footage = json.loads(project.path("footage.json").read_text())
-    rejected_titles = [r["candidate"]["title"] for f in footage[:2] for r in f["ranked"]]
-    assert not any("other actress" in t for t in rejected_titles)
+    for f in footage[:2]:  # nameless photos stay available but rank below named ones
+        titles = [r["candidate"]["title"] for r in f["ranked"]]
+        assert len(titles) == 4
+        assert all("Winona Ryder" in t for t in titles[:2])
     timeline = json.loads(project.path("timeline.json").read_text())
     assert timeline["title"] == "Winona"
+    assert timeline["showCredits"] is False
     assert len(timeline["shots"]) == 3
     assert project.has("review.html") and project.has("credits.txt")
     assert "Alan Light" in project.path("credits.txt").read_text()

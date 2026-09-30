@@ -1,9 +1,10 @@
 """Entity-first scoring of image candidates.
 
-CLIP cannot tell two actresses apart, so identity comes from metadata: the
-person's name (or a Wikidata alias) must appear in the file title, caption,
-categories or page URL. CLIP only reranks for how well the frame fits the
-scene. Final score for scenes about a named entity:
+CLIP cannot tell two actresses apart, so identity comes from metadata: a
+candidate whose title, caption, categories or page URL contain the person's
+name (or a Wikidata alias) ranks far higher. Nothing is filtered out except
+user-blocked domains; weak candidates simply rank lower. Final score for
+scenes about a named entity:
 
     40% entity    name / alias found in metadata
     25% source    how trustworthy the source's captions are
@@ -24,17 +25,6 @@ from .models import Candidate, EntityInfo, LicenseTier, ScoredCandidate, VisualB
 
 ENTITY_WEIGHTS = {"entity": 0.40, "source": 0.25, "context": 0.20, "clip": 0.10, "quality": 0.05}
 GENERIC_WEIGHTS = {"entity": 0.0, "source": 0.25, "context": 0.15, "clip": 0.40, "quality": 0.20}
-
-# Scene types where the named entity must be proven by metadata.
-IDENTITY_REQUIRED = {"person_portrait", "person_event", "person_with_other"}
-
-MIN_SHORT_SIDE = 400
-
-# Stock agencies serve watermarked previews: never usable.
-WATERMARKED = {
-    "gettyimages.com", "gettyimages.co.uk", "alamy.com", "shutterstock.com", "istockphoto.com",
-    "dreamstime.com", "depositphotos.com", "123rf.com", "agefotostock.com", "bridgemanimages.com",
-}
 
 WEB_DOMAIN_TRUST = {
     "wikipedia.org": 0.8, "imdb.com": 0.6, "nytimes.com": 0.6, "theguardian.com": 0.6,
@@ -166,16 +156,8 @@ def score_candidate(
     total = sum(weights[k] * scores[k] for k in weights)
 
     reason = None
-    if _domain_match(cand.source_domain, WATERMARKED):
-        reason = "watermarked stock agency"
-    elif _domain_match(cand.source_domain, settings.blocked_domains):
+    if _domain_match(cand.source_domain, settings.blocked_domains):
         reason = "blocked domain"
-    elif cand.width and cand.height and min(cand.width, cand.height) < MIN_SHORT_SIDE:
-        reason = "resolution too low"
-    elif brief.visual_type in IDENTITY_REQUIRED and needs_entity and scores["entity"] < 1.0:
-        reason = "name not found in metadata"
-    elif cand.provider == "pexels" and needs_entity:
-        reason = "stock photo cannot show a named entity"
 
     return ScoredCandidate(
         candidate=cand,

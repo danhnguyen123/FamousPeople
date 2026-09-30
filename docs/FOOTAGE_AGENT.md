@@ -25,7 +25,7 @@ out/<slug>-<lang>.mp4
 
 CLIP rất giỏi trả lời "ảnh này có giống *một nữ diễn viên thập niên 90 ở buổi công chiếu* không", nhưng không phân biệt được Winona Ryder với Jennifer Connelly, nhất là ảnh trắng đen, ảnh scan tạp chí, góc nghiêng. Vì vậy:
 
-- **Danh tính được chứng minh bằng metadata.** Với cảnh có người (`person_portrait`, `person_event`, `person_with_other`), ảnh bị loại nếu tên hoặc bí danh Wikidata không xuất hiện trong tiêu đề, mô tả, category hoặc URL trang.
+- **Danh tính được chứng minh bằng metadata.** Với cảnh có người (`person_portrait`, `person_event`, `person_with_other`), ảnh có tên hoặc bí danh Wikidata trong tiêu đề, mô tả, category hoặc URL trang được cộng 40% điểm, nên luôn xếp trên ảnh không có tên. Ảnh không có tên vẫn được giữ lại làm phương án dự phòng.
 - **CLIP chỉ xếp hạng lại** các ứng viên đã qua bộ lọc danh tính, theo độ khớp với cảnh.
 
 ## Công thức điểm (`pipeline/src/docugen/scoring.py`)
@@ -38,7 +38,7 @@ CLIP rất giỏi trả lời "ảnh này có giống *một nữ diễn viên t
 | clip: độ khớp hình ảnh (0.5 khi tắt CLIP) | 10% | 40% |
 | quality: độ phân giải, tỉ lệ ngang | 5% | 20% |
 
-Loại cứng: domain agency có watermark (Getty, Alamy, Shutterstock...), domain trong blacklist, cạnh ngắn dưới 400px, ảnh stock cho người có tên. Pipeline không lọc theo bản quyền.
+Không có bộ lọc cứng nào ngoài các domain bạn tự chặn trong `DOCUGEN_BLOCKED_DOMAINS`. Ảnh độ phân giải thấp, ảnh có watermark hay ảnh thiếu tên chỉ bị xếp hạng thấp hơn, không bị loại.
 
 ## Mẹo quan trọng nhất: category theo năm trên Commons
 
@@ -53,8 +53,8 @@ Người nổi tiếng thường có category kiểu `Category:Winona Ryder in 1
 | Pexels (cần API key) | cảnh chung |
 | Brave Image Search (cần `BRAVE_API_KEY`) | web: scan tạp chí, fan archive, trang Pinterest |
 
-- Không có bước kiểm tra bản quyền: mọi ảnh qua bộ lọc danh tính và chất lượng đều được dùng, kể cả ảnh web không rõ license. Loại license chỉ hiển thị trong `review.html` để tham khảo.
-- Ảnh CC BY / BY-SA vẫn được ghi tên tác giả trên hình (tắt bằng `showCredits: false` trong timeline) và trong `credits.txt`.
+- Không có bước kiểm tra bản quyền: mọi ảnh tìm được đều có thể được dùng, kể cả ảnh web không rõ license. Loại license chỉ hiển thị trong `review.html` để tham khảo.
+- Mặc định không hiện tên tác giả trên hình (`showCredits: false`). Muốn bật lại, đặt `showCredits: true` trong timeline. Danh sách ghi công vẫn có trong `credits.txt`.
 - Pinterest chỉ xuất hiện gián tiếp qua API tìm kiếm Brave; pipeline không scrape Pinterest hay Google Images (điều khoản của họ cấm thu thập tự động).
 
 ## Duyệt và sửa tay

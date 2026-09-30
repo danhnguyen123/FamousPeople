@@ -102,7 +102,7 @@ def build_timeline(
         "durationSec": round(narration.duration, 3),
         "crossfadeSec": 0.6,
         "showCaptions": show_captions,
-        "showCredits": True,
+        "showCredits": False,
         "audio": [{"src": publish(path), "startSec": round(start, 3)} for path, start in narration.audio_files],
         "shots": shots,
         "captions": captions,
