@@ -20,6 +20,7 @@ LANGUAGES: dict[str, Language] = {
     "it": Language("it", "Italian", 2380, "it-IT"),
     "pl": Language("pl", "Polish", 2616, "pl-PL"),
     "nl": Language("nl", "Dutch", 2528, "nl-NL"),
+    "ja": Language("ja", "Japanese", 2392, "ja-JP"),
 }
 
 

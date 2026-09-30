@@ -44,7 +44,7 @@ Keyword đầu của mỗi nhóm được tìm trên mọi nguồn trong `DOCUGE
 
 | Nguồn | API | Tham số |
 |---|---|---|
-| `dataforseo` | Google Images, `POST /v3/serp/google/images/task_post` rồi `GET task_get/advanced/{id}` | `language_code` và `location_code` theo `--lang` (en 2840, fr 2250, de 2276, it 2380, pl 2616, nl 2528), `depth=100`. Tất cả task gửi một lần, chờ khoảng 1 đến 5 phút. Đặt `DOCUGEN_DATAFORSEO_LIVE=1` để lấy kết quả ngay qua `live/advanced` |
+| `dataforseo` | Google Images, `POST /v3/serp/google/images/task_post` rồi `GET task_get/advanced/{id}` | `language_code` và `location_code` theo `--lang` (en 2840, fr 2250, de 2276, it 2380, pl 2616, nl 2528, ja 2392), `depth=100`. Tất cả task gửi một lần, chờ khoảng 1 đến 5 phút. Đặt `DOCUGEN_DATAFORSEO_LIVE=1` để lấy kết quả ngay qua `live/advanced` |
 | `bing` | SearchAPI.io, `engine=bing_images` | `market_code` theo ngôn ngữ (de-DE, fr-FR...), trang 1 |
 | `brave` | `GET https://api.search.brave.com/res/v1/images/search` | `count=200` (tối đa, không phân trang), `search_lang` theo ngôn ngữ, `safesearch=strict` |
 
