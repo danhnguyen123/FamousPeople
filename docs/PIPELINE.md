@@ -84,6 +84,18 @@ Bước này còn ghi 2 file để duyệt:
 - **Phụ đề:** theo đúng từng cue.
 - **Schema:** `video/src/schema.ts` và `pipeline/src/docugen/timeline.py` mô tả cùng một JSON.
 
+## Key API trong môi trường cloud của Claude Code
+
+Biến môi trường của môi trường cloud hiển thị với mọi người dùng môi trường đó, nên không dùng cho key bí mật. Với 3 nguồn tìm ảnh, thêm key vào mục **API credentials**. Proxy của Anthropic sẽ gắn key vào request khi request rời khỏi máy ảo, và code không cần biến môi trường nào.
+
+| Tên | Allowed websites | Header | Prefix | Value |
+|---|---|---|---|---|
+| DataForSEO | `api.dataforseo.com` | `Authorization` | `Basic` | base64 của `login:api_password` |
+| SearchAPI | `www.searchapi.io` | `Authorization` | `Bearer` | API key |
+| Brave | `api.search.brave.com` | `X-Subscription-Token` | (để trống) | API key |
+
+`api.anthropic.com` không bao giờ nhận API credentials, và biến `ANTHROPIC_API_KEY` được dành cho chính Claude Code. Để chạy bước plan và select trong phiên cloud, đặt key Claude vào `DOCUGEN_ANTHROPIC_API_KEY` (lưu ý key này sẽ hiển thị với người dùng môi trường), hoặc chạy hai bước đó trên máy của bạn.
+
 ## Chi phí cho video 10 phút
 
 Giả định khoảng 150 cue, 50 nhóm.

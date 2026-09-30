@@ -32,6 +32,9 @@ def _env_int(name: str, default: int) -> int:
 @dataclass
 class Settings:
     # Claude: plan (SRT to scenes, groups, keywords) and select (validate search results)
+    anthropic_api_key: str | None = field(
+        default_factory=lambda: _env("DOCUGEN_ANTHROPIC_API_KEY", _env("ANTHROPIC_API_KEY"))
+    )
     model: str = field(default_factory=lambda: _env("DOCUGEN_MODEL", "claude-opus-5-5"))
     select_model: str = field(
         default_factory=lambda: _env("DOCUGEN_SELECT_MODEL", _env("DOCUGEN_MODEL", "claude-opus-5-5"))

@@ -121,8 +121,10 @@ class DataForSEOImages(Source):
     def location(self) -> int:
         return self.settings.dataforseo_location or self.lang.dataforseo_location
 
-    def _auth(self) -> tuple[str, str]:
-        return (self.settings.dataforseo_login or "", self.settings.dataforseo_password or "")
+    def _auth(self) -> tuple[str, str] | None:
+        # None: the environment's API credential proxy adds the Authorization header.
+        s = self.settings
+        return (s.dataforseo_login, s.dataforseo_password) if s.dataforseo_login and s.dataforseo_password else None
 
     def _task(self, query: str) -> dict:
         return {"keyword": query, "language_code": self.lang.code, "location_code": self.location,
@@ -198,9 +200,10 @@ class BingImages(Source):
         return {"market": self.lang.bing_market}
 
     def fetch(self, query: str) -> Any:
-        return request_json("GET", self.API, params={
+        key = self.settings.searchapi_api_key
+        headers = {"Authorization": f"Bearer {key}"} if key else None
+        return request_json("GET", self.API, headers=headers, params={
             "engine": "bing_images", "q": query, "market_code": self.lang.bing_market,
-            "api_key": self.settings.searchapi_api_key,
         })
 
     def parse(self, query: str, raw: Any) -> list[ImageHit]:
@@ -230,9 +233,10 @@ class BraveImages(Source):
                   "safesearch": self.settings.brave_safesearch}
         if self.settings.brave_country:
             params["country"] = self.settings.brave_country
-        return request_json("GET", self.API, params=params, headers={
-            "X-Subscription-Token": self.settings.brave_api_key or "", "Accept": "application/json",
-        })
+        headers = {"Accept": "application/json"}
+        if self.settings.brave_api_key:
+            headers["X-Subscription-Token"] = self.settings.brave_api_key
+        return request_json("GET", self.API, params=params, headers=headers)
 
     def parse(self, query: str, raw: Any) -> list[ImageHit]:
         out = []
@@ -259,11 +263,12 @@ def build_sources(settings: Settings, lang: Language, cache_dir: Path) -> list[S
             raise ValueError(f"Unknown source '{name}' in DOCUGEN_SEARCH (use {', '.join(SOURCE_CLASSES)})")
         cls, keys = SOURCE_CLASSES[name]
         if not all(getattr(settings, k) for k in keys):
-            log.warning("%s skipped: set %s", name, ", ".join(k.upper() for k in keys))
-            continue
+            # Fine in a cloud environment whose API credentials add the key on the way out.
+            log.info("%s: %s not set, relying on the environment's API credentials",
+                     name, ", ".join(k.upper() for k in keys))
         sources.append(cls(lang, settings, cache_dir))
     if not sources:
-        raise RuntimeError("No image source configured: set DATAFORSEO_*, SEARCHAPI_API_KEY or BRAVE_API_KEY")
+        raise RuntimeError("DOCUGEN_SEARCH lists no image source")
     return sources
 
 

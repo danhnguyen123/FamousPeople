@@ -33,7 +33,8 @@ def prompt(name: str) -> str:
 
 @cache
 def _client() -> anthropic.Anthropic:
-    return anthropic.Anthropic()
+    # DOCUGEN_ANTHROPIC_API_KEY for cloud sessions, which reserve ANTHROPIC_API_KEY for themselves.
+    return anthropic.Anthropic(api_key=get_settings().anthropic_api_key)
 
 
 def _system(name: str) -> list[dict]:
