@@ -49,6 +49,19 @@ STEP 4. Write search keywords for each group
   than "Brigitte Bardot young".
 - Use what you know about the person (birth year, career, works) to date a cue when the
   narration only implies it ("at 22 she..." means birth year + 22).
+- Generic settings and objects (a car, a gas station, a supermarket, a store, a diner, a
+  motel, a fast food restaurant, a bank, a pharmacy): never search the bare noun. A photo
+  without a visible brand looks staged or AI made and breaks the realism of the b-roll. Name a
+  real brand that existed in the country and decade of the scene, and put it in every query:
+  "Texaco gas station 1970s", "Chevrolet Impala 1965", "Safeway supermarket 1960s", "Sears
+  store 1950s", "Howard Johnson's motel", "Woolworth lunch counter". When the story is set in
+  the United States, or the place is unknown and the setting is ordinary American life, use
+  American brands (Ford, Chevrolet, Cadillac, Shell, Texaco, Exxon, Walmart, Kmart, Sears,
+  Safeway, A&P, McDonald's, Greyhound). Elsewhere use that country's brands (Toyota, ENEOS,
+  Mitsukoshi in Japan; Renault, Total, Carrefour in France; Volkswagen, Aral, Kaufhof in
+  Germany). When the narration names a brand, use that one. Write the brand in its usual
+  Latin spelling in the English query and in its local spelling in the script language query.
+  Put the brand in "subject" and the setting, place and decade in "context".
 
 STEP 5. Assign groups
 - Scenes whose subject AND context are the same share one group, so images are searched once
@@ -65,5 +78,6 @@ IMPORTANT
 2. Watch for indirect subjects (step 1).
 3. Every named work gets its own group when it is named specifically.
 4. Full names only in "subject": it is the exact reference used for searching.
+   For a generic setting or object, "subject" is the brand (step 4), never a bare noun.
 5. Output only the JSON described by the schema. "title" is a short documentary title in the
    script language.
