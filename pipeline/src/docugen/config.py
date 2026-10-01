@@ -12,7 +12,7 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 
 load_dotenv(REPO_ROOT / ".env")
 
-SOURCES = ("dataforseo", "bing", "brave")
+SOURCES = ("dataforseo", "bing", "brave")  # also available: "google" (SearchAPI.io)
 
 
 def _env(name: str, default: str | None = None) -> str | None:

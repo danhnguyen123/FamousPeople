@@ -40,11 +40,12 @@ Code kiểm tra lại: mọi cue phải thuộc đúng một cảnh theo thứ t
 
 ## 2. search
 
-Keyword đầu của mỗi nhóm được tìm trên mọi nguồn trong `DOCUGEN_SEARCH`:
+Keyword đầu của mỗi nhóm được tìm trên mọi nguồn trong `DOCUGEN_SEARCH`. Ảnh thumbnail YouTube (youtube.com, ytimg.com) luôn bị bỏ khi gộp kết quả:
 
 | Nguồn | API | Tham số |
 |---|---|---|
 | `dataforseo` | Google Images, `POST /v3/serp/google/images/task_post` rồi `GET task_get/advanced/{id}` | `language_code` và `location_code` theo `--lang` (en 2840, fr 2250, de 2276, it 2380, pl 2616, nl 2528, ja 2392), `depth=100`. Tất cả task gửi một lần, chờ khoảng 1 đến 5 phút. Đặt `DOCUGEN_DATAFORSEO_LIVE=1` để lấy kết quả ngay qua `live/advanced` |
+| `google` | SearchAPI.io, `engine=google_images` | `gl` và `hl` theo ngôn ngữ (jp/ja, de/de...), 100 kết quả mỗi lượt, $0,004 mỗi lượt. Không nằm trong mặc định, bật bằng `DOCUGEN_SEARCH`, ví dụ `google,bing,brave` khi chưa dùng được DataForSEO |
 | `bing` | SearchAPI.io, `engine=bing_images` | `market_code` theo ngôn ngữ (de-DE, fr-FR...), trang 1 |
 | `brave` | `GET https://api.search.brave.com/res/v1/images/search` | `count=200` (tối đa, không phân trang), `search_lang` theo ngôn ngữ, `safesearch=strict`. Gọi tuần tự, cách nhau `DOCUGEN_BRAVE_INTERVAL` giây (mặc định 1,1, vì gói miễn phí chỉ cho 1 lượt mỗi giây) |
 

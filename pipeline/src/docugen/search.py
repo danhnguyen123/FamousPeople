@@ -23,6 +23,10 @@ from .models import ImageHit
 log = logging.getLogger(__name__)
 
 
+# Video thumbnails (often with big text and a channel's branding) are never usable images
+VIDEO_THUMB_DOMAINS = ("youtube.com", "youtu.be", "ytimg.com", "yt3.ggpht.com", "yt3.googleusercontent.com")
+
+
 def domain_of(url: str | None) -> str | None:
     if not url:
         return None
@@ -218,6 +222,25 @@ class BingImages(Source):
         return out
 
 
+class GoogleImages(BingImages):
+    """Google Images through SearchAPI.io: 100 results per call, same JSON shape as Bing."""
+
+    name = "google"
+
+    def params_key(self) -> dict:
+        return {"gl": self._country(), "hl": self.lang.code}
+
+    def _country(self) -> str:
+        return self.lang.bing_market.split("-")[-1].lower()
+
+    def fetch(self, query: str) -> Any:
+        key = self.settings.searchapi_api_key
+        headers = {"Authorization": f"Bearer {key}"} if key else None
+        return request_json("GET", self.API, headers=headers, params={
+            "engine": "google_images", "q": query, "gl": self._country(), "hl": self.lang.code,
+        })
+
+
 class BraveImages(Source):
     """Brave Image Search: its own index, up to 200 results per call."""
 
@@ -262,6 +285,7 @@ class BraveImages(Source):
 
 SOURCE_CLASSES: dict[str, tuple[type[Source], tuple[str, ...]]] = {
     "dataforseo": (DataForSEOImages, ("dataforseo_login", "dataforseo_password")),
+    "google": (GoogleImages, ("searchapi_api_key",)),
     "bing": (BingImages, ("searchapi_api_key",)),
     "brave": (BraveImages, ("brave_api_key",)),
 }
@@ -292,13 +316,14 @@ def search_queries(sources: list[Source], queries: list[str]) -> dict[str, dict[
 
 def merge(results: dict[str, list[ImageHit]], per_source: int, blocked: list[str],
           existing: list[ImageHit] | None = None) -> list[ImageHit]:
-    """Interleave sources (Google 1, Bing 1, Brave 1, Google 2...) and drop repeats and blocked sites."""
+    """Interleave sources (Google 1, Bing 1, Brave 1, Google 2...) and drop repeats, blocked sites
+    and video thumbnails."""
     out = list(existing or [])
     seen = {h.image_url for h in out}
 
     def allowed(h: ImageHit) -> bool:
         domains = [d for d in (h.domain, domain_of(h.image_url)) if d]
-        return not any(d == b or d.endswith("." + b) for d in domains for b in blocked)
+        return not any(d == b or d.endswith("." + b) for d in domains for b in (*blocked, *VIDEO_THUMB_DOMAINS))
 
     lists = [[h for h in hits if allowed(h)][:per_source] for hits in results.values()]
     for i in range(max((len(x) for x in lists), default=0)):

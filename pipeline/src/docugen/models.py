@@ -46,7 +46,7 @@ class Plan(BaseModel):
 
 class ImageHit(BaseModel):
     id: str  # stable hash of the image URL
-    source: str  # dataforseo | bing | brave
+    source: str  # dataforseo | google | bing | brave
     image_url: str
     page_url: str | None = None
     title: str = ""
