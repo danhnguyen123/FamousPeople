@@ -14,9 +14,6 @@ ACCEPT when the metadata names the subject:
 - For a work: a poster, still, cover or production photo of that exact work.
 - For a place: a photo of that exact place.
 - For a generic setting (an era, a city, a mood): a photo that fits the setting.
-- For a branded setting or object (the subject is a brand such as "Texaco" or "Chevrolet"):
-  the brand appears in the title or page URL and the photo shows the real place or product,
-  not a logo file, an ad, a toy model or a stock illustration.
 
 REJECT when:
 - The metadata names a different person, or the subject only appears as one name in a long
