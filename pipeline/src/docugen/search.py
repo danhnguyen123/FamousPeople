@@ -238,6 +238,17 @@ class BraveImages(Source):
             headers["X-Subscription-Token"] = self.settings.brave_api_key
         return request_json("GET", self.API, params=params, headers=headers)
 
+    def fetch_many(self, queries: list[str]) -> dict[str, Any]:
+        """One call at a time, spaced by brave_interval: parallel calls hit the per second limit."""
+        out = {}
+        for i, q in enumerate(queries):
+            if i:
+                time.sleep(self.settings.brave_interval)
+            raw = self._fetch_safe(q)
+            if raw is not None:
+                out[q] = raw
+        return out
+
     def parse(self, query: str, raw: Any) -> list[ImageHit]:
         out = []
         for rank, r in enumerate(raw.get("results") or [], start=1):

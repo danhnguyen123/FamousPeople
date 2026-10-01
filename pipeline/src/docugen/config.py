@@ -56,6 +56,8 @@ class Settings:
     brave_api_key: str | None = field(default_factory=lambda: _env("BRAVE_API_KEY"))
     brave_safesearch: str = field(default_factory=lambda: _env("DOCUGEN_BRAVE_SAFESEARCH", "strict"))
     brave_country: str | None = field(default_factory=lambda: _env("DOCUGEN_BRAVE_COUNTRY"))
+    # Seconds between Brave calls: the free plan allows 1 request per second
+    brave_interval: float = field(default_factory=lambda: float(_env("DOCUGEN_BRAVE_INTERVAL", "1.1") or 1.1))
     blocked_domains: list[str] = field(default_factory=lambda: _env_list("DOCUGEN_BLOCKED_DOMAINS"))
 
     # Images
