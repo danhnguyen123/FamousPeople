@@ -29,8 +29,10 @@ VIDEO_THUMB_DOMAINS = (
     "youtube.com", "youtu.be", "ytimg.com", "yt3.ggpht.com", "yt3.googleusercontent.com",
     "tiktok.com", "tiktokcdn.com", "tiktokcdn-us.com",
 )
-# YouTube thumbnail file names, also when another site re-hosts them ("1663797909_hqdefault.jpg")
-VIDEO_THUMB_FILE = re.compile(r"(maxresdefault|hqdefault|sddefault|mqdefault|hq720)(_live)?\.(jpe?g|webp|png)$", re.I)
+# YouTube thumbnail file names, also when another site re-hosts them, with the suffixes
+# WordPress adds to resized copies ("1663797909_hqdefault.jpg", "..._maxresdefault-1024x576.jpg")
+VIDEO_THUMB_FILE = re.compile(
+    r"(maxresdefault|hqdefault|sddefault|mqdefault|hq720)(?:[-_][a-z0-9]+)*\.(jpe?g|webp|png)$", re.I)
 
 
 def is_video_thumbnail(h: ImageHit) -> bool:
