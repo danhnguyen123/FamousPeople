@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from typing import Literal
-
 from pydantic import BaseModel, Field
 
 
@@ -66,29 +64,16 @@ class GroupSearch(BaseModel):
 # select.json: Claude's verdict on each group's hits (prompts/image_selector.md)
 
 
-class Pick(BaseModel):
-    id: str
-    match: Literal["subject_and_context", "subject_only"] = Field(
-        description="subject_and_context: the metadata names the subject and fits the context; "
-        "subject_only: it names the subject but the context is unclear or different"
-    )
-    note: str = Field(description="A few words on why, e.g. 'title: Dietrich at 1930 premiere'")
-
-
-class Reject(BaseModel):
-    id: str
-    reason: str = Field(description="A few words, e.g. 'other person', 'collage', 'product page'")
-
-
 class Verdict(BaseModel):
-    accepted: list[Pick] = Field(description="Usable images, best first")
-    rejected: list[Reject]
+    """Claude's answer: only the candidates to use, by their number in the list (1 = first)."""
+
+    accepted: list[int] = Field(description="Numbers of the candidates to use, best first")
 
 
 class GroupSelection(BaseModel):
     group: int
-    accepted: list[Pick] = []
-    rejected: list[Reject] = []
+    accepted: list[str] = []  # image ids, best first: the group's pool
+    rejected: list[str] = []  # image ids Claude left out (or never judged)
 
 
 # images.json: the image finally shown in each scene

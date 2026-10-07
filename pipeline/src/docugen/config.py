@@ -39,6 +39,7 @@ class Settings:
     select_model: str = field(
         default_factory=lambda: _env("DOCUGEN_SELECT_MODEL", _env("DOCUGEN_MODEL", "claude-opus-5-5"))
     )
+    select_effort: str = field(default_factory=lambda: _env("DOCUGEN_SELECT_EFFORT", "medium"))
     select_batch: bool = field(default_factory=lambda: _env("DOCUGEN_SELECT_BATCH", "0") == "1")
 
     # Image search: every listed source is queried for each group

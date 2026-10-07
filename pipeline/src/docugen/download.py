@@ -84,7 +84,7 @@ def assign_images(
     settings: Settings,
 ) -> list[SceneImage]:
     hits = {gid: {h.id: h for h in s.hits} for gid, s in searches.items()}
-    pools = {gid: [p.id for p in sel.accepted] for gid, sel in selections.items()}
+    pools = {gid: list(sel.accepted) for gid, sel in selections.items()}
     cursor = {gid: 0 for gid in pools}
     main_groups = [g.group for g in plan.groups if g.subject == plan.main_subject]
     dl = Downloader(project, settings)
@@ -147,7 +147,6 @@ def write_reports(
     """plan.csv (one row per scene) and candidates.csv (every result with Claude's verdict)."""
     groups = {g.group: g for g in plan.groups}
     cue = {c.index: c for c in cues}
-    notes = {p.id: p.note for sel in selections.values() for p in sel.accepted}
 
     with project.path("plan.csv").open("w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
@@ -159,20 +158,19 @@ def write_reports(
                 img.scene, f"{cue[scene.cues[0]].start:.2f}", "+".join(map(str, scene.cues)),
                 " ".join(cue[i].text for i in scene.cues), g.group, g.subject, g.context,
                 " | ".join(g.keywords), img.file or "(hold previous)", img.source or "",
-                "yes" if img.reused else "", "manual" if img.manual else notes.get(img.image_id or "", ""),
+                "yes" if img.reused else "", "manual" if img.manual else "",
                 img.page_url or "",
             ])
 
     with project.path("candidates.csv").open("w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
-        w.writerow(["Group", "Subject", "Id", "Source", "Query", "Verdict", "Note", "Title", "Size",
+        w.writerow(["Group", "Subject", "Id", "Source", "Query", "Verdict", "Rank", "Title", "Size",
                     "Page URL", "Image URL"])
         for gid, s in searches.items():
             sel = selections.get(gid)
-            verdict = {p.id: (p.match, p.note) for p in sel.accepted} if sel else {}
-            verdict.update({r.id: ("rejected", r.reason) for r in sel.rejected} if sel else {})
+            rank = {image_id: n for n, image_id in enumerate(sel.accepted, start=1)} if sel else {}
             for h in s.hits:
-                v, note = verdict.get(h.id, ("", ""))
+                verdict = "accepted" if h.id in rank else ("rejected" if sel and h.id in sel.rejected else "")
                 size = f"{h.width}x{h.height}" if h.width and h.height else ""
-                w.writerow([gid, groups[gid].subject, h.id, h.source, h.query, v, note, h.title, size,
-                            h.page_url or "", h.image_url])
+                w.writerow([gid, groups[gid].subject, h.id, h.source, h.query, verdict, rank.get(h.id, ""),
+                            h.title, size, h.page_url or "", h.image_url])

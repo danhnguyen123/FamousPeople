@@ -6,7 +6,7 @@ projects/<slug>/
   audio/           the narration audio
   plan.json        stage plan: scenes, groups, keywords (Claude)
   search.json      stage search: results per group from every source
-  select.json      stage select: accepted and rejected results per group (Claude)
+  select.json      stage select: per group, the image ids Claude accepted (best first) and the rest
   images.json      stage download: the image shown in each scene
   assets/          downloaded images
   manual/          put scene_007.jpg here to force an image for scene 7 (docugen review

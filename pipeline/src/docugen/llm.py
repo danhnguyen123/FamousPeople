@@ -78,19 +78,20 @@ def plan_srt(cues: list[Cue], language: str) -> Plan:
 
 def _selector_message(group: Group, main_subject: str, hits: list[ImageHit]) -> str:
     # Title and site name only: the check is whether they relate to the search keywords.
-    rows = [f"{h.id} | {h.title[:160]} | {h.domain or '?'}" for h in hits]
+    rows = [f"{n} | {h.title[:160]} | {h.domain or '?'}" for n, h in enumerate(hits, start=1)]
     return (
         f"Documentary about: {main_subject}\n"
         f"Group subject: {group.subject}\n"
         f"Group context: {group.context}\n"
         f"Search keywords: {' ; '.join(group.keywords)}\n\n"
-        f"Candidates (id | title | site):\n" + "\n".join(rows)
+        f"Candidates (number | title | site):\n" + "\n".join(rows)
     )
 
 
 def select_images(group: Group, main_subject: str, hits: list[ImageHit]) -> Verdict:
     user = _selector_message(group, main_subject, hits)
-    return _ask(get_settings().select_model, "image_selector", user, Verdict, effort="medium",
+    settings = get_settings()
+    return _ask(settings.select_model, "image_selector", user, Verdict, effort=settings.select_effort,
                 max_tokens=16000)
 
 
@@ -108,7 +109,8 @@ def select_images_batch(jobs: dict[int, tuple[Group, str, list[ImageHit]]]) -> d
             "params": {
                 "model": settings.select_model,
                 "max_tokens": 16000,
-                "output_config": {"effort": "medium", "format": {"type": "json_schema", "schema": schema}},
+                "output_config": {"effort": settings.select_effort,
+                                  "format": {"type": "json_schema", "schema": schema}},
                 "system": _system("image_selector"),
                 "messages": [{"role": "user", "content": _selector_message(*job)}],
             },

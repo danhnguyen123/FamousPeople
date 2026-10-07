@@ -5,6 +5,7 @@ For each candidate you see only its title and the name of the site it comes from
 see the picture, so decide from that text.
 
 Decide for every candidate whether its title or site name relates to the search keywords.
+Candidates are numbered from 1.
 
 ACCEPT when the title or the site name relates to the keywords:
 - It names the person, the work, the place or the event of the keywords (full name, a known
@@ -22,14 +23,13 @@ REJECT when:
   work and the image is its real poster or cover.
 - The title says it is a collage, a text graphic, a quote card or a news logo.
 
-Then rank the accepted candidates, best first:
-1. "subject_and_context": the title matches the subject AND the context of the keywords (the
-   year, the event, the life stage, the film). Put these first.
-2. "subject_only": the title matches the subject but the context is unclear or different.
-   Still useful.
+Answer with the numbers of the accepted candidates only, best first. Leave every rejected
+candidate out of the answer: no notes, no reasons. Order them like this:
+1. The title matches the subject AND the context of the keywords (the year, the event, the life
+   stage, the film).
+2. Then the titles that match the subject but whose context is unclear or different.
 Within each level prefer titles that describe a real photograph, trusted sites (news
 agencies, archives, museums, film databases, Wikimedia) and variety: do not put two near
 identical titles next to each other.
 
-Return every candidate id exactly once, either in "accepted" or in "rejected". Keep notes and
-reasons to a few words. Output only the JSON described by the schema.
+Output only the JSON described by the schema.

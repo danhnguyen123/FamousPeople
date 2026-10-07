@@ -12,7 +12,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from . import llm
 from .config import Settings
-from .models import Group, GroupSearch, GroupSelection, ImageHit, Plan, Reject, Verdict
+from .models import Group, GroupSearch, GroupSelection, ImageHit, Plan, Verdict
 from .search import Source, merge, search_queries
 
 log = logging.getLogger(__name__)
@@ -37,19 +37,13 @@ def _judge(jobs: dict[int, tuple[Group, str, list[ImageHit]]], settings: Setting
 
 
 def _apply(selection: GroupSelection, verdict: Verdict | None, hits: list[ImageHit]) -> None:
-    ids = {h.id for h in hits}
-    seen: set[str] = set()
-    if verdict is not None:
-        for pick in verdict.accepted:
-            if pick.id in ids and pick.id not in seen:
-                seen.add(pick.id)
-                selection.accepted.append(pick)
-        for reject in verdict.rejected:
-            if reject.id in ids and reject.id not in seen:
-                seen.add(reject.id)
-                selection.rejected.append(reject)
-    reason = "not reviewed" if verdict is not None else "selection failed"
-    selection.rejected.extend(Reject(id=h.id, reason=reason) for h in hits if h.id not in seen)
+    """Claude answers with the candidates' numbers in the list it was sent (1-based)."""
+    chosen: list[str] = []
+    for n in verdict.accepted if verdict is not None else []:
+        if 1 <= n <= len(hits) and hits[n - 1].id not in chosen:
+            chosen.append(hits[n - 1].id)
+    selection.accepted.extend(chosen)
+    selection.rejected.extend(h.id for h in hits if h.id not in chosen)
 
 
 def select_all(

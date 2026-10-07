@@ -58,9 +58,9 @@ Mỗi nhóm gọi Claude một lần (`DOCUGEN_SELECT_MODEL`, effort `medium`, 6
 
 - **Claude nhận:** chủ thể, bối cảnh và các keyword tìm kiếm của nhóm, và danh sách ứng viên. Mỗi ứng viên chỉ gồm: id, tiêu đề, tên site.
 - **Claude kiểm tra:** tiêu đề hoặc tên site có liên quan đến keyword tìm kiếm không. Có thì nhận và xếp hạng, không thì loại. Các ảnh được nhận là kho ảnh của nhóm.
-- **Claude trả về:**
-  - `accepted` (tốt nhất trước), mỗi ảnh mức `subject_and_context` hoặc `subject_only`
-  - `rejected` kèm lý do
+- **Ứng viên được đánh số** 1, 2, 3... trong tin nhắn (số ngắn tốn ít token hơn id).
+- **Claude chỉ trả về** `{"accepted": [1, 20, 7, ...]}`: số thứ tự của các ảnh được dùng, tốt nhất trước. Không có lý do, không có ghi chú; ảnh không có trong danh sách coi như bị loại. Khoảng 60 đến 80 token đầu ra mỗi nhóm.
+- **Effort:** `DOCUGEN_SELECT_EFFORT` (mặc định `medium`; `low` cho kết quả gần giống và ít token hơn một chút).
 - **Nhóm thiếu ảnh:** nếu nhóm có ít hơn `DOCUGEN_MIN_POOL` (3) ảnh được chấp nhận, code tìm keyword kế tiếp trên cả 3 nguồn và chỉ gửi kết quả mới cho Claude. Lặp lại cho đến khi hết keyword.
 - **Batch:** `DOCUGEN_SELECT_BATCH=1` dùng Batches API, rẻ bằng một nửa nhưng phải chờ vài phút. Batch không có server-side fallback.
 
@@ -117,7 +117,7 @@ Giả định khoảng 150 cue, 50 nhóm.
 | search DataForSEO Standard | 50 × $0,0006 | khoảng $0,03 |
 | search SearchAPI Bing | 50 × $0,004 (gói $40/tháng, 10.000 lượt) | khoảng $0,20 |
 | search Brave | 50 × $0,005 ($5 miễn phí mỗi tháng) | khoảng $0,25 |
-| select (Opus 5.5) | khoảng 200K token vào, 25K ra | khoảng $1,3 (Batch: khoảng $0,65) |
+| select (Opus 5.5) | đo thật: khoảng 6,2K token vào và 70 ra mỗi nhóm có khoảng 105 ứng viên (40 ảnh mỗi nguồn); 2,8K vào nếu 40 ứng viên | khoảng $0,026 mỗi nhóm × 50 = khoảng $1,3 (Batch: khoảng $0,65) |
 | **Tổng** | | **khoảng $2 đến $2,3** |
 
 Keyword dự phòng chỉ tốn thêm khi một nhóm thiếu ảnh. Chạy lại một bước không tốn lượt search nhờ cache.
