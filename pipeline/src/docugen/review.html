@@ -8,13 +8,13 @@
   :root {
     --bg: #f6f6f4; --panel: #ffffff; --text: #1d1d1b; --muted: #6b6b66; --line: #e3e2dd;
     --accent: #2f5bd3; --accent-text: #ffffff; --ok: #1f7a4d; --err: #b3261e; --chip: #eef1f8;
-    --warn-bg: #fff4e0; --warn: #8a5300;
+    --warn-bg: #fff4e0; --warn: #8a5300; --vi: #0f6b5c;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #161615; --panel: #1f1f1d; --text: #ecebe7; --muted: #a2a19b; --line: #33332f;
       --accent: #7d9cf5; --accent-text: #10131c; --ok: #6fcf97; --err: #f28b82; --chip: #262b38;
-      --warn-bg: #3a2c12; --warn: #f2c27b;
+      --warn-bg: #3a2c12; --warn: #f2c27b; --vi: #7fd1bf;
     }
   }
   * { box-sizing: border-box; }
@@ -49,8 +49,11 @@
   .text { min-width: 200px; max-width: 360px; }
   .subject { color: var(--muted); font-size: 12px; margin-top: 4px; }
   .kw { width: 200px; }
-  .kw span { display: inline-block; background: var(--chip); border-radius: 4px; padding: 1px 6px;
-             margin: 0 4px 4px 0; font-size: 12px; }
+  .kw span { display: block; width: fit-content; max-width: 100%; background: var(--chip); border-radius: 4px;
+             padding: 2px 8px; margin: 0 0 6px; font-size: 12px; }
+  .vi { color: var(--vi); margin-top: 4px; border-left: 2px solid var(--vi); padding-left: 8px; }
+  .subject .vi-inline { color: var(--vi); }
+  #tstatus { color: var(--muted); font-size: 12px; }
   .thumb { width: 200px; }
   .thumb img, .man img { display: block; width: 180px; height: 112px; object-fit: cover; border-radius: 6px;
                          background: var(--chip); }
@@ -82,6 +85,7 @@
 <header>
   <h1 id="title">Duyệt ảnh</h1>
   <span class="stats" id="stats"></span>
+  <span id="tstatus"></span>
   <div class="tools">
     <input type="search" id="q" placeholder="Tìm trong lời thoại, từ khóa">
     <select id="filter">
@@ -104,6 +108,7 @@
 <script>
 const $ = (s, el = document) => el.querySelector(s);
 let scenes = [];
+let vi = {};  // original text -> Vietnamese
 
 function fmtTime(t) {
   const m = Math.floor(t / 60), s = Math.floor(t % 60);
@@ -136,10 +141,16 @@ function manualCell(s) {
 
 function rowHtml(s) {
   return `<td class="idx"><b>#${s.scene}</b><div>cue ${esc(s.cues)}</div><div>${fmtTime(s.start)}</div></td>
-          <td class="text">${esc(s.text)}<div class="subject">Nhóm ${esc(s.group)}: ${esc(s.subject)}</div></td>
+          <td class="text">${esc(s.text)}${vi[s.text] ? `<div class="vi">${esc(vi[s.text])}</div>` : ""}
+            <div class="subject">Nhóm ${esc(s.group)}: ${esc(s.subject)}${groupVi(s)}</div></td>
           <td class="kw">${s.keywords.map(k => `<span>${esc(k)}</span>`).join("")}</td>
           <td class="thumb">${previewCell(s)}</td>
           <td class="man">${manualCell(s)}</td>`;
+}
+
+function groupVi(s) {
+  const parts = [vi[s.subject], vi[s.context]].filter(Boolean);
+  return parts.length ? `<div class="vi-inline">${parts.map(esc).join(" · ")}</div>` : "";
 }
 
 function visible(s) {
@@ -149,7 +160,8 @@ function visible(s) {
   if (f === "missing" && s.image) return false;
   if (f === "reused" && !s.reused) return false;
   if (!q) return true;
-  return (s.text + " " + s.keywords.join(" ") + " " + s.subject).toLowerCase().includes(q);
+  return [s.text, ...s.keywords, s.subject, vi[s.text], vi[s.subject], vi[s.context]]
+    .join(" ").toLowerCase().includes(q);
 }
 
 function render() {
@@ -230,7 +242,26 @@ async function load() {
   scenes = data.scenes;
   render();
 }
-load();
+
+async function loadTranslations() {
+  $("#tstatus").textContent = "Đang dịch sang tiếng Việt…";
+  try {
+    const r = await fetch("/api/translate");
+    const data = await r.json();
+    if (!data.available) {
+      $("#tstatus").textContent = `Chưa dịch: ${data.reason}`;
+      return;
+    }
+    vi = data.texts;
+    const missing = scenes.filter(s => !vi[s.text]).length;
+    $("#tstatus").textContent = missing ? `Còn ${missing} câu chưa dịch được, tải lại trang để thử tiếp` : "";
+    render();
+  } catch (e) {
+    $("#tstatus").textContent = "Lỗi khi dịch: " + e.message;
+  }
+}
+
+load().then(loadTranslations);
 </script>
 </body>
 </html>

@@ -60,6 +60,10 @@ class Settings:
     brave_interval: float = field(default_factory=lambda: float(_env("DOCUGEN_BRAVE_INTERVAL", "1.1") or 1.1))
     blocked_domains: list[str] = field(default_factory=lambda: _env_list("DOCUGEN_BLOCKED_DOMAINS"))
 
+    # Review page only: Vietnamese translations through Gemini (translate.py)
+    gemini_api_key: str | None = field(default_factory=lambda: _env("GEMINI_API_KEY"))
+    translate_model: str = field(default_factory=lambda: _env("DOCUGEN_TRANSLATE_MODEL", "gemini-3.8-flash"))
+
     # Images
     min_pool: int = field(default_factory=lambda: _env_int("DOCUGEN_MIN_POOL", 3))
     user_agent: str = field(

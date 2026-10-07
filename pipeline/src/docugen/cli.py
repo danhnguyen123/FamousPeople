@@ -74,6 +74,7 @@ def review(
     project: str = typer.Argument(..., help="Project slug or folder"),
     port: int = typer.Option(8765, help="Port of the local page"),
     host: str = typer.Option("127.0.0.1", help="Address to listen on"),
+    translate: bool = typer.Option(True, help="Show Vietnamese translations (Gemini, needs GEMINI_API_KEY)"),
     verbose: bool = typer.Option(False, "--verbose", "-v"),
 ) -> None:
     """Open a local page to preview each scene's image and replace it with a pasted link."""
@@ -83,7 +84,7 @@ def review(
     p = Project.open(project)
     if not p.has("plan.csv"):
         raise typer.BadParameter("plan.csv not found: run `docugen run <slug> --until download` first")
-    server = serve(p, host, port)
+    server = serve(p, host, port, translate=translate)
     console.print(f"Review page: [bold]http://{host}:{port}/[/bold]  (Ctrl+C to stop)")
     try:
         server.serve_forever()

@@ -1,10 +1,13 @@
 """docugen review: a local web page to check the image of every scene.
 
 It reads plan.csv (written by the download stage) and shows, per scene, the cues,
-the narration, the group's keywords and the image. Pasting an image link into a
-row downloads it to manual/scene_007.jpg, records the link in manual/links.json,
-and updates images.json and plan.csv right away. timeline.json is removed because
-it no longer matches, so the next `docugen run` rebuilds it with the new images.
+the narration, the group's keywords and the image, with a Vietnamese translation
+of the narration and the group when GEMINI_API_KEY is set (translate.py).
+
+Pasting an image link into a row downloads it to manual/scene_007.jpg, records
+the link in manual/links.json, and updates images.json and plan.csv right away.
+timeline.json is removed because it no longer matches, so the next
+`docugen run` rebuilds it with the new images.
 """
 
 from __future__ import annotations
@@ -28,6 +31,7 @@ from .http import client
 from .models import GroupSearch, GroupSelection, Plan, SceneImage
 from .pipeline import stage_download
 from .project import Project
+from .translate import Translator
 
 log = logging.getLogger(__name__)
 
@@ -62,6 +66,7 @@ def scenes(p: Project) -> list[dict]:
             "text": r["Text"],
             "group": r["Group"],
             "subject": r["Subject"],
+            "context": r["Context"],
             "keywords": [k.strip() for k in r["Keywords"].split("|") if k.strip()],
             "image": r["Image file"] if not r["Image file"].startswith("(") else None,
             "source": r["Source"],
@@ -136,7 +141,18 @@ def clear_manual(p: Project, scene: int) -> None:
     p.path("timeline.json").unlink(missing_ok=True)
 
 
-def make_handler(p: Project) -> type[BaseHTTPRequestHandler]:
+def translations(p: Project, translator: Translator | None) -> dict:
+    """Vietnamese for every narration line, subject and context shown on the page."""
+    if translator is None:
+        return {"available": False, "reason": "đã tắt dịch (--no-translate)", "texts": {}}
+    if translator.unavailable:
+        return {"available": False, "reason": translator.unavailable, "texts": {}}
+    rows = scenes(p)
+    texts = [t for s in rows for t in (s["text"], s["subject"], s["context"])]
+    return {"available": True, "texts": translator.translate(texts)}
+
+
+def make_handler(p: Project, translator: Translator | None) -> type[BaseHTTPRequestHandler]:
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, fmt: str, *args) -> None:
             log.debug(fmt, *args)
@@ -161,6 +177,11 @@ def make_handler(p: Project) -> type[BaseHTTPRequestHandler]:
                     self._json({"error": "plan.csv not found: run the pipeline up to download first"}, 404)
                     return
                 self._json({"title": p.meta.title or p.slug, "slug": p.slug, "scenes": scenes(p)})
+            elif path == "/api/translate":
+                if not p.has("plan.csv"):
+                    self._json({"available": False, "reason": "plan.csv not found", "texts": {}})
+                    return
+                self._json(translations(p, translator))
             elif path.startswith("/files/"):
                 rel = path.removeprefix("/files/")
                 target = (p.root / rel).resolve()
@@ -195,5 +216,6 @@ def make_handler(p: Project) -> type[BaseHTTPRequestHandler]:
     return Handler
 
 
-def serve(p: Project, host: str, port: int) -> ThreadingHTTPServer:
-    return ThreadingHTTPServer((host, port), make_handler(p))
+def serve(p: Project, host: str, port: int, translate: bool = True) -> ThreadingHTTPServer:
+    translator = Translator(p, get_settings()) if translate else None
+    return ThreadingHTTPServer((host, port), make_handler(p, translator))

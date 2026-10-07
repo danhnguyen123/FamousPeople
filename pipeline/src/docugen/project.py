@@ -13,6 +13,7 @@ projects/<slug>/
                    writes these, with the pasted links in links.json)
   plan.csv         one row per scene, for review in a spreadsheet
   candidates.csv   every search result with Claude's verdict
+  translations.json  Vietnamese translations for docugen review (Gemini)
   timeline.json    stage timeline: Remotion props
   cache/           raw search API responses, reused on reruns
 """
