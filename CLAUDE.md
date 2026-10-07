@@ -7,6 +7,7 @@ SRT to documentary video tool. Input is an SRT plus its narration audio. The Pyt
 - Install: `cd pipeline && pip install -e .`
 - Remotion typecheck + lint: `cd video && npm run lint`
 - Run: `docugen new --srt x.srt --audio x.mp3 --lang de`, then `docugen run <slug>`
+- Review images and replace them with pasted links: `docugen review <slug>` (local page, reads `plan.csv`, writes `manual/`)
 - Render only: `cd video && npx remotion render Documentary out.mp4 --props=<timeline.json>`
 - In containers where Remotion cannot download Chrome, pass `--browser-executable` (or set `REMOTION_BROWSER_EXECUTABLE`).
 - There are no unit tests. Check changes with a dry run: a hand-written `plan.json` and the search APIs mocked through `docugen.http.set_client` with an `httpx.MockTransport`.

@@ -70,7 +70,7 @@ Claude chỉ đọc chữ, không xem ảnh và không nhận diện khuôn mặ
 
 Các cảnh được xử lý theo thứ tự.
 
-1. **Ảnh thủ công:** nếu có `manual/scene_007.jpg` (hoặc .png, .webp) thì cảnh 7 dùng ảnh đó.
+1. **Ảnh thủ công:** nếu có `manual/scene_007.jpg` (hoặc .png, .webp) thì cảnh 7 dùng ảnh đó. Cảnh này vẫn tính một lượt trong kho ảnh của nhóm, nên thay ảnh một cảnh không làm đổi ảnh của các cảnh khác.
 2. **Xoay vòng kho ảnh:** các cảnh của một nhóm lần lượt lấy ảnh trong kho của nhóm theo thứ tự Claude xếp hạng, hết kho thì quay lại ảnh đầu. Không lấy cùng một ảnh cho hai cảnh liền nhau khi kho còn ảnh khác.
 3. **Tải ảnh:** ảnh được tải với `Referer` là trang nguồn. Chỉ bỏ ảnh tải lỗi hoặc `content-type` không phải ảnh. Ảnh nhỏ và ảnh trùng vẫn được giữ. Ảnh lỗi rời khỏi kho và cảnh chuyển sang ảnh kế.
 4. **Nhóm không có ảnh nào:** lấy ảnh của nhóm nhân vật chính. Nếu vẫn không có thì giữ ảnh của cảnh trước.
@@ -78,6 +78,14 @@ Các cảnh được xử lý theo thứ tự.
 Bước này còn ghi 2 file để duyệt:
 - `plan.csv` (UTF-8 BOM, mở được bằng Excel): mỗi cảnh một dòng gồm cue, lời thoại, nhóm, chủ thể, keyword, file ảnh, nguồn, có dùng lại không, ghi chú của Claude, trang nguồn.
 - `candidates.csv`: toàn bộ kết quả tìm kiếm kèm quyết định của Claude.
+
+### Trang duyệt ảnh: `docugen review <slug>`
+
+Mở trang web local (mặc định http://127.0.0.1:8765/, đổi bằng `--port`) đọc `plan.csv`. Mỗi cảnh một dòng gồm: số cảnh, cue và thời điểm, lời thoại, 3 keyword của nhóm, ảnh preview cuối cùng, và ô dán link ảnh thủ công. Có ô tìm kiếm và bộ lọc (đã thay thủ công, thiếu ảnh, ảnh dùng lại).
+
+- **Dán link rồi bấm Lưu (hoặc Enter):** server tải ảnh về `manual/scene_NNN.jpg`, ghi link vào `manual/links.json`, cập nhật ngay `images.json` và `plan.csv`, rồi hiện ảnh bên cạnh ô nhập. Link phải trỏ trực tiếp tới file ảnh.
+- **Xóa:** bỏ ảnh thủ công, cảnh lấy lại ảnh của kho.
+- Mỗi lần đổi ảnh, `timeline.json` bị xóa vì không còn khớp. Chạy lại `docugen run <slug>` để dựng lại timeline và render với ảnh mới.
 
 ## 5. timeline và 6. render
 

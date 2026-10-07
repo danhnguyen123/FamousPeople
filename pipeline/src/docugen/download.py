@@ -4,7 +4,8 @@ Each group's accepted images, in Claude's order, form its pool. The scenes of a
 group take the pool's images in turn and start over when it is used up, never the
 same image twice in a row while the pool has another. Every image that downloads
 is kept, whatever its size; only failed downloads and non-images are dropped. A
-file in manual/ named scene_007.jpg (any image extension) replaces scene 7's image.
+file in manual/ named scene_007.jpg (any image extension) replaces scene 7's image
+(`docugen review` writes these from a link pasted in the browser).
 """
 
 from __future__ import annotations
@@ -107,19 +108,20 @@ def assign_images(
         return None
 
     for n, scene in enumerate(plan.scenes, start=1):
-        manual = manual_file(project, n)
-        if manual is not None:
-            out.append(SceneImage(scene=n, group=scene.group, file=str(manual.relative_to(project.root)),
-                                  manual=True))
-            prev = None
-            continue
-
         image_id, gid = next_image(scene.group), scene.group
         if image_id is None:  # nothing usable in this group: fall back to the main person
             for mg in main_groups:
                 image_id, gid = next_image(mg), mg
                 if image_id:
                     break
+        # A manual image still takes its turn in the pool, so replacing one scene
+        # leaves the images of the other scenes where they were.
+        manual = manual_file(project, n)
+        if manual is not None:
+            out.append(SceneImage(scene=n, group=scene.group, file=str(manual.relative_to(project.root)),
+                                  manual=True))
+            prev = None
+            continue
         if image_id is None:
             log.warning("scene %d (group %d): no image, holding the previous one", n, scene.group)
             out.append(SceneImage(scene=n, group=scene.group, file=None))

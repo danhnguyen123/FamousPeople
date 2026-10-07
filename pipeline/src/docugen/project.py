@@ -9,7 +9,8 @@ projects/<slug>/
   select.json      stage select: accepted and rejected results per group (Claude)
   images.json      stage download: the image shown in each scene
   assets/          downloaded images
-  manual/          put scene_007.jpg here to force an image for scene 7
+  manual/          put scene_007.jpg here to force an image for scene 7 (docugen review
+                   writes these, with the pasted links in links.json)
   plan.csv         one row per scene, for review in a spreadsheet
   candidates.csv   every search result with Claude's verdict
   timeline.json    stage timeline: Remotion props
