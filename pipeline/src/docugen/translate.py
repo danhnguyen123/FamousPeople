@@ -3,6 +3,10 @@
 Only `docugen review` uses this: it helps a Vietnamese editor read the narration
 and the groups. The pipeline itself never depends on it. Translations are cached
 in projects/<slug>/translations.json, so each text is sent once.
+
+Everything not cached yet goes in one request, so Gemini sees the whole script and
+keeps names consistent. If that request fails (a truncated or miscounted answer),
+the texts are sent again in chunks of CHUNK.
 """
 
 from __future__ import annotations
@@ -20,7 +24,7 @@ log = logging.getLogger(__name__)
 
 API = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 CACHE = "translations.json"
-CHUNK = 80  # strings per request
+CHUNK = 80  # strings per request when the single request fails
 _lock = threading.Lock()  # one translation run at a time per process
 
 
@@ -48,17 +52,24 @@ class Translator:
             cache = self._cache()
             missing = [t for t in dict.fromkeys(texts) if t and t not in cache]
             if missing and not self.unavailable:
-                log.info("translate: %d texts with %s", len(missing), self.settings.translate_model)
-                for i in range(0, len(missing), CHUNK):
-                    chunk = missing[i : i + CHUNK]
-                    try:
-                        cache.update(zip(chunk, self._request(chunk)))
-                    except Exception as exc:  # keep what is done, the next call retries the rest
-                        log.warning("translate: %d texts failed: %s", len(chunk), exc)
-                        break
-                    self.project.path(CACHE).write_text(
-                        json.dumps(cache, ensure_ascii=False, indent=1), encoding="utf-8")
+                log.info("translate: %d texts in one request with %s", len(missing), self.settings.translate_model)
+                try:
+                    cache.update(zip(missing, self._request(missing)))
+                    self._save(cache)
+                except Exception as exc:
+                    log.warning("translate: single request failed (%s), retrying in chunks of %d", exc, CHUNK)
+                    for i in range(0, len(missing), CHUNK):
+                        chunk = missing[i : i + CHUNK]
+                        try:
+                            cache.update(zip(chunk, self._request(chunk)))
+                        except Exception as exc:  # keep what is done, the next call retries the rest
+                            log.warning("translate: %d texts failed: %s", len(chunk), exc)
+                            break
+                        self._save(cache)
             return {t: cache[t] for t in texts if t in cache}
+
+    def _save(self, cache: dict[str, str]) -> None:
+        self.project.path(CACHE).write_text(json.dumps(cache, ensure_ascii=False, indent=1), encoding="utf-8")
 
     def _request(self, texts: list[str]) -> list[str]:
         data = request_json(
@@ -74,7 +85,7 @@ class Translator:
                     "responseSchema": {"type": "ARRAY", "items": {"type": "STRING"}},
                 },
             },
-            timeout=120,
+            timeout=600,  # the whole script in one answer can take a few minutes
         )
         parts = data["candidates"][0]["content"]["parts"]
         out = json.loads("".join(p.get("text", "") for p in parts))

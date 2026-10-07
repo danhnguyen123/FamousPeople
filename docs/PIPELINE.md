@@ -83,7 +83,7 @@ Bước này còn ghi 2 file để duyệt:
 
 Mở trang web local (mặc định http://127.0.0.1:8765/, đổi bằng `--port`) đọc `plan.csv`. Mỗi cảnh một dòng gồm: số cảnh, cue và thời điểm, lời thoại, 3 keyword của nhóm, ảnh preview cuối cùng, và ô dán link ảnh thủ công. Có ô tìm kiếm và bộ lọc (đã thay thủ công, thiếu ảnh, ảnh dùng lại).
 
-- **Bản dịch tiếng Việt:** khi có `GEMINI_API_KEY`, trang dịch lời thoại, chủ thể và bối cảnh của nhóm sang tiếng Việt bằng Gemini (model `DOCUGEN_TRANSLATE_MODEL`, mặc định `gemini-3.8-flash`, prompt `prompts/translator.md`) và hiện ngay dưới bản gốc. Mỗi câu chỉ dịch một lần, kết quả lưu trong `translations.json` của project. Không có key thì trang vẫn chạy, chỉ không có bản dịch. Tắt bằng `--no-translate`. Bản dịch chỉ để xem, pipeline không dùng.
+- **Bản dịch tiếng Việt:** khi có `GEMINI_API_KEY`, trang dịch lời thoại, chủ thể và bối cảnh của nhóm sang tiếng Việt bằng Gemini (model `DOCUGEN_TRANSLATE_MODEL`, mặc định `gemini-3.8-flash`, prompt `prompts/translator.md`) và hiện ở cột "Bản dịch tiếng Việt" cạnh lời thoại gốc. Cả kịch bản được gửi trong một request (lời thoại theo thứ tự, rồi đến các nhóm) để tên người được dịch thống nhất; nếu request đó lỗi hoặc câu trả lời bị thiếu, code tự gửi lại theo từng phần 80 câu. Mỗi câu chỉ dịch một lần, kết quả lưu trong `translations.json` của project. Không có key thì trang vẫn chạy, chỉ không có bản dịch. Tắt bằng `--no-translate`. Bản dịch chỉ để xem, pipeline không dùng.
 
 - **Dán link rồi bấm Lưu (hoặc Enter):** server tải ảnh về `manual/scene_NNN.jpg`, ghi link vào `manual/links.json`, cập nhật ngay `images.json` và `plan.csv`, rồi hiện ảnh bên cạnh ô nhập. Link phải trỏ trực tiếp tới file ảnh.
 - **Xóa:** bỏ ảnh thủ công, cảnh lấy lại ảnh của kho.

@@ -148,7 +148,8 @@ def translations(p: Project, translator: Translator | None) -> dict:
     if translator.unavailable:
         return {"available": False, "reason": translator.unavailable, "texts": {}}
     rows = scenes(p)
-    texts = [t for s in rows for t in (s["text"], s["subject"], s["context"])]
+    # The narration in order first, so the translation reads as one script, then the groups.
+    texts = [s["text"] for s in rows] + [t for s in rows for t in (s["subject"], s["context"])]
     return {"available": True, "texts": translator.translate(texts)}
 
 

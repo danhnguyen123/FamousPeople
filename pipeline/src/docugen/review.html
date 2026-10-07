@@ -46,13 +46,14 @@
   .idx { width: 92px; white-space: nowrap; }
   .idx b { font-size: 15px; }
   .idx div { color: var(--muted); font-size: 12px; }
-  .text { min-width: 200px; max-width: 360px; }
+  .text { min-width: 200px; max-width: 340px; }
+  .trans { min-width: 200px; max-width: 340px; color: var(--vi); }
+  .trans .subject { color: var(--vi); opacity: .85; }
+  .trans .pending { color: var(--muted); font-size: 12px; }
   .subject { color: var(--muted); font-size: 12px; margin-top: 4px; }
   .kw { width: 200px; }
   .kw span { display: block; width: fit-content; max-width: 100%; background: var(--chip); border-radius: 4px;
              padding: 2px 8px; margin: 0 0 6px; font-size: 12px; }
-  .vi { color: var(--vi); margin-top: 4px; border-left: 2px solid var(--vi); padding-left: 8px; }
-  .subject .vi-inline { color: var(--vi); }
   #tstatus { color: var(--muted); font-size: 12px; }
   .thumb { width: 200px; }
   .thumb img, .man img { display: block; width: 180px; height: 112px; object-fit: cover; border-radius: 6px;
@@ -100,7 +101,7 @@
   <div class="banner" id="banner" hidden></div>
   <table>
     <thead>
-      <tr><th>Cảnh / Cue</th><th>Lời thoại</th><th>Từ khóa</th><th>Ảnh preview</th><th>Ảnh thủ công (dán link)</th></tr>
+      <tr><th>Cảnh / Cue</th><th>Lời thoại</th><th>Bản dịch tiếng Việt</th><th>Từ khóa</th><th>Ảnh preview</th><th>Ảnh thủ công (dán link)</th></tr>
     </thead>
     <tbody id="rows"></tbody>
   </table>
@@ -109,6 +110,7 @@
 const $ = (s, el = document) => el.querySelector(s);
 let scenes = [];
 let vi = {};  // original text -> Vietnamese
+let translating = false;
 
 function fmtTime(t) {
   const m = Math.floor(t / 60), s = Math.floor(t % 60);
@@ -141,16 +143,17 @@ function manualCell(s) {
 
 function rowHtml(s) {
   return `<td class="idx"><b>#${s.scene}</b><div>cue ${esc(s.cues)}</div><div>${fmtTime(s.start)}</div></td>
-          <td class="text">${esc(s.text)}${vi[s.text] ? `<div class="vi">${esc(vi[s.text])}</div>` : ""}
-            <div class="subject">Nhóm ${esc(s.group)}: ${esc(s.subject)}${groupVi(s)}</div></td>
+          <td class="text">${esc(s.text)}<div class="subject">Nhóm ${esc(s.group)}: ${esc(s.subject)}</div></td>
+          <td class="trans">${transCell(s)}</td>
           <td class="kw">${s.keywords.map(k => `<span>${esc(k)}</span>`).join("")}</td>
           <td class="thumb">${previewCell(s)}</td>
           <td class="man">${manualCell(s)}</td>`;
 }
 
-function groupVi(s) {
-  const parts = [vi[s.subject], vi[s.context]].filter(Boolean);
-  return parts.length ? `<div class="vi-inline">${parts.map(esc).join(" · ")}</div>` : "";
+function transCell(s) {
+  if (!vi[s.text]) return `<span class="pending">${translating ? "Đang dịch…" : "Chưa có bản dịch"}</span>`;
+  const group = [vi[s.subject], vi[s.context]].filter(Boolean).map(esc).join(" · ");
+  return `${esc(vi[s.text])}${group ? `<div class="subject">Nhóm ${esc(s.group)}: ${group}</div>` : ""}`;
 }
 
 function visible(s) {
@@ -245,6 +248,8 @@ async function load() {
 
 async function loadTranslations() {
   $("#tstatus").textContent = "Đang dịch sang tiếng Việt…";
+  translating = true;
+  render();
   try {
     const r = await fetch("/api/translate");
     const data = await r.json();
@@ -253,11 +258,15 @@ async function loadTranslations() {
       return;
     }
     vi = data.texts;
+    translating = false;
     const missing = scenes.filter(s => !vi[s.text]).length;
     $("#tstatus").textContent = missing ? `Còn ${missing} câu chưa dịch được, tải lại trang để thử tiếp` : "";
     render();
   } catch (e) {
     $("#tstatus").textContent = "Lỗi khi dịch: " + e.message;
+  } finally {
+    translating = false;
+    render();
   }
 }
 
