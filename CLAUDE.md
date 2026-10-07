@@ -20,6 +20,6 @@ SRT to documentary video tool. Input is an SRT plus its narration audio. The Pyt
 - `video/src/schema.ts` and `pipeline/src/docugen/timeline.py` describe the same JSON. Change both together.
 - Identity is judged from metadata (name in the title or site name), by Claude in the select step. Never by face recognition.
 - Image search only through third-party APIs: DataForSEO (Google), SearchAPI.io (Google and Bing), Brave. Never write scrapers for Google, Bing, Pinterest or YouTube. Keep the per-project search cache (`projects/<slug>/cache/`) when changing a source.
-- No copyright filtering. The only hard filters are `DOCUGEN_BLOCKED_DOMAINS`, YouTube and TikTok video thumbnails, and failed downloads. Small and duplicate images are kept.
+- No copyright filtering. The only hard filters are `DOCUGEN_BLOCKED_DOMAINS`, YouTube and TikTok video thumbnails (also YouTube thumbnail file names such as `hqdefault.jpg` re-hosted on other sites), and failed downloads. Small and duplicate images are kept.
 - Narration scripts and prompts must not contain em dashes.
 - For Remotion work, use the skills in `.claude/skills/` (remotion-best-practices first).

@@ -9,6 +9,7 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import re
 import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -28,6 +29,15 @@ VIDEO_THUMB_DOMAINS = (
     "youtube.com", "youtu.be", "ytimg.com", "yt3.ggpht.com", "yt3.googleusercontent.com",
     "tiktok.com", "tiktokcdn.com", "tiktokcdn-us.com",
 )
+# YouTube thumbnail file names, also when another site re-hosts them ("1663797909_hqdefault.jpg")
+VIDEO_THUMB_FILE = re.compile(r"(maxresdefault|hqdefault|sddefault|mqdefault|hq720)(_live)?\.(jpe?g|webp|png)$", re.I)
+
+
+def is_video_thumbnail(h: ImageHit) -> bool:
+    domains = [d for d in (h.domain, domain_of(h.image_url)) if d]
+    if any(d == v or d.endswith("." + v) for d in domains for v in VIDEO_THUMB_DOMAINS):
+        return True
+    return bool(VIDEO_THUMB_FILE.search(urlparse(h.image_url).path.rsplit("/", 1)[-1]))
 
 
 def domain_of(url: str | None) -> str | None:
@@ -326,7 +336,9 @@ def merge(results: dict[str, list[ImageHit]], per_source: int, blocked: list[str
 
     def allowed(h: ImageHit) -> bool:
         domains = [d for d in (h.domain, domain_of(h.image_url)) if d]
-        return not any(d == b or d.endswith("." + b) for d in domains for b in (*blocked, *VIDEO_THUMB_DOMAINS))
+        if is_video_thumbnail(h):
+            return False
+        return not any(d == b or d.endswith("." + b) for d in domains for b in blocked)
 
     lists = [[h for h in hits if allowed(h)][:per_source] for hits in results.values()]
     for i in range(max((len(x) for x in lists), default=0)):
