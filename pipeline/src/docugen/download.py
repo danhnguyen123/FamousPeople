@@ -1,9 +1,10 @@
 """Stage download: give every scene an image from its group's accepted pool.
 
-Each scene takes the next unused image of its group, in Claude's order. When the
-pool is used up the group's images come back, never twice in a row and, when
-possible, not within DOCUGEN_REUSE_GAP seconds. A file in manual/ named
-scene_007.jpg (any image extension) replaces scene 7's image.
+Each group's accepted images, in Claude's order, form its pool. The scenes of a
+group take the pool's images in turn and start over when it is used up, never the
+same image twice in a row while the pool has another. Every image that downloads
+is kept, whatever its size; only failed downloads and non-images are dropped. A
+file in manual/ named scene_007.jpg (any image extension) replaces scene 7's image.
 """
 
 from __future__ import annotations
@@ -13,7 +14,6 @@ import io
 import logging
 from pathlib import Path
 
-import imagehash
 from PIL import Image
 
 from .config import Settings
@@ -24,7 +24,6 @@ from .project import Project
 log = logging.getLogger(__name__)
 
 MAX_LONG_SIDE = 2560
-DUPLICATE_DISTANCE = 6  # perceptual hash distance under which two images are "the same"
 IMAGE_EXTS = (".jpg", ".jpeg", ".png", ".webp")
 
 
@@ -44,10 +43,9 @@ class Downloader:
         self.settings = settings
         self.ok: dict[str, str] = {}  # image id -> file relative to the project
         self.bad: set[str] = set()
-        self.hashes: list[tuple[str, imagehash.ImageHash]] = []
 
     def get(self, h: ImageHit) -> str | None:
-        """Download once; None if it fails, is too small or duplicates another image."""
+        """Download once; None if it fails or is not an image."""
         if h.id in self.ok:
             return self.ok[h.id]
         if h.id in self.bad:
@@ -59,15 +57,6 @@ class Downloader:
             log.debug("download failed %s: %s", h.image_url, exc)
             self.bad.add(h.id)
             return None
-        if min(image.size) < self.settings.min_side:
-            log.debug("too small %s: %s", h.image_url, image.size)
-            self.bad.add(h.id)
-            return None
-        phash = imagehash.phash(image)
-        if any(phash - other < DUPLICATE_DISTANCE for _, other in self.hashes):
-            self.bad.add(h.id)  # same photo from another site, or a crop of one already used
-            return None
-        self.hashes.append((h.id, phash))
         self.ok[h.id] = str(target.relative_to(self.project.root))
         return self.ok[h.id]
 
@@ -80,46 +69,44 @@ class Downloader:
         if not content_type.startswith("image/"):
             raise ValueError(f"not an image ({content_type or 'no content-type'})")
         image = Image.open(io.BytesIO(response.content)).convert("RGB")
-        if min(image.size) >= self.settings.min_side:
-            image.thumbnail((MAX_LONG_SIDE, MAX_LONG_SIDE))
-            target.parent.mkdir(parents=True, exist_ok=True)
-            image.save(target, "JPEG", quality=90)
+        image.thumbnail((MAX_LONG_SIDE, MAX_LONG_SIDE))
+        target.parent.mkdir(parents=True, exist_ok=True)
+        image.save(target, "JPEG", quality=90)
         return image
 
 
 def assign_images(
     project: Project,
     plan: Plan,
-    cues: list[Cue],
     searches: dict[int, GroupSearch],
     selections: dict[int, GroupSelection],
     settings: Settings,
 ) -> list[SceneImage]:
-    start = {c.index: c.start for c in cues}
     hits = {gid: {h.id: h for h in s.hits} for gid, s in searches.items()}
     pools = {gid: [p.id for p in sel.accepted] for gid, sel in selections.items()}
+    cursor = {gid: 0 for gid in pools}
     main_groups = [g.group for g in plan.groups if g.subject == plan.main_subject]
     dl = Downloader(project, settings)
-    used: set[str] = set()
-    last_used: dict[str, float] = {}
+    shown: set[str] = set()
     out: list[SceneImage] = []
     prev: str | None = None
 
-    def fresh(gid: int) -> str | None:
-        for image_id in pools.get(gid, []):
-            if image_id not in used and dl.get(hits[gid][image_id]):
-                return image_id
+    def next_image(gid: int) -> str | None:
+        """The group's next image in turn; images that fail to download leave the pool."""
+        pool = pools.get(gid, [])
+        while pool:
+            k = cursor[gid] % len(pool)
+            image_id = pool[k]
+            if not dl.get(hits[gid][image_id]):
+                pool.pop(k)
+                continue
+            cursor[gid] = k + 1
+            if image_id == prev and len(pool) > 1:
+                continue
+            return image_id
         return None
 
-    def reuse(gid: int, now: float) -> str | None:
-        options = [i for i in pools.get(gid, []) if i in dl.ok and i != prev]
-        if not options:
-            return None
-        spaced = [i for i in options if now - last_used.get(i, -1e9) >= settings.reuse_gap]
-        return min(spaced or options, key=lambda i: last_used.get(i, -1e9))
-
     for n, scene in enumerate(plan.scenes, start=1):
-        now = start.get(scene.cues[0], 0.0)
         manual = manual_file(project, n)
         if manual is not None:
             out.append(SceneImage(scene=n, group=scene.group, file=str(manual.relative_to(project.root)),
@@ -127,12 +114,10 @@ def assign_images(
             prev = None
             continue
 
-        image_id, gid, reused = fresh(scene.group), scene.group, False
-        if image_id is None:
-            image_id, reused = reuse(scene.group, now), True
+        image_id, gid = next_image(scene.group), scene.group
         if image_id is None:  # nothing usable in this group: fall back to the main person
             for mg in main_groups:
-                image_id, gid = fresh(mg) or reuse(mg, now), mg
+                image_id, gid = next_image(mg), mg
                 if image_id:
                     break
         if image_id is None:
@@ -141,11 +126,11 @@ def assign_images(
             continue
 
         h = hits[gid][image_id]
-        used.add(image_id)
-        last_used[image_id] = now
+        reused = image_id in shown or gid != scene.group
+        shown.add(image_id)
         prev = image_id
         out.append(SceneImage(scene=n, group=scene.group, file=dl.ok[image_id], image_id=image_id,
-                              source=h.source, page_url=h.page_url, reused=reused or gid != scene.group))
+                              source=h.source, page_url=h.page_url, reused=reused))
     return out
 
 

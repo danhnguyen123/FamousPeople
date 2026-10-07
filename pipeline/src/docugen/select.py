@@ -12,21 +12,13 @@ from concurrent.futures import ThreadPoolExecutor
 
 from . import llm
 from .config import Settings
-from .models import Cue, Group, GroupSearch, GroupSelection, ImageHit, Plan, Reject, Verdict
+from .models import Group, GroupSearch, GroupSelection, ImageHit, Plan, Reject, Verdict
 from .search import Source, merge, search_queries
 
 log = logging.getLogger(__name__)
 
 
-def narration_by_group(plan: Plan, cues: list[Cue]) -> dict[int, list[str]]:
-    text = {c.index: c.text for c in cues}
-    out: dict[int, list[str]] = {g.group: [] for g in plan.groups}
-    for scene in plan.scenes:
-        out.setdefault(scene.group, []).append(" ".join(text.get(i, "") for i in scene.cues))
-    return out
-
-
-def _judge(jobs: dict[int, tuple[Group, str, list[str], list[ImageHit]]], settings: Settings) -> dict[int, Verdict]:
+def _judge(jobs: dict[int, tuple[Group, str, list[ImageHit]]], settings: Settings) -> dict[int, Verdict]:
     if not jobs:
         return {}
     if settings.select_batch:
@@ -62,14 +54,12 @@ def _apply(selection: GroupSelection, verdict: Verdict | None, hits: list[ImageH
 
 def select_all(
     plan: Plan,
-    cues: list[Cue],
     searches: dict[int, GroupSearch],
     sources: list[Source],
     settings: Settings,
     save_searches,
 ) -> dict[int, GroupSelection]:
     groups = {g.group: g for g in plan.groups}
-    lines = narration_by_group(plan, cues)
     selections = {gid: GroupSelection(group=gid) for gid in groups}
     judged: dict[int, set[str]] = {gid: set() for gid in groups}
     todo = list(groups)
@@ -77,10 +67,10 @@ def select_all(
     while todo:
         new_hits = {gid: [h for h in searches[gid].hits if h.id not in judged[gid]] for gid in todo}
         jobs = {
-            gid: (groups[gid], plan.main_subject, lines.get(gid, []), hits)
+            gid: (groups[gid], plan.main_subject, hits)
             for gid, hits in new_hits.items() if hits
         }
-        log.info("select: %d groups, %d candidates", len(jobs), sum(len(j[3]) for j in jobs.values()))
+        log.info("select: %d groups, %d candidates", len(jobs), sum(len(j[2]) for j in jobs.values()))
         verdicts = _judge(jobs, settings)
         for gid, hits in new_hits.items():
             if hits:

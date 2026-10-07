@@ -50,29 +50,29 @@ Keyword đầu của mỗi nhóm được tìm trên mọi nguồn trong `DOCUGE
 | `brave` | `GET https://api.search.brave.com/res/v1/images/search` | `count=200` (tối đa, không phân trang), `search_lang` theo ngôn ngữ, `safesearch=strict`. Gọi tuần tự, cách nhau `DOCUGEN_BRAVE_INTERVAL` giây (mặc định 1,1, vì gói miễn phí chỉ cho 1 lượt mỗi giây) |
 
 - **Gộp kết quả:** lấy tối đa `DOCUGEN_CANDIDATES_PER_SOURCE` (40) kết quả mỗi nguồn, xếp xen kẽ (Google 1, Bing 1, Brave 1, Google 2...), bỏ URL trùng và bỏ các site trong `DOCUGEN_BLOCKED_DOMAINS`.
-- **Kích thước ảnh:** DataForSEO không trả kích thước ảnh, Bing và Brave thì có.
 - **Cache:** mỗi phản hồi thô được cache ở `cache/<nguồn>/`. Task DataForSEO đang chờ được lưu vào file `.task`, nên chạy lại sau khi bị ngắt sẽ không gửi task lần nữa.
 
 ## 3. select
 
 Mỗi nhóm gọi Claude một lần (`DOCUGEN_SELECT_MODEL`, effort `medium`, 6 nhóm chạy song song). Prompt nằm ở `prompts/image_selector.md`.
 
-- **Claude nhận:** chủ thể và bối cảnh của nhóm, lời thoại của các cảnh trong nhóm, và danh sách ứng viên. Mỗi ứng viên gồm: id, nguồn, kích thước, site, tiêu đề, URL trang.
+- **Claude nhận:** chủ thể, bối cảnh và các keyword tìm kiếm của nhóm, và danh sách ứng viên. Mỗi ứng viên chỉ gồm: id, tiêu đề, tên site.
+- **Claude kiểm tra:** tiêu đề hoặc tên site có liên quan đến keyword tìm kiếm không. Có thì nhận và xếp hạng, không thì loại. Các ảnh được nhận là kho ảnh của nhóm.
 - **Claude trả về:**
   - `accepted` (tốt nhất trước), mỗi ảnh mức `subject_and_context` hoặc `subject_only`
   - `rejected` kèm lý do
 - **Nhóm thiếu ảnh:** nếu nhóm có ít hơn `DOCUGEN_MIN_POOL` (3) ảnh được chấp nhận, code tìm keyword kế tiếp trên cả 3 nguồn và chỉ gửi kết quả mới cho Claude. Lặp lại cho đến khi hết keyword.
 - **Batch:** `DOCUGEN_SELECT_BATCH=1` dùng Batches API, rẻ bằng một nửa nhưng phải chờ vài phút. Batch không có server-side fallback.
 
-Claude chỉ đọc chữ, không xem ảnh và không nhận diện khuôn mặt. Danh tính dựa vào tên trong tiêu đề hoặc URL.
+Claude chỉ đọc chữ, không xem ảnh và không nhận diện khuôn mặt. Danh tính dựa vào tên trong tiêu đề hoặc tên site.
 
 ## 4. download
 
 Các cảnh được xử lý theo thứ tự.
 
 1. **Ảnh thủ công:** nếu có `manual/scene_007.jpg` (hoặc .png, .webp) thì cảnh 7 dùng ảnh đó.
-2. **Ảnh mới:** lấy ảnh đầu tiên chưa dùng trong danh sách `accepted` của nhóm. Ảnh được tải với `Referer` là trang nguồn, `content-type` phải là ảnh, cạnh ngắn phải từ `DOCUGEN_MIN_SIDE` (600px) trở lên, và không được trùng perceptual hash với ảnh đã tải trong cả video. Ảnh lỗi thì chuyển sang ảnh kế.
-3. **Dùng lại:** khi nhóm hết ảnh mới, dùng lại ảnh của nhóm, không bao giờ trùng với cảnh ngay trước. Ưu tiên ảnh đã dùng cách đây ít nhất `DOCUGEN_REUSE_GAP` (30) giây.
+2. **Xoay vòng kho ảnh:** các cảnh của một nhóm lần lượt lấy ảnh trong kho của nhóm theo thứ tự Claude xếp hạng, hết kho thì quay lại ảnh đầu. Không lấy cùng một ảnh cho hai cảnh liền nhau khi kho còn ảnh khác.
+3. **Tải ảnh:** ảnh được tải với `Referer` là trang nguồn. Chỉ bỏ ảnh tải lỗi hoặc `content-type` không phải ảnh. Ảnh nhỏ và ảnh trùng vẫn được giữ. Ảnh lỗi rời khỏi kho và cảnh chuyển sang ảnh kế.
 4. **Nhóm không có ảnh nào:** lấy ảnh của nhóm nhân vật chính. Nếu vẫn không có thì giữ ảnh của cảnh trước.
 
 Bước này còn ghi 2 file để duyệt:

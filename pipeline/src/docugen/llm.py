@@ -76,29 +76,25 @@ def plan_srt(cues: list[Cue], language: str) -> Plan:
     return _ask(get_settings().model, "keyword_planner", user, Plan, effort="high", max_tokens=64000)
 
 
-def _selector_message(group: Group, main_subject: str, lines: list[str], hits: list[ImageHit]) -> str:
-    rows = []
-    for h in hits:
-        size = f"{h.width}x{h.height}" if h.width and h.height else "?"
-        page = (h.page_url or "")[:160]
-        rows.append(f"{h.id} | {h.source} | {size} | {h.domain or '?'} | {h.title[:160]} | {page}")
-    narration = "\n".join(f"- {line}" for line in lines)
+def _selector_message(group: Group, main_subject: str, hits: list[ImageHit]) -> str:
+    # Title and site name only: the check is whether they relate to the search keywords.
+    rows = [f"{h.id} | {h.title[:160]} | {h.domain or '?'}" for h in hits]
     return (
         f"Documentary about: {main_subject}\n"
         f"Group subject: {group.subject}\n"
-        f"Group context: {group.context}\n\n"
-        f"Narration shown over this group's images:\n{narration}\n\n"
-        f"Candidates (id | source | size | site | title | page URL):\n" + "\n".join(rows)
+        f"Group context: {group.context}\n"
+        f"Search keywords: {' ; '.join(group.keywords)}\n\n"
+        f"Candidates (id | title | site):\n" + "\n".join(rows)
     )
 
 
-def select_images(group: Group, main_subject: str, lines: list[str], hits: list[ImageHit]) -> Verdict:
-    user = _selector_message(group, main_subject, lines, hits)
+def select_images(group: Group, main_subject: str, hits: list[ImageHit]) -> Verdict:
+    user = _selector_message(group, main_subject, hits)
     return _ask(get_settings().select_model, "image_selector", user, Verdict, effort="medium",
                 max_tokens=16000)
 
 
-def select_images_batch(jobs: dict[int, tuple[Group, str, list[str], list[ImageHit]]]) -> dict[int, Verdict]:
+def select_images_batch(jobs: dict[int, tuple[Group, str, list[ImageHit]]]) -> dict[int, Verdict]:
     """Same as select_images for many groups through the Batches API (half price, a few minutes).
 
     Server-side fallbacks are not available on the Batches API, so a declined group

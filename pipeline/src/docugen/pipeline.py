@@ -105,7 +105,7 @@ def stage_search(p: Project, settings: Settings) -> None:
 def stage_select(p: Project, settings: Settings) -> None:
     searches = _load_searches(p)
     selections = select_all(
-        p.load("plan.json", Plan), p.cues(), searches, _sources(p, settings), settings,
+        p.load("plan.json", Plan), searches, _sources(p, settings), settings,
         save_searches=lambda: _save_searches(p, searches),
     )
     p.save("select.json", list(selections.values()))
@@ -115,7 +115,7 @@ def stage_download(p: Project, settings: Settings) -> None:
     plan, cues = p.load("plan.json", Plan), p.cues()
     searches = _load_searches(p)
     selections = {s.group: s for s in p.load("select.json", list[GroupSelection])}
-    images = assign_images(p, plan, cues, searches, selections, settings)
+    images = assign_images(p, plan, searches, selections, settings)
     p.save("images.json", images)
     write_reports(p, plan, cues, searches, selections, images)
     missing = sum(1 for i in images if i.file is None)

@@ -14,7 +14,6 @@ dependencies = [
   "typer>=0.12",
   "rich>=13",
   "pillow>=10",
-  "imagehash>=4.3",
   "python-dotenv>=1.0",
 ]
 

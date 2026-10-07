@@ -62,8 +62,6 @@ class Settings:
 
     # Images
     min_pool: int = field(default_factory=lambda: _env_int("DOCUGEN_MIN_POOL", 3))
-    min_side: int = field(default_factory=lambda: _env_int("DOCUGEN_MIN_SIDE", 600))
-    reuse_gap: float = field(default_factory=lambda: float(_env("DOCUGEN_REUSE_GAP", "30") or 30))
     user_agent: str = field(
         default_factory=lambda: _env(
             "DOCUGEN_USER_AGENT",
