@@ -54,6 +54,10 @@ def _ask(model: str, system: str, user: str, output: type[T], effort: str, max_t
         output_format=output,
     ) as stream:
         response = stream.get_final_message()
+    u = response.usage
+    log.info("%s: %d input tokens (%d from cache), %d output tokens", system,
+             u.input_tokens + (u.cache_read_input_tokens or 0) + (u.cache_creation_input_tokens or 0),
+             u.cache_read_input_tokens or 0, u.output_tokens)
     if response.stop_reason == "refusal":
         raise RuntimeError(f"Claude declined the request: {response.stop_details}")
     if response.stop_reason == "max_tokens":

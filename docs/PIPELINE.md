@@ -40,7 +40,7 @@ Code kiểm tra lại: mọi cue phải thuộc đúng một cảnh theo thứ t
 
 ## 2. search
 
-Keyword đầu của mỗi nhóm được tìm trên mọi nguồn trong `DOCUGEN_SEARCH`. Ảnh thumbnail YouTube (youtube.com, ytimg.com) luôn bị bỏ khi gộp kết quả:
+Keyword đầu của mỗi nhóm được tìm trên mọi nguồn trong `DOCUGEN_SEARCH`. Ảnh thumbnail YouTube (youtube.com, ytimg.com) và ảnh bìa video TikTok (tiktok.com, tiktokcdn.com) luôn bị bỏ khi gộp kết quả:
 
 | Nguồn | API | Tham số |
 |---|---|---|

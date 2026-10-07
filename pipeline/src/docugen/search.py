@@ -23,8 +23,11 @@ from .models import ImageHit
 log = logging.getLogger(__name__)
 
 
-# Video thumbnails (often with big text and a channel's branding) are never usable images
-VIDEO_THUMB_DOMAINS = ("youtube.com", "youtu.be", "ytimg.com", "yt3.ggpht.com", "yt3.googleusercontent.com")
+# Video thumbnails and covers (often with big text and a channel's branding) are never usable images
+VIDEO_THUMB_DOMAINS = (
+    "youtube.com", "youtu.be", "ytimg.com", "yt3.ggpht.com", "yt3.googleusercontent.com",
+    "tiktok.com", "tiktokcdn.com", "tiktokcdn-us.com",
+)
 
 
 def domain_of(url: str | None) -> str | None:
