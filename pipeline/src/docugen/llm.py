@@ -122,15 +122,20 @@ def select_images_batch(jobs: dict[int, tuple[Group, str, list[ImageHit]]]) -> d
     while _client().messages.batches.retrieve(batch.id).processing_status != "ended":
         time.sleep(20)
     out: dict[int, Verdict] = {}
+    tokens_in = tokens_out = 0
     for result in _client().messages.batches.results(batch.id):
         gid = int(result.custom_id.removeprefix("group-"))
         if result.result.type != "succeeded":
             log.warning("group %d: batch request %s", gid, result.result.type)
             continue
         message = result.result.message
+        u = message.usage
+        tokens_in += u.input_tokens + (u.cache_read_input_tokens or 0) + (u.cache_creation_input_tokens or 0)
+        tokens_out += u.output_tokens
         if message.stop_reason != "end_turn":
             log.warning("group %d: stopped with %s", gid, message.stop_reason)
             continue
         text = next((b.text for b in message.content if b.type == "text"), "")
         out[gid] = Verdict.model_validate_json(text)
+    log.info("image_selector batch: %d input tokens, %d output tokens (billed at half price)", tokens_in, tokens_out)
     return out
