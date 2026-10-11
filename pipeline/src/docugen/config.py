@@ -74,6 +74,12 @@ class Settings:
     )
     select_effort: str = field(default_factory=lambda: _env("DOCUGEN_SELECT_EFFORT", "medium"))
     select_batch: bool = field(default_factory=lambda: _env("DOCUGEN_SELECT_BATCH", "0") == "1")
+    # Who runs the select step: "claude" (default) or "openai" (DOCUGEN_OPENAI_MODEL, OPENAI_API_KEY)
+    select_provider: str = field(default_factory=lambda: (_env("DOCUGEN_SELECT_PROVIDER", "claude") or "claude").lower())
+    openai_api_key: str | None = field(
+        default_factory=lambda: _env("DOCUGEN_OPENAI_API_KEY", _env("OPENAI_API_KEY"))
+    )
+    openai_model: str = field(default_factory=lambda: _env("DOCUGEN_OPENAI_MODEL", "gpt-5.5"))
 
     # Image search: every listed source is queried for each group
     search: dict[str, str] = field(default_factory=lambda: _search(_env("DOCUGEN_SEARCH")))

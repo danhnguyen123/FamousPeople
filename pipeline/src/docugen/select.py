@@ -13,7 +13,7 @@ import math
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 
-from . import llm
+from . import llm, openai_llm
 from .config import Settings
 from .models import Group, GroupSearch, GroupSelection, ImageHit, Plan, Verdict
 from .search import Source, merge, search_queries
@@ -24,13 +24,16 @@ log = logging.getLogger(__name__)
 def _judge(jobs: dict[int, tuple[Group, str, list[ImageHit]]], settings: Settings) -> dict[int, Verdict]:
     if not jobs:
         return {}
+    if settings.select_provider not in ("claude", "openai"):
+        raise ValueError(f"DOCUGEN_SELECT_PROVIDER must be claude or openai, not {settings.select_provider!r}")
+    backend = openai_llm if settings.select_provider == "openai" else llm
     if settings.select_batch:
-        return llm.select_images_batch(jobs)
+        return backend.select_images_batch(jobs)
 
     def one(item: tuple[int, tuple]) -> tuple[int, Verdict | None]:
         gid, job = item
         try:
-            return gid, llm.select_images(*job)
+            return gid, backend.select_images(*job)
         except Exception as exc:
             log.warning("group %d: selection failed: %s", gid, exc)
             return gid, None

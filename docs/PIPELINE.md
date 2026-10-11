@@ -74,6 +74,7 @@ Mỗi nhóm gọi Claude một lần (`DOCUGEN_SELECT_MODEL`, effort `medium`, 6
 - **Effort:** `DOCUGEN_SELECT_EFFORT` (mặc định `medium`; `low` cho kết quả gần giống và ít token hơn một chút).
 - **Nhóm thiếu ảnh:** mỗi nhóm cần ít nhất `DOCUGEN_MIN_POOL` (3) ảnh được nhận, và ít nhất 1 ảnh cho mỗi `DOCUGEN_SCENES_PER_IMAGE` (2) cảnh của nhóm (nhóm 30 cảnh cần 15 ảnh). Nhóm chưa đủ thì code tìm keyword kế tiếp trên mọi công cụ trong `DOCUGEN_SEARCH` và chỉ gửi kết quả mới cho Claude. Lặp lại cho đến khi đủ hoặc hết keyword.
 - **Batch:** `DOCUGEN_SELECT_BATCH=1` dùng Batches API, rẻ bằng một nửa nhưng phải chờ vài phút. Batch không có server-side fallback.
+- **OpenAI thay cho Claude:** `DOCUGEN_SELECT_PROVIDER=openai` gửi cùng prompt, cùng tin nhắn và cùng schema `{"accepted": [...]}` tới OpenAI Chat Completions (structured outputs strict), model `DOCUGEN_OPENAI_MODEL` (mặc định `gpt-5.5`), key `OPENAI_API_KEY` (hoặc `DOCUGEN_OPENAI_API_KEY`), `reasoning_effort` lấy từ `DOCUGEN_SELECT_EFFORT`. Có `DOCUGEN_SELECT_BATCH=1` thì dùng Batch API của OpenAI (upload file JSONL, chờ batch xong, đọc file kết quả và file lỗi). Code ở `openai_llm.py`. Bước plan vẫn chỉ dùng Claude.
 
 Claude chỉ đọc chữ, không xem ảnh và không nhận diện khuôn mặt. Danh tính dựa vào tên trong tiêu đề hoặc tên site.
 
