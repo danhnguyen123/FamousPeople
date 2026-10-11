@@ -72,7 +72,7 @@ Mỗi nhóm gọi Claude một lần (`DOCUGEN_SELECT_MODEL`, effort `medium`, 6
 - **Ứng viên được đánh số** 1, 2, 3... trong tin nhắn (số ngắn tốn ít token hơn id).
 - **Claude chỉ trả về** `{"accepted": [1, 20, 7, ...]}`: số thứ tự của các ảnh được dùng, tốt nhất trước. Không có lý do, không có ghi chú; ảnh không có trong danh sách coi như bị loại. Khoảng 60 đến 80 token đầu ra mỗi nhóm.
 - **Effort:** `DOCUGEN_SELECT_EFFORT` (mặc định `medium`; `low` cho kết quả gần giống và ít token hơn một chút).
-- **Nhóm thiếu ảnh:** nếu nhóm có ít hơn `DOCUGEN_MIN_POOL` (3) ảnh được chấp nhận, code tìm keyword kế tiếp trên cả 3 nguồn và chỉ gửi kết quả mới cho Claude. Lặp lại cho đến khi hết keyword.
+- **Nhóm thiếu ảnh:** mỗi nhóm cần ít nhất `DOCUGEN_MIN_POOL` (3) ảnh được nhận, và ít nhất 1 ảnh cho mỗi `DOCUGEN_SCENES_PER_IMAGE` (2) cảnh của nhóm (nhóm 30 cảnh cần 15 ảnh). Nhóm chưa đủ thì code tìm keyword kế tiếp trên mọi công cụ trong `DOCUGEN_SEARCH` và chỉ gửi kết quả mới cho Claude. Lặp lại cho đến khi đủ hoặc hết keyword.
 - **Batch:** `DOCUGEN_SELECT_BATCH=1` dùng Batches API, rẻ bằng một nửa nhưng phải chờ vài phút. Batch không có server-side fallback.
 
 Claude chỉ đọc chữ, không xem ảnh và không nhận diện khuôn mặt. Danh tính dựa vào tên trong tiêu đề hoặc tên site.

@@ -101,6 +101,8 @@ class Settings:
 
     # Images
     min_pool: int = field(default_factory=lambda: _env_int("DOCUGEN_MIN_POOL", 3))
+    # A group wants one accepted image for this many of its scenes, or it searches its next keyword
+    scenes_per_image: float = field(default_factory=lambda: float(_env("DOCUGEN_SCENES_PER_IMAGE", "2") or 2))
     user_agent: str = field(
         default_factory=lambda: _env(
             "DOCUGEN_USER_AGENT",

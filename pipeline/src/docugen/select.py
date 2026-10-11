@@ -1,13 +1,16 @@
 """Stage select: Claude checks each group's search results from their metadata.
 
-Groups whose pool stays under DOCUGEN_MIN_POOL accepted images get their next
-keyword searched and only the new results are sent to Claude, until the
-keywords run out.
+A group needs at least DOCUGEN_MIN_POOL accepted images, and one for every
+DOCUGEN_SCENES_PER_IMAGE of its scenes, so a large group does not show the same
+few photos over and over. A group under that gets its next keyword searched and
+only the new results are sent to Claude, until the keywords run out.
 """
 
 from __future__ import annotations
 
 import logging
+import math
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 
 from . import llm
@@ -54,6 +57,8 @@ def select_all(
     save_searches,
 ) -> dict[int, GroupSelection]:
     groups = {g.group: g for g in plan.groups}
+    scenes = Counter(s.group for s in plan.scenes)
+    wanted = {gid: max(settings.min_pool, math.ceil(scenes[gid] / settings.scenes_per_image)) for gid in groups}
     selections = {gid: GroupSelection(group=gid) for gid in groups}
     judged: dict[int, set[str]] = {gid: set() for gid in groups}
     todo = list(groups)
@@ -71,17 +76,17 @@ def select_all(
                 _apply(selections[gid], verdicts.get(gid), hits)
                 judged[gid].update(h.id for h in hits)
 
-        # Small pools: search the next keyword of those groups, then judge only the new results.
+        # Pools too small for their group: search its next keyword, then judge only the new results.
         next_query: dict[int, str] = {}
         for gid in todo:
             done = searches[gid].queries
             remaining = [k for k in groups[gid].keywords if k not in done]
-            if len(selections[gid].accepted) < settings.min_pool and remaining:
+            if len(selections[gid].accepted) < wanted[gid] and remaining:
                 next_query[gid] = remaining[0]
         if not next_query:
             break
-        log.info("select: %d groups have fewer than %d images, searching their next keyword",
-                 len(next_query), settings.min_pool)
+        log.info("select: %d groups have too few images for their scenes, searching their next keyword",
+                 len(next_query))
         results = search_queries(sources, list(set(next_query.values())))
         for gid, query in next_query.items():
             s = searches[gid]
