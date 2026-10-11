@@ -107,6 +107,7 @@ def stage_select(p: Project, settings: Settings) -> None:
     selections = select_all(
         p.load("plan.json", Plan), searches, _sources(p, settings), settings,
         save_searches=lambda: _save_searches(p, searches),
+        cache_dir=p.path("cache") / "select",
     )
     p.save("select.json", list(selections.values()))
 
