@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import os
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -12,7 +13,17 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 
 load_dotenv(REPO_ROOT / ".env")
 
-SOURCES = ("dataforseo", "bing", "brave")  # also available: "google" (SearchAPI.io), "serper" (serper.dev)
+# Image search: which API provider serves each search engine (DOCUGEN_SEARCH, a JSON object).
+# Engines and their providers: google: dataforseo | searchapi | serper, bing: searchapi, brave: brave.
+DEFAULT_SEARCH = {"google": "dataforseo", "bing": "searchapi", "brave": "brave"}
+# The older comma-separated form names one source per entry: its engine and provider.
+LEGACY_SOURCES = {
+    "dataforseo": ("google", "dataforseo"),
+    "google": ("google", "searchapi"),
+    "serper": ("google", "serper"),
+    "bing": ("bing", "searchapi"),
+    "brave": ("brave", "brave"),
+}
 
 
 def _env(name: str, default: str | None = None) -> str | None:
@@ -23,6 +34,28 @@ def _env(name: str, default: str | None = None) -> str | None:
 def _env_list(name: str, default: str = "") -> list[str]:
     raw = _env(name, default) or ""
     return [item.strip().lower() for item in raw.split(",") if item.strip()]
+
+
+def _search(raw: str | None) -> dict[str, str]:
+    """DOCUGEN_SEARCH as {engine: provider}, in the order results are interleaved."""
+    if not raw:
+        return dict(DEFAULT_SEARCH)
+    raw = raw.strip()
+    if raw.startswith("{"):
+        try:
+            data = json.loads(raw)
+        except json.JSONDecodeError as exc:
+            raise ValueError(f"DOCUGEN_SEARCH is not valid JSON: {exc}") from None
+        if not isinstance(data, dict) or not all(isinstance(v, str) for v in data.values()):
+            raise ValueError('DOCUGEN_SEARCH must be a JSON object like {"google": "serper", "brave": "brave"}')
+        return {k.strip().lower(): v.strip().lower() for k, v in data.items()}
+    out: dict[str, str] = {}
+    for name in (item.strip().lower() for item in raw.split(",") if item.strip()):
+        if name not in LEGACY_SOURCES:
+            raise ValueError(f"Unknown source '{name}' in DOCUGEN_SEARCH (use a JSON object, see docs/PIPELINE.md)")
+        engine, provider = LEGACY_SOURCES[name]
+        out[engine] = provider
+    return out
 
 
 def _env_int(name: str, default: int) -> int:
@@ -43,7 +76,7 @@ class Settings:
     select_batch: bool = field(default_factory=lambda: _env("DOCUGEN_SELECT_BATCH", "0") == "1")
 
     # Image search: every listed source is queried for each group
-    sources: list[str] = field(default_factory=lambda: _env_list("DOCUGEN_SEARCH", ",".join(SOURCES)))
+    search: dict[str, str] = field(default_factory=lambda: _search(_env("DOCUGEN_SEARCH")))
     candidates_per_source: int = field(
         default_factory=lambda: _env_int("DOCUGEN_CANDIDATES_PER_SOURCE", 40)
     )

@@ -40,15 +40,25 @@ Code kiểm tra lại: mọi cue phải thuộc đúng một cảnh theo thứ t
 
 ## 2. search
 
-Keyword đầu của mỗi nhóm được tìm trên mọi nguồn trong `DOCUGEN_SEARCH`. Ảnh thumbnail YouTube (youtube.com, ytimg.com) và ảnh bìa video TikTok (tiktok.com, tiktokcdn.com) luôn bị bỏ, kể cả thumbnail YouTube được trang khác đăng lại với tên file gốc (`maxresdefault.jpg`, `hqdefault.jpg`, `sddefault.jpg`, `mqdefault.jpg`, `hq720.jpg`) khi gộp kết quả:
+Keyword đầu của mỗi nhóm được tìm trên mọi **công cụ tìm kiếm** (search engine) trong `DOCUGEN_SEARCH`. Biến này là một JSON object: khóa là công cụ tìm kiếm, giá trị là **nhà cung cấp API** (provider) dùng cho công cụ đó. Mỗi công cụ một nhà cung cấp; thứ tự trong object là thứ tự xen kẽ khi gộp kết quả.
 
-| Nguồn | API | Tham số |
-|---|---|---|
-| `dataforseo` | Google Images, `POST /v3/serp/google/images/task_post` rồi `GET task_get/advanced/{id}` | `language_code` và `location_code` theo `--lang` (en 2840, fr 2250, de 2276, it 2380, pl 2616, nl 2528, ja 2392), `depth=100`. Tất cả task gửi một lần, chờ khoảng 1 đến 5 phút. Đặt `DOCUGEN_DATAFORSEO_LIVE=1` để lấy kết quả ngay qua `live/advanced` |
-| `google` | SearchAPI.io, `engine=google_images` | `gl` và `hl` theo ngôn ngữ (jp/ja, de/de...), 100 kết quả mỗi lượt, $0,004 mỗi lượt. Không nằm trong mặc định, bật bằng `DOCUGEN_SEARCH`, ví dụ `google,bing,brave` khi chưa dùng được DataForSEO |
-| `serper` | serper.dev, `POST https://google.serper.dev/images` | `gl` và `hl` theo ngôn ngữ, `num=100`, key ở `SERPER_API_KEY` (header `X-API-KEY`). Trả kết quả ngay, khoảng $0,002 mỗi lượt. Không nằm trong mặc định, bật bằng `DOCUGEN_SEARCH`, ví dụ `serper,bing,brave` |
-| `bing` | SearchAPI.io, `engine=bing_images` | `market_code` theo ngôn ngữ (de-DE, fr-FR...), trang 1 |
-| `brave` | `GET https://api.search.brave.com/res/v1/images/search` | `count=200` (tối đa, không phân trang), `search_lang` theo ngôn ngữ, `safesearch=strict`. Gọi tuần tự, cách nhau `DOCUGEN_BRAVE_INTERVAL` giây (mặc định 1,1, vì gói miễn phí chỉ cho 1 lượt mỗi giây) |
+```
+DOCUGEN_SEARCH={"google": "dataforseo", "bing": "searchapi", "brave": "brave"}   # mặc định
+DOCUGEN_SEARCH={"google": "serper", "bing": "searchapi", "brave": "brave"}       # Google qua Serper
+DOCUGEN_SEARCH={"google": "serper", "brave": "brave"}                            # bỏ Bing
+```
+
+Kiểu cũ, liệt kê tên nguồn cách nhau bằng dấu phẩy (`serper,bing,brave`), vẫn được chấp nhận.
+
+| Công cụ tìm kiếm | Nhà cung cấp | Tên nguồn (`hit.source`, `cache/<tên>/`) | API | Tham số |
+|---|---|---|---|---|
+| `google` | `dataforseo` | `dataforseo` | `POST /v3/serp/google/images/task_post` rồi `GET task_get/advanced/{id}` | `language_code` và `location_code` theo `--lang` (en 2840, fr 2250, de 2276, it 2380, pl 2616, nl 2528, ja 2392), `depth=100`. Tất cả task gửi một lần, chờ khoảng 1 đến 5 phút. Đặt `DOCUGEN_DATAFORSEO_LIVE=1` để lấy kết quả ngay qua `live/advanced`. Khoảng $0,0006 mỗi lượt |
+| `google` | `searchapi` | `google` | SearchAPI.io, `engine=google_images` | `gl` và `hl` theo ngôn ngữ (jp/ja, de/de...), 100 kết quả mỗi lượt, khoảng $0,004 mỗi lượt |
+| `google` | `serper` | `serper` | `POST https://google.serper.dev/images` | `gl` và `hl` theo ngôn ngữ, `num=100`, key ở `SERPER_API_KEY` (header `X-API-KEY`). Trả kết quả ngay, khoảng $0,002 mỗi lượt |
+| `bing` | `searchapi` | `bing` | SearchAPI.io, `engine=bing_images` | `market_code` theo ngôn ngữ (de-DE, fr-FR...), trang 1, khoảng $0,004 mỗi lượt |
+| `brave` | `brave` | `brave` | `GET https://api.search.brave.com/res/v1/images/search` | `count=200` (tối đa, không phân trang), `search_lang` theo ngôn ngữ, `safesearch=strict`. Gọi tuần tự, cách nhau `DOCUGEN_BRAVE_INTERVAL` giây (mặc định 1,1, vì gói miễn phí chỉ cho 1 lượt mỗi giây) |
+
+Ảnh thumbnail YouTube (youtube.com, ytimg.com) và ảnh bìa video TikTok (tiktok.com, tiktokcdn.com) luôn bị bỏ khi gộp kết quả, kể cả thumbnail YouTube được trang khác đăng lại với tên file gốc (`maxresdefault.jpg`, `hqdefault.jpg`, `sddefault.jpg`, `mqdefault.jpg`, `hq720.jpg`).
 
 - **Gộp kết quả:** lấy tối đa `DOCUGEN_CANDIDATES_PER_SOURCE` (40) kết quả mỗi nguồn, xếp xen kẽ (Google 1, Bing 1, Brave 1, Google 2...), bỏ URL trùng và bỏ các site trong `DOCUGEN_BLOCKED_DOMAINS`.
 - **Cache:** mỗi phản hồi thô được cache ở `cache/<nguồn>/`. Task DataForSEO đang chờ được lưu vào file `.task`, nên chạy lại sau khi bị ngắt sẽ không gửi task lần nữa.

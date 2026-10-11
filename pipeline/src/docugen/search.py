@@ -327,28 +327,36 @@ class BraveImages(Source):
         return out
 
 
-SOURCE_CLASSES: dict[str, tuple[type[Source], tuple[str, ...]]] = {
-    "dataforseo": (DataForSEOImages, ("dataforseo_login", "dataforseo_password")),
-    "google": (GoogleImages, ("searchapi_api_key",)),
-    "serper": (SerperImages, ("serper_api_key",)),
-    "bing": (BingImages, ("searchapi_api_key",)),
-    "brave": (BraveImages, ("brave_api_key",)),
+# {search engine: {API provider: (source class, settings that hold its key)}}.
+# A source's name (hit.source, cache/<name>/) stays what it was before engines and
+# providers were split, so existing project caches keep working.
+PROVIDERS: dict[str, dict[str, tuple[type[Source], tuple[str, ...]]]] = {
+    "google": {
+        "dataforseo": (DataForSEOImages, ("dataforseo_login", "dataforseo_password")),
+        "searchapi": (GoogleImages, ("searchapi_api_key",)),
+        "serper": (SerperImages, ("serper_api_key",)),
+    },
+    "bing": {"searchapi": (BingImages, ("searchapi_api_key",))},
+    "brave": {"brave": (BraveImages, ("brave_api_key",))},
 }
 
 
 def build_sources(settings: Settings, lang: Language, cache_dir: Path) -> list[Source]:
     sources = []
-    for name in settings.sources:
-        if name not in SOURCE_CLASSES:
-            raise ValueError(f"Unknown source '{name}' in DOCUGEN_SEARCH (use {', '.join(SOURCE_CLASSES)})")
-        cls, keys = SOURCE_CLASSES[name]
+    for engine, provider in settings.search.items():
+        if engine not in PROVIDERS:
+            raise ValueError(f"Unknown search engine '{engine}' in DOCUGEN_SEARCH (use {', '.join(PROVIDERS)})")
+        if provider not in PROVIDERS[engine]:
+            raise ValueError(f"'{provider}' does not provide '{engine}' in DOCUGEN_SEARCH "
+                             f"(use {', '.join(PROVIDERS[engine])})")
+        cls, keys = PROVIDERS[engine][provider]
         if not all(getattr(settings, k) for k in keys):
             # Fine in a cloud environment whose API credentials add the key on the way out.
-            log.info("%s: %s not set, relying on the environment's API credentials",
-                     name, ", ".join(k.upper() for k in keys))
+            log.info("%s via %s: %s not set, relying on the environment's API credentials",
+                     engine, provider, ", ".join(k.upper() for k in keys))
         sources.append(cls(lang, settings, cache_dir))
     if not sources:
-        raise RuntimeError("DOCUGEN_SEARCH lists no image source")
+        raise RuntimeError("DOCUGEN_SEARCH lists no search engine")
     return sources
 
 
