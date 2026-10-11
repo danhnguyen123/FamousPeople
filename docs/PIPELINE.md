@@ -46,6 +46,7 @@ Keyword đầu của mỗi nhóm được tìm trên mọi nguồn trong `DOCUGE
 |---|---|---|
 | `dataforseo` | Google Images, `POST /v3/serp/google/images/task_post` rồi `GET task_get/advanced/{id}` | `language_code` và `location_code` theo `--lang` (en 2840, fr 2250, de 2276, it 2380, pl 2616, nl 2528, ja 2392), `depth=100`. Tất cả task gửi một lần, chờ khoảng 1 đến 5 phút. Đặt `DOCUGEN_DATAFORSEO_LIVE=1` để lấy kết quả ngay qua `live/advanced` |
 | `google` | SearchAPI.io, `engine=google_images` | `gl` và `hl` theo ngôn ngữ (jp/ja, de/de...), 100 kết quả mỗi lượt, $0,004 mỗi lượt. Không nằm trong mặc định, bật bằng `DOCUGEN_SEARCH`, ví dụ `google,bing,brave` khi chưa dùng được DataForSEO |
+| `serper` | serper.dev, `POST https://google.serper.dev/images` | `gl` và `hl` theo ngôn ngữ, `num=100`, key ở `SERPER_API_KEY` (header `X-API-KEY`). Trả kết quả ngay, khoảng $0,002 mỗi lượt. Không nằm trong mặc định, bật bằng `DOCUGEN_SEARCH`, ví dụ `serper,bing,brave` |
 | `bing` | SearchAPI.io, `engine=bing_images` | `market_code` theo ngôn ngữ (de-DE, fr-FR...), trang 1 |
 | `brave` | `GET https://api.search.brave.com/res/v1/images/search` | `count=200` (tối đa, không phân trang), `search_lang` theo ngôn ngữ, `safesearch=strict`. Gọi tuần tự, cách nhau `DOCUGEN_BRAVE_INTERVAL` giây (mặc định 1,1, vì gói miễn phí chỉ cho 1 lượt mỗi giây) |
 
@@ -104,6 +105,7 @@ Biến môi trường của môi trường cloud hiển thị với mọi ngư�
 | DataForSEO | `api.dataforseo.com` | `Authorization` | `Basic` | base64 của `login:api_password` |
 | SearchAPI | `www.searchapi.io` | `Authorization` | `Bearer` | API key |
 | Brave | `api.search.brave.com` | `X-Subscription-Token` | (để trống) | API key |
+| Serper | `google.serper.dev` | `X-API-KEY` | (để trống) | API key |
 
 `api.anthropic.com` không bao giờ nhận API credentials, và biến `ANTHROPIC_API_KEY` được dành cho chính Claude Code. Để chạy bước plan và select trong phiên cloud, đặt key Claude vào `DOCUGEN_ANTHROPIC_API_KEY` (lưu ý key này sẽ hiển thị với người dùng môi trường), hoặc chạy hai bước đó trên máy của bạn.
 
@@ -129,7 +131,7 @@ Keyword dự phòng chỉ tốn thêm khi một nhóm thiếu ảnh. Chạy lạ
 | **DataForSEO** (đang dùng) | Google Images | $0,0006 queue, $0,002 live | Rẻ nhất. Bất đồng bộ. Không có kích thước ảnh. Toán tử `site:` làm giá nhân 5. Có cả Google Lens (`search_by_image`, chỉ chạy queue) |
 | **SearchAPI.io** (đang dùng) | Bing Images | $0,004 (gói $40/tháng) | JSON có kích thước ảnh, có bộ lọc `size`, `min_size` |
 | **Brave** (đang dùng) | Chỉ mục riêng | $0,005, tặng $5/tháng | 200 kết quả một lượt, không phân trang. Gói thường không cho quyền lưu kết quả lâu dài |
-| Serper | Google Images | khoảng $0,002 (2 credit) | Trả kết quả ngay, tặng 2.500 credit |
+| **Serper** (đang dùng, nguồn `serper`) | Google Images | khoảng $0,002 (2 credit) | Trả kết quả ngay, tặng 2.500 credit |
 | SerpApi | Google Images | $0,015 đến $0,025 | Đắt nhất, lượt đọc cache không tính phí |
 | Bright Data | Bing, Google | khoảng $0,0015 | Trả theo lượt dùng, cấu hình kiểu proxy |
 | Gemini (grounding) | Google Search | | Không trả danh sách ảnh, không hợp để tìm ảnh |

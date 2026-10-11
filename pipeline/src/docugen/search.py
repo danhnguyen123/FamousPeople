@@ -256,6 +256,35 @@ class GoogleImages(BingImages):
         })
 
 
+class SerperImages(Source):
+    """Google Images through serper.dev: results come back at once, up to 100 per call."""
+
+    name = "serper"
+    API = "https://google.serper.dev/images"
+
+    def params_key(self) -> dict:
+        return {"gl": self._country(), "hl": self.lang.code, "num": 100}
+
+    def _country(self) -> str:
+        return self.lang.bing_market.split("-")[-1].lower()
+
+    def fetch(self, query: str) -> Any:
+        key = self.settings.serper_api_key
+        headers = {"X-API-KEY": key} if key else None
+        return request_json("POST", self.API, headers=headers, json={
+            "q": query, "gl": self._country(), "hl": self.lang.code, "num": 100,
+        })
+
+    def parse(self, query: str, raw: Any) -> list[ImageHit]:
+        out = []
+        for rank, r in enumerate(raw.get("images") or [], start=1):
+            if not r.get("imageUrl"):
+                continue
+            out.append(hit(self.name, query, rank, r["imageUrl"], r.get("link"), r.get("title"),
+                           r.get("imageWidth"), r.get("imageHeight")))
+        return out
+
+
 class BraveImages(Source):
     """Brave Image Search: its own index, up to 200 results per call."""
 
@@ -301,6 +330,7 @@ class BraveImages(Source):
 SOURCE_CLASSES: dict[str, tuple[type[Source], tuple[str, ...]]] = {
     "dataforseo": (DataForSEOImages, ("dataforseo_login", "dataforseo_password")),
     "google": (GoogleImages, ("searchapi_api_key",)),
+    "serper": (SerperImages, ("serper_api_key",)),
     "bing": (BingImages, ("searchapi_api_key",)),
     "brave": (BraveImages, ("brave_api_key",)),
 }

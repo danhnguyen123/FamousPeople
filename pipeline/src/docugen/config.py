@@ -12,7 +12,7 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 
 load_dotenv(REPO_ROOT / ".env")
 
-SOURCES = ("dataforseo", "bing", "brave")  # also available: "google" (SearchAPI.io)
+SOURCES = ("dataforseo", "bing", "brave")  # also available: "google" (SearchAPI.io), "serper" (serper.dev)
 
 
 def _env(name: str, default: str | None = None) -> str | None:
@@ -54,6 +54,7 @@ class Settings:
         default_factory=lambda: int(v) if (v := _env("DATAFORSEO_LOCATION_CODE")) else None
     )
     searchapi_api_key: str | None = field(default_factory=lambda: _env("SEARCHAPI_API_KEY"))
+    serper_api_key: str | None = field(default_factory=lambda: _env("SERPER_API_KEY"))
     brave_api_key: str | None = field(default_factory=lambda: _env("BRAVE_API_KEY"))
     brave_safesearch: str = field(default_factory=lambda: _env("DOCUGEN_BRAVE_SAFESEARCH", "strict"))
     brave_country: str | None = field(default_factory=lambda: _env("DOCUGEN_BRAVE_COUNTRY"))
