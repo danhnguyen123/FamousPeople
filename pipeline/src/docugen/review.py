@@ -8,6 +8,11 @@ Pasting an image link into a row downloads it to manual/scene_007.jpg, records
 the link in manual/links.json, and updates images.json and plan.csv right away.
 timeline.json is removed because it no longer matches, so the next
 `docugen run` rebuilds it with the new images.
+
+audit.json, when present, marks scenes whose image needs a look (written by a
+person or by Claude Code after viewing the images): {"scenes": {"186": {"issue":
+"placeholder", "note": "ORICON NEWS logo"}}}. Issues: placeholder, screenshot,
+text, poster, watermark, unrelated. The page shows them as badges and filters.
 """
 
 from __future__ import annotations
@@ -37,6 +42,7 @@ log = logging.getLogger(__name__)
 
 PAGE = Path(__file__).parent / "review.html"
 LINKS = "manual/links.json"
+AUDIT = "audit.json"
 SERVED_DIRS = ("assets", "manual")
 MAX_BYTES = 30 * 1024 * 1024
 _write_lock = threading.Lock()  # one change to images.json / plan.csv at a time
@@ -53,9 +59,21 @@ def _save_links(p: Project, links: dict[str, str]) -> None:
     path.write_text(json.dumps(links, ensure_ascii=False, indent=1, sort_keys=True), encoding="utf-8")
 
 
+def _audit(p: Project) -> dict[str, dict]:
+    path = p.path(AUDIT)
+    if not path.exists():
+        return {}
+    try:
+        return {str(k): v for k, v in json.loads(path.read_text(encoding="utf-8")).get("scenes", {}).items()}
+    except (ValueError, AttributeError) as exc:
+        log.warning("%s is not valid: %s", AUDIT, exc)
+        return {}
+
+
 def scenes(p: Project) -> list[dict]:
-    """plan.csv rows, plus the manual link of each scene."""
+    """plan.csv rows, plus the manual link and the audit note of each scene."""
     links = _links(p)
+    audit = _audit(p)
     with p.path("plan.csv").open(encoding="utf-8-sig", newline="") as f:
         rows = list(csv.DictReader(f))
     return [
@@ -74,6 +92,7 @@ def scenes(p: Project) -> list[dict]:
             "note": r["Note"],
             "page_url": r["Page URL"],
             "manual_url": links.get(r["Scene"]),
+            "audit": audit.get(r["Scene"]),
         }
         for r in rows
     ]

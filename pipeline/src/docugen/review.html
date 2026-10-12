@@ -64,6 +64,8 @@
   .badge { display: inline-block; font-size: 11px; padding: 0 6px; border-radius: 4px; margin-right: 4px; }
   .badge.manual { background: var(--accent); color: var(--accent-text); }
   .badge.reused { background: var(--warn-bg); color: var(--warn); }
+  .badge.audit { background: var(--err); color: var(--panel); }
+  .audit-note { color: var(--err); font-size: 12px; margin-top: 4px; }
   .man { min-width: 380px; }
   .man .row { display: flex; gap: 6px; }
   .man .row input { flex: 1; }
@@ -94,6 +96,13 @@
       <option value="manual">Đã thay thủ công</option>
       <option value="missing">Thiếu ảnh</option>
       <option value="reused">Ảnh dùng lại</option>
+      <option value="audit">Cần xem (audit)</option>
+      <option value="audit:placeholder">Audit: ảnh giữ chỗ, ảnh lỗi</option>
+      <option value="audit:screenshot">Audit: chụp màn hình, thumbnail video</option>
+      <option value="audit:text">Audit: ảnh chữ, đồ họa</option>
+      <option value="audit:poster">Audit: poster, bìa DVD, sách</option>
+      <option value="audit:watermark">Audit: có watermark</option>
+      <option value="audit:unrelated">Audit: không liên quan</option>
     </select>
   </div>
 </header>
@@ -117,15 +126,21 @@ function fmtTime(t) {
   return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
 }
 function fileUrl(path) { return path ? `/files/${encodeURI(path)}?v=${Date.now()}` : null; }
+const ISSUES = {
+  placeholder: "ảnh giữ chỗ", screenshot: "chụp màn hình", text: "ảnh chữ", poster: "poster/bìa",
+  watermark: "watermark", unrelated: "không liên quan",
+};
 function esc(s) { const d = document.createElement("div"); d.textContent = s ?? ""; return d.innerHTML; }
 
 function previewCell(s) {
   if (!s.image) return `<div class="empty">Không có ảnh<br>(giữ ảnh cảnh trước)</div>`;
   const badges = (s.note === "manual" ? `<span class="badge manual">thủ công</span>` : "")
-               + (s.reused ? `<span class="badge reused">dùng lại</span>` : "");
+               + (s.reused ? `<span class="badge reused">dùng lại</span>` : "")
+               + (s.audit ? `<span class="badge audit">${esc(ISSUES[s.audit.issue] || s.audit.issue)}</span>` : "");
   const url = fileUrl(s.image);
   return `<a href="${url}" target="_blank" rel="noopener"><img loading="lazy" src="${url}" alt=""></a>
-          <div class="meta">${badges}${esc(s.source || "")}</div>`;
+          <div class="meta">${badges}${esc(s.source || "")}</div>
+          ${s.audit && s.audit.note ? `<div class="audit-note">${esc(s.audit.note)}</div>` : ""}`;
 }
 
 function manualCell(s) {
@@ -162,6 +177,8 @@ function visible(s) {
   if (f === "manual" && !s.manual_url) return false;
   if (f === "missing" && s.image) return false;
   if (f === "reused" && !s.reused) return false;
+  if (f === "audit" && !s.audit) return false;
+  if (f.startsWith("audit:") && (!s.audit || s.audit.issue !== f.slice(6))) return false;
   if (!q) return true;
   return [s.text, ...s.keywords, s.subject, vi[s.text], vi[s.subject], vi[s.context]]
     .join(" ").toLowerCase().includes(q);
@@ -183,7 +200,9 @@ function render() {
 function updateStats() {
   const manual = scenes.filter(s => s.manual_url).length;
   const missing = scenes.filter(s => !s.image).length;
-  $("#stats").textContent = `${scenes.length} cảnh · ${manual} thay thủ công · ${missing} thiếu ảnh`;
+  const audit = scenes.filter(s => s.audit && !s.manual_url).length;
+  $("#stats").textContent = `${scenes.length} cảnh · ${manual} thay thủ công · ${missing} thiếu ảnh`
+    + (audit ? ` · ${audit} cần xem` : "");
 }
 
 async function submit(tr, url) {

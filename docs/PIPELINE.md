@@ -100,6 +100,7 @@ Mở trang web local (mặc định http://127.0.0.1:8765/, đổi bằng `--por
 
 - **Dán link rồi bấm Lưu (hoặc Enter):** server tải ảnh về `manual/scene_NNN.jpg`, ghi link vào `manual/links.json`, cập nhật ngay `images.json` và `plan.csv`, rồi hiện ảnh bên cạnh ô nhập. Link phải trỏ trực tiếp tới file ảnh.
 - **Xóa:** bỏ ảnh thủ công, cảnh lấy lại ảnh của kho.
+- **Audit:** nếu project có `audit.json` (`{"scenes": {"186": {"issue": "placeholder", "note": "logo ORICON NEWS"}}}`), trang hiện badge đỏ và ghi chú dưới ảnh, có bộ lọc "Cần xem (audit)" và lọc theo loại: `placeholder` (ảnh giữ chỗ, ảnh lỗi), `screenshot` (chụp màn hình, thumbnail video), `text` (ảnh chữ, đồ họa), `poster` (poster, bìa DVD, sách), `watermark`, `unrelated` (không liên quan). File này do người duyệt hoặc Claude Code viết sau khi xem contact sheet; pipeline không đọc nó.
 - Mỗi lần đổi ảnh, `timeline.json` bị xóa vì không còn khớp. Chạy lại `docugen run <slug>` để dựng lại timeline và render với ảnh mới.
 
 ## 5. timeline và 6. render
