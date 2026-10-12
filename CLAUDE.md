@@ -16,7 +16,7 @@ SRT to documentary video tool. Input is an SRT plus its narration audio. The Pyt
 
 - Prompts live in `pipeline/src/docugen/prompts/` (`keyword_planner.md` for the plan, `image_selector.md` for the select step). To change how scenes, groups, keywords or image checks work, edit the prompt, not the code.
 - Claude calls live in `pipeline/src/docugen/llm.py`: structured outputs, streaming, `fallbacks: "default"` with beta `server-side-fallback-2026-07-01`. Model from `DOCUGEN_MODEL` / `DOCUGEN_SELECT_MODEL`, default `claude-opus-5-5`.
-- The select step can run on OpenAI instead (`DOCUGEN_SELECT_PROVIDER=openai`, `openai_llm.py`, model from `DOCUGEN_OPENAI_MODEL`, default `gpt-5.5`), with the same prompt and Verdict schema. The plan step is Claude only.
+- The select step can run on OpenAI instead (`DOCUGEN_SELECT_PROVIDER=openai`, `openai_llm.py`, model from `DOCUGEN_OPENAI_MODEL`, default `gpt-6.1-sol`), with the same prompt and Verdict schema. The plan step is Claude only.
 - Gemini is used only for the review page's Vietnamese translations (`translate.py`, prompt `translator.md`, model from `DOCUGEN_TRANSLATE_MODEL`). The pipeline never depends on it.
 - `video/src/schema.ts` and `pipeline/src/docugen/timeline.py` describe the same JSON. Change both together.
 - Identity is judged from metadata (name in the title or site name), by Claude in the select step. Never by face recognition.

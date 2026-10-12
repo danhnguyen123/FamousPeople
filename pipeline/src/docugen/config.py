@@ -79,7 +79,7 @@ class Settings:
     openai_api_key: str | None = field(
         default_factory=lambda: _env("DOCUGEN_OPENAI_API_KEY", _env("OPENAI_API_KEY"))
     )
-    openai_model: str = field(default_factory=lambda: _env("DOCUGEN_OPENAI_MODEL", "gpt-5.5"))
+    openai_model: str = field(default_factory=lambda: _env("DOCUGEN_OPENAI_MODEL", "gpt-6.1-sol"))
 
     # Image search: every listed source is queried for each group
     search: dict[str, str] = field(default_factory=lambda: _search(_env("DOCUGEN_SEARCH")))
