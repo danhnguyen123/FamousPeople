@@ -86,6 +86,8 @@ def scenes(p: Project) -> list[dict]:
             "subject": r["Subject"],
             "context": r["Context"],
             "keywords": [k.strip() for k in r["Keywords"].split("|") if k.strip()],
+            "searched": [k.strip() for k in (r.get("Searched") or "").split("|") if k.strip()],
+            "query": r.get("Query") or "",
             "image": r["Image file"] if not r["Image file"].startswith("(") else None,
             "source": r["Source"],
             "reused": r["Reused"] == "yes",

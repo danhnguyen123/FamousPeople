@@ -147,11 +147,20 @@ def write_reports(
     """plan.csv (one row per scene) and candidates.csv (every result with Claude's verdict)."""
     groups = {g.group: g for g in plan.groups}
     cue = {c.index: c for c in cues}
+    # The query that found each image: in the scene's own group first, since the same image can turn
+    # up in several groups' results; otherwise the group it was borrowed from (the main person's).
+    group_query = {gid: {h.id: h.query for h in s.hits} for gid, s in searches.items()}
+
+    def query_of(gid: int, image_id: str | None) -> str:
+        if not image_id:
+            return ""
+        own = group_query.get(gid, {}).get(image_id)
+        return own or next((q[image_id] for q in group_query.values() if image_id in q), "")
 
     with project.path("plan.csv").open("w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
         w.writerow(["Scene", "Start", "Cues", "Text", "Group", "Subject", "Context", "Keywords",
-                    "Image file", "Source", "Reused", "Note", "Page URL"])
+                    "Image file", "Source", "Reused", "Note", "Page URL", "Searched", "Query"])
         for scene, img in zip(plan.scenes, images):
             g = groups[scene.group]
             w.writerow([
@@ -160,6 +169,8 @@ def write_reports(
                 " | ".join(g.keywords), img.file or "(hold previous)", img.source or "",
                 "yes" if img.reused else "", "manual" if img.manual else "",
                 img.page_url or "",
+                " | ".join(searches[g.group].queries) if g.group in searches else "",
+                query_of(g.group, img.image_id),
             ])
 
     with project.path("candidates.csv").open("w", newline="", encoding="utf-8-sig") as f:

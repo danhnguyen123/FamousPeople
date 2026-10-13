@@ -89,7 +89,7 @@ Các cảnh được xử lý theo thứ tự.
 4. **Nhóm không có ảnh nào:** lấy ảnh của nhóm nhân vật chính. Nếu vẫn không có thì giữ ảnh của cảnh trước.
 
 Bước này còn ghi 2 file để duyệt:
-- `plan.csv` (UTF-8 BOM, mở được bằng Excel): mỗi cảnh một dòng gồm cue, lời thoại, nhóm, chủ thể, keyword, file ảnh, nguồn, có dùng lại không, ghi chú của Claude, trang nguồn.
+- `plan.csv` (UTF-8 BOM, mở được bằng Excel): mỗi cảnh một dòng gồm cue, lời thoại, nhóm, chủ thể, keyword trong plan, file ảnh, nguồn, có dùng lại không, ghi chú, trang nguồn, `Searched` (các keyword đã thật sự tìm cho nhóm) và `Query` (keyword tìm ra ảnh của cảnh). Trang review đánh dấu keyword tìm ra ảnh bằng ✓ và keyword chưa tìm bằng viền đứt.
 - `candidates.csv`: toàn bộ kết quả tìm kiếm kèm quyết định của Claude.
 
 ### Trang duyệt ảnh: `docugen review <slug>`
