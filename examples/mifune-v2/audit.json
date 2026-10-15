@@ -1,0 +1,601 @@
+{
+ "note": "Claude Code xem contact sheet ngày 2026-10-12",
+ "scenes": {
+  "1": {
+   "issue": "unrelated",
+   "note": "ảnh stock cái búa tòa án"
+  },
+  "5": {
+   "issue": "unrelated",
+   "note": "ảnh stock cái búa tòa án"
+  },
+  "9": {
+   "issue": "text",
+   "note": "trang báo 死去, chữ to"
+  },
+  "13": {
+   "issue": "unrelated",
+   "note": "bìa tạp chí TV, không liên quan"
+  },
+  "16": {
+   "issue": "unrelated",
+   "note": "phụ nữ hiện đại, không khớp cảnh 三船 năm 1993"
+  },
+  "17": {
+   "issue": "text",
+   "note": "trang báo 死去, chữ to"
+  },
+  "20": {
+   "issue": "unrelated",
+   "note": "phụ nữ hiện đại, không khớp cảnh"
+  },
+  "23": {
+   "issue": "unrelated",
+   "note": "ảnh stock hai người già trong công viên"
+  },
+  "29": {
+   "issue": "unrelated",
+   "note": "đồ họa màn sân khấu tím, không phải 東宝"
+  },
+  "32": {
+   "issue": "unrelated",
+   "note": "đồ họa màn sân khấu tím, không phải 東宝"
+  },
+  "40": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "41": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "43": {
+   "issue": "text",
+   "note": "sơ đồ gia phả"
+  },
+  "45": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "46": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "48": {
+   "issue": "unrelated",
+   "note": "đồ họa màn sân khấu tím, không phải 東宝"
+  },
+  "53": {
+   "issue": "unrelated",
+   "note": "đồ họa màn sân khấu tím, không phải 東宝"
+  },
+  "61": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "76": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "94": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "96": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "99": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "107": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "118": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "122": {
+   "issue": "screenshot",
+   "note": "chụp màn hình máy tính, có thanh taskbar"
+  },
+  "123": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "124": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "125": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "126": {
+   "issue": "screenshot",
+   "note": "chụp màn hình máy tính, có thanh taskbar"
+  },
+  "127": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "131": {
+   "issue": "screenshot",
+   "note": "chụp màn hình TV có chữ ABEMA"
+  },
+  "134": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "135": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "146": {
+   "issue": "text",
+   "note": "chữ 赤ひげ"
+  },
+  "149": {
+   "issue": "unrelated",
+   "note": "ảnh đời thường không liên quan"
+  },
+  "152": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "155": {
+   "issue": "unrelated",
+   "note": "ảnh stock trăng và cỏ"
+  },
+  "159": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "160": {
+   "issue": "text",
+   "note": "chữ 赤ひげ"
+  },
+  "170": {
+   "issue": "text",
+   "note": "quảng cáo bia có chữ to"
+  },
+  "172": {
+   "issue": "text",
+   "note": "quảng cáo bia có chữ to"
+  },
+  "174": {
+   "issue": "unrelated",
+   "note": "ảnh stock hai người già trong công viên"
+  },
+  "177": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "186": {
+   "issue": "placeholder",
+   "note": "logo ORICON NEWS, không có ảnh"
+  },
+  "190": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "192": {
+   "issue": "unrelated",
+   "note": "bìa tạp chí có 中島健人, người khác"
+  },
+  "196": {
+   "issue": "placeholder",
+   "note": "chỉ có chữ 喜多川美佳"
+  },
+  "197": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "199": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "200": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "203": {
+   "issue": "placeholder",
+   "note": "ảnh 'no image'"
+  },
+  "204": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "207": {
+   "issue": "placeholder",
+   "note": "biểu tượng xám, không có ảnh"
+  },
+  "209": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "211": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "216": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "221": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "226": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "228": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "231": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "234": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "236": {
+   "issue": "watermark",
+   "note": "watermark AFLO"
+  },
+  "241": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "248": {
+   "issue": "screenshot",
+   "note": "chụp màn hình TV có chữ ABEMA"
+  },
+  "249": {
+   "issue": "unrelated",
+   "note": "ảnh stock hai người già trong công viên"
+  },
+  "254": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "255": {
+   "issue": "screenshot",
+   "note": "chụp màn hình TV có chữ ABEMA"
+  },
+  "267": {
+   "issue": "unrelated",
+   "note": "bài câu view về 内田理央, người khác"
+  },
+  "277": {
+   "issue": "placeholder",
+   "note": "chỉ có chữ 喜多川美佳"
+  },
+  "278": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "279": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "284": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "285": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "286": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "287": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "288": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "289": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "292": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "293": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "294": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "295": {
+   "issue": "text",
+   "note": "trang báo 死去, chữ to"
+  },
+  "297": {
+   "issue": "unrelated",
+   "note": "ảnh stock hai người già trong công viên"
+  },
+  "304": {
+   "issue": "text",
+   "note": "bản đồ"
+  },
+  "310": {
+   "issue": "screenshot",
+   "note": "bản tin TV có phụ đề to"
+  },
+  "314": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "316": {
+   "issue": "text",
+   "note": "trang báo 死去, chữ to"
+  },
+  "317": {
+   "issue": "watermark",
+   "note": "watermark PIXTA"
+  },
+  "318": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "320": {
+   "issue": "text",
+   "note": "sơ đồ gia phả"
+  },
+  "322": {
+   "issue": "text",
+   "note": "đồ họa Giáng sinh có chữ"
+  },
+  "323": {
+   "issue": "unrelated",
+   "note": "ảnh stock hai người già trong công viên"
+  },
+  "326": {
+   "issue": "screenshot",
+   "note": "chụp màn hình TV có chữ ABEMA"
+  },
+  "330": {
+   "issue": "unrelated",
+   "note": "ảnh stock nhà bếp"
+  },
+  "331": {
+   "issue": "text",
+   "note": "trang báo 死去, chữ to"
+  },
+  "332": {
+   "issue": "watermark",
+   "note": "watermark PIXTA"
+  },
+  "335": {
+   "issue": "text",
+   "note": "sơ đồ gia phả"
+  },
+  "342": {
+   "issue": "text",
+   "note": "đồ họa Giáng sinh có chữ"
+  },
+  "344": {
+   "issue": "unrelated",
+   "note": "ảnh stock hai người già trong công viên"
+  },
+  "353": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "354": {
+   "issue": "text",
+   "note": "sơ đồ gia phả"
+  },
+  "358": {
+   "issue": "unrelated",
+   "note": "bài câu view về 内田理央, người khác"
+  },
+  "359": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "360": {
+   "issue": "screenshot",
+   "note": "chụp màn hình TV có chữ ABEMA"
+  },
+  "363": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "370": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "371": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "379": {
+   "issue": "screenshot",
+   "note": "chụp màn hình TV có chữ ABEMA"
+  },
+  "382": {
+   "issue": "screenshot",
+   "note": "khung hình video có logo YouTube"
+  },
+  "384": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "386": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "393": {
+   "issue": "screenshot",
+   "note": "chụp màn hình máy tính, có thanh taskbar"
+  },
+  "395": {
+   "issue": "text",
+   "note": "quảng cáo bàn thờ có chữ"
+  },
+  "398": {
+   "issue": "text",
+   "note": "quảng cáo bàn thờ có chữ"
+  },
+  "399": {
+   "issue": "text",
+   "note": "quảng cáo bàn thờ có chữ"
+  },
+  "402": {
+   "issue": "screenshot",
+   "note": "chụp màn hình Instagram"
+  },
+  "405": {
+   "issue": "screenshot",
+   "note": "chụp màn hình TV có chữ ABEMA"
+  },
+  "414": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "427": {
+   "issue": "watermark",
+   "note": "watermark photolibrary"
+  },
+  "428": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "429": {
+   "issue": "unrelated",
+   "note": "ảnh stock hai người già trong công viên"
+  },
+  "437": {
+   "issue": "text",
+   "note": "trang báo"
+  },
+  "441": {
+   "issue": "text",
+   "note": "trang báo 死去, chữ to"
+  },
+  "445": {
+   "issue": "unrelated",
+   "note": "ảnh stock con phố"
+  },
+  "454": {
+   "issue": "screenshot",
+   "note": "khung hình video có logo YouTube"
+  },
+  "459": {
+   "issue": "text",
+   "note": "đồ họa NHK có chữ to"
+  },
+  "464": {
+   "issue": "placeholder",
+   "note": "dải ảnh hẹp, gần như trống"
+  },
+  "465": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "470": {
+   "issue": "text",
+   "note": "banner website bệnh viện"
+  },
+  "479": {
+   "issue": "text",
+   "note": "trang báo"
+  },
+  "489": {
+   "issue": "text",
+   "note": "trang báo 死去, chữ to"
+  },
+  "493": {
+   "issue": "watermark",
+   "note": "watermark PIXTA"
+  },
+  "498": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "500": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "502": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "503": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "508": {
+   "issue": "watermark",
+   "note": "watermark AFLO"
+  },
+  "510": {
+   "issue": "unrelated",
+   "note": "ảnh stock thiết bị y tế"
+  },
+  "512": {
+   "issue": "text",
+   "note": "trang báo"
+  },
+  "522": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "523": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "525": {
+   "issue": "text",
+   "note": "trang báo 死去, chữ to"
+  },
+  "531": {
+   "issue": "text",
+   "note": "sơ đồ gia phả"
+  },
+  "534": {
+   "issue": "placeholder",
+   "note": "logo blog ゲンさんの画帳"
+  },
+  "536": {
+   "issue": "unrelated",
+   "note": "bài câu view về 内田理央, người khác"
+  },
+  "537": {
+   "issue": "text",
+   "note": "trang báo 死去, chữ to"
+  },
+  "547": {
+   "issue": "screenshot",
+   "note": "bản tin TV có phụ đề to"
+  },
+  "549": {
+   "issue": "text",
+   "note": "trang blog"
+  },
+  "551": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  },
+  "552": {
+   "issue": "poster",
+   "note": "poster, bìa DVD, Blu-ray hoặc sách: giữ nếu lời thoại nói về phim này"
+  }
+ }
+}

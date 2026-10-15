@@ -1,0 +1,5542 @@
+[
+  {
+    "scene": 1,
+    "group": 1,
+    "file": "assets/3c52923704.jpg",
+    "image_id": "3c52923704",
+    "source": "brave",
+    "page_url": "https://killy.biz/star/%E4%B8%89%E8%88%B9%E6%95%8F%E9%83%8E/%E8%A3%81%E5%88%A4",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 2,
+    "group": 1,
+    "file": "assets/27403eb50c.jpg",
+    "image_id": "27403eb50c",
+    "source": "serper",
+    "page_url": "https://x.com/wataridori333/status/1572459641443094528",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 3,
+    "group": 1,
+    "file": "assets/8009188ad6.jpg",
+    "image_id": "8009188ad6",
+    "source": "serper",
+    "page_url": "https://x.com/icjk2019/status/1781237222995579353",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 4,
+    "group": 2,
+    "file": "assets/0eed6e8fe0.jpg",
+    "image_id": "0eed6e8fe0",
+    "source": "brave",
+    "page_url": "https://showa-g.org/men/view/41",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 5,
+    "group": 3,
+    "file": "assets/3c52923704.jpg",
+    "image_id": "3c52923704",
+    "source": "brave",
+    "page_url": "https://killy.biz/star/%E4%B8%89%E8%88%B9%E6%95%8F%E9%83%8E/%E8%A3%81%E5%88%A4",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 6,
+    "group": 3,
+    "file": "assets/f1257b8df1.jpg",
+    "image_id": "f1257b8df1",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01135303&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 7,
+    "group": 3,
+    "file": "assets/2d3f8e7ee5.jpg",
+    "image_id": "2d3f8e7ee5",
+    "source": "serper",
+    "page_url": "https://mainichi.jp/articles/20160319/k00/00e/040/206000c",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 8,
+    "group": 1,
+    "file": "assets/7e3bb5a4e8.jpg",
+    "image_id": "7e3bb5a4e8",
+    "source": "serper",
+    "page_url": "https://jp.pinterest.com/pin/1950--747597606870923701/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 9,
+    "group": 1,
+    "file": "assets/3d4c51f9b1.jpg",
+    "image_id": "3d4c51f9b1",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/1748327.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 10,
+    "group": 4,
+    "file": "assets/8009188ad6.jpg",
+    "image_id": "8009188ad6",
+    "source": "serper",
+    "page_url": "https://x.com/icjk2019/status/1781237222995579353",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 11,
+    "group": 5,
+    "file": "assets/43db744844.jpg",
+    "image_id": "43db744844",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/69470.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 12,
+    "group": 5,
+    "file": "assets/bd44969bb7.jpg",
+    "image_id": "bd44969bb7",
+    "source": "brave",
+    "page_url": "https://koimousagi.com/72648.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 13,
+    "group": 5,
+    "file": "assets/58b663653e.jpg",
+    "image_id": "58b663653e",
+    "source": "serper",
+    "page_url": "https://thetv.jp/person/0000008441/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 14,
+    "group": 4,
+    "file": "assets/27403eb50c.jpg",
+    "image_id": "27403eb50c",
+    "source": "serper",
+    "page_url": "https://x.com/285tama/status/1572454782811648000",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 15,
+    "group": 4,
+    "file": "assets/7e3bb5a4e8.jpg",
+    "image_id": "7e3bb5a4e8",
+    "source": "serper",
+    "page_url": "https://jp.pinterest.com/pin/1950--747597606870923701/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 16,
+    "group": 6,
+    "file": "assets/f6e1646b3d.jpg",
+    "image_id": "f6e1646b3d",
+    "source": "serper",
+    "page_url": "https://www.daily.co.jp/gossip/2024/02/12/0017324184.shtml",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 17,
+    "group": 6,
+    "file": "assets/3d4c51f9b1.jpg",
+    "image_id": "3d4c51f9b1",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/1748327.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 18,
+    "group": 7,
+    "file": "assets/4fc61928fa.jpg",
+    "image_id": "4fc61928fa",
+    "source": "serper",
+    "page_url": "https://showa-g.org/events/view/885",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 19,
+    "group": 7,
+    "file": "assets/9e8196a0b4.jpg",
+    "image_id": "9e8196a0b4",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/14598.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 20,
+    "group": 8,
+    "file": "assets/9fc5b46c7a.jpg",
+    "image_id": "9fc5b46c7a",
+    "source": "serper",
+    "page_url": "https://www.daily.co.jp/gossip/2024/02/12/0017324184.shtml",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 21,
+    "group": 8,
+    "file": "assets/f10719a9ad.jpg",
+    "image_id": "f10719a9ad",
+    "source": "brave",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 22,
+    "group": 4,
+    "file": "assets/da0be71e24.jpg",
+    "image_id": "da0be71e24",
+    "source": "serper",
+    "page_url": "https://x.com/ken_sogoru83/status/748761800724754432",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 23,
+    "group": 4,
+    "file": "assets/86d919b371.jpg",
+    "image_id": "86d919b371",
+    "source": "serper",
+    "page_url": "https://gossip-history.com/g00644/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 24,
+    "group": 4,
+    "file": "assets/91f2686ccf.jpg",
+    "image_id": "91f2686ccf",
+    "source": "serper",
+    "page_url": "https://x.com/dfv1nj9qfBdImTT/status/1907024810670252308",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 25,
+    "group": 4,
+    "file": "assets/12158c145c.jpg",
+    "image_id": "12158c145c",
+    "source": "serper",
+    "page_url": "https://x.com/dfv1nj9qfBdImTT/status/1907024810670252308",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 26,
+    "group": 9,
+    "file": "assets/24fb315d00.jpg",
+    "image_id": "24fb315d00",
+    "source": "brave",
+    "page_url": "https://www.chunichi.co.jp/article/103179",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 27,
+    "group": 9,
+    "file": "assets/998f16f5a0.jpg",
+    "image_id": "998f16f5a0",
+    "source": "brave",
+    "page_url": "https://mainichi.jp/graphs/20170221/hpj/00m/040/003000g/20170221hpj00m040025000q",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 28,
+    "group": 9,
+    "file": "assets/d5dc539cb6.jpg",
+    "image_id": "d5dc539cb6",
+    "source": "serper",
+    "page_url": "https://search.showakan.go.jp/search/photo/detail.php?id=90020256",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 29,
+    "group": 10,
+    "file": "assets/35c1bd8386.jpg",
+    "image_id": "35c1bd8386",
+    "source": "serper",
+    "page_url": "https://kaigoshoku.mynavi.jp/contents/kaigonomirailab/news/today/20220603_00/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 30,
+    "group": 10,
+    "file": "assets/f77c80bf4c.jpg",
+    "image_id": "f77c80bf4c",
+    "source": "serper",
+    "page_url": "https://showa-g.org/events/view/2262",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 31,
+    "group": 10,
+    "file": "assets/a314e441d3.jpg",
+    "image_id": "a314e441d3",
+    "source": "serper",
+    "page_url": "https://www.sponichi.co.jp/entertainment/news/2024/06/14/kiji/20240614s00041000182000c.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 32,
+    "group": 11,
+    "file": "assets/35c1bd8386.jpg",
+    "image_id": "35c1bd8386",
+    "source": "serper",
+    "page_url": "https://kaigoshoku.mynavi.jp/contents/kaigonomirailab/news/today/20220603_00/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 33,
+    "group": 11,
+    "file": "assets/afd6c54104.jpg",
+    "image_id": "afd6c54104",
+    "source": "serper",
+    "page_url": "https://ameblo.jp/kumanecocoubou/entry-12678293941.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 34,
+    "group": 11,
+    "file": "assets/01ccd13384.jpg",
+    "image_id": "01ccd13384",
+    "source": "serper",
+    "page_url": "https://ameblo.jp/kumanecocoubou/entry-12678293941.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 35,
+    "group": 11,
+    "file": "assets/127a61bbd4.jpg",
+    "image_id": "127a61bbd4",
+    "source": "serper",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 36,
+    "group": 11,
+    "file": "assets/c5e71e2e6c.jpg",
+    "image_id": "c5e71e2e6c",
+    "source": "serper",
+    "page_url": "https://www.conex-eco.co.jp/serial/seijou/60082/2/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 37,
+    "group": 11,
+    "file": "assets/f238ad712a.jpg",
+    "image_id": "f238ad712a",
+    "source": "serper",
+    "page_url": "https://www.hitomi-shock.com/entry/mifunetoshiro",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 38,
+    "group": 11,
+    "file": "assets/bd44969bb7.jpg",
+    "image_id": "bd44969bb7",
+    "source": "brave",
+    "page_url": "https://koimousagi.com/14598.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 39,
+    "group": 10,
+    "file": "assets/1a5660066b.jpg",
+    "image_id": "1a5660066b",
+    "source": "serper",
+    "page_url": "https://mifunearchieve.fc2.net/blog-entry-6.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 40,
+    "group": 11,
+    "file": "assets/79f1faeb5d.jpg",
+    "image_id": "79f1faeb5d",
+    "source": "serper",
+    "page_url": "https://ciatr.jp/topics/225692",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 41,
+    "group": 10,
+    "file": "assets/fbc31d4d3d.jpg",
+    "image_id": "fbc31d4d3d",
+    "source": "serper",
+    "page_url": "https://x.com/shimizu4310/status/2076228575829864544",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 42,
+    "group": 10,
+    "file": "assets/3fc2517d73.jpg",
+    "image_id": "3fc2517d73",
+    "source": "serper",
+    "page_url": "https://x.com/shimizu4310/status/2076228575829864544",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 43,
+    "group": 11,
+    "file": "assets/32f2e19da2.jpg",
+    "image_id": "32f2e19da2",
+    "source": "serper",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 44,
+    "group": 10,
+    "file": "assets/6132effdd6.jpg",
+    "image_id": "6132effdd6",
+    "source": "serper",
+    "page_url": "https://x.com/shimizu4310/status/2076228575829864544",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 45,
+    "group": 11,
+    "file": "assets/2610faf8c4.jpg",
+    "image_id": "2610faf8c4",
+    "source": "serper",
+    "page_url": "https://www.conex-eco.co.jp/serial/seijou/60082/2/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 46,
+    "group": 11,
+    "file": "assets/fcac1e1102.jpg",
+    "image_id": "fcac1e1102",
+    "source": "serper",
+    "page_url": "https://ameblo.jp/gonsun/entry-12392340912.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 47,
+    "group": 11,
+    "file": "assets/9e8196a0b4.jpg",
+    "image_id": "9e8196a0b4",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/69470.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 48,
+    "group": 11,
+    "file": "assets/35c1bd8386.jpg",
+    "image_id": "35c1bd8386",
+    "source": "serper",
+    "page_url": "https://kaigoshoku.mynavi.jp/contents/kaigonomirailab/news/today/20220603_00/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 49,
+    "group": 12,
+    "file": "assets/abda46c979.jpg",
+    "image_id": "abda46c979",
+    "source": "brave",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 50,
+    "group": 12,
+    "file": "assets/3009420daf.jpg",
+    "image_id": "3009420daf",
+    "source": "serper",
+    "page_url": "https://mifunearchieve.fc2.net/blog-entry-4.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 51,
+    "group": 12,
+    "file": "assets/f4c7a41af8.jpg",
+    "image_id": "f4c7a41af8",
+    "source": "brave",
+    "page_url": "https://samurai-trader.net/mifune-toshiro-wakaikoro",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 52,
+    "group": 12,
+    "file": "assets/1a5660066b.jpg",
+    "image_id": "1a5660066b",
+    "source": "serper",
+    "page_url": "https://mifunearchieve.fc2.net/blog-entry-6.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 53,
+    "group": 12,
+    "file": "assets/35c1bd8386.jpg",
+    "image_id": "35c1bd8386",
+    "source": "serper",
+    "page_url": "https://kaigoshoku.mynavi.jp/contents/kaigonomirailab/news/today/20220603_00/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 54,
+    "group": 12,
+    "file": "assets/e8bde5a925.jpg",
+    "image_id": "e8bde5a925",
+    "source": "serper",
+    "page_url": "https://mifunearchieve.fc2.net/blog-entry-4.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 55,
+    "group": 13,
+    "file": "assets/28a164c8c8.jpg",
+    "image_id": "28a164c8c8",
+    "source": "serper",
+    "page_url": "https://www.conex-eco.co.jp/pickup/cinema/87500/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 56,
+    "group": 13,
+    "file": "assets/31969627c9.jpg",
+    "image_id": "31969627c9",
+    "source": "serper",
+    "page_url": "https://100mifune.com/category/kajiro-yamamoto/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 57,
+    "group": 13,
+    "file": "assets/36ee5df684.jpg",
+    "image_id": "36ee5df684",
+    "source": "serper",
+    "page_url": "https://www.conex-eco.co.jp/pickup/cinema/87500/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 58,
+    "group": 12,
+    "file": "assets/8a8b3ae210.jpg",
+    "image_id": "8a8b3ae210",
+    "source": "serper",
+    "page_url": "https://mifunearchieve.fc2.net/blog-entry-6.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 59,
+    "group": 14,
+    "file": "assets/021098dcbe.jpg",
+    "image_id": "021098dcbe",
+    "source": "serper",
+    "page_url": "https://www.laputa-jp.com/laputa/program/takaminehideko02/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 60,
+    "group": 15,
+    "file": "assets/a7d6f8b879.jpg",
+    "image_id": "a7d6f8b879",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=akk323-jpp052235482&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 61,
+    "group": 12,
+    "file": "assets/d51fbaec9a.jpg",
+    "image_id": "d51fbaec9a",
+    "source": "serper",
+    "page_url": "https://www.nfaj.go.jp/film-program/mifune202009/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 62,
+    "group": 16,
+    "file": "assets/7e3bb5a4e8.jpg",
+    "image_id": "7e3bb5a4e8",
+    "source": "serper",
+    "page_url": "https://jp.pinterest.com/pin/1950--747597606870923701/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 63,
+    "group": 12,
+    "file": "assets/6340280f28.jpg",
+    "image_id": "6340280f28",
+    "source": "serper",
+    "page_url": "http://www.mifuneproductions.co.jp/profile.php",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 64,
+    "group": 12,
+    "file": "assets/dbaa58deac.jpg",
+    "image_id": "dbaa58deac",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 65,
+    "group": 12,
+    "file": "assets/1c5f9fbb53.jpg",
+    "image_id": "1c5f9fbb53",
+    "source": "serper",
+    "page_url": "http://mifuneproductions.co.jp/history.php",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 66,
+    "group": 17,
+    "file": "assets/94335cc2e4.jpg",
+    "image_id": "94335cc2e4",
+    "source": "brave",
+    "page_url": "https://natalie.mu/eiga/news/290307",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 67,
+    "group": 17,
+    "file": "assets/9a2874a656.jpg",
+    "image_id": "9a2874a656",
+    "source": "serper",
+    "page_url": "https://100mifune.com/snow-trail-1947/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 68,
+    "group": 12,
+    "file": "assets/27b6c0a222.jpg",
+    "image_id": "27b6c0a222",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 69,
+    "group": 12,
+    "file": "assets/742932a799.jpg",
+    "image_id": "742932a799",
+    "source": "serper",
+    "page_url": "http://mifuneproductions.co.jp/history.php",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 70,
+    "group": 11,
+    "file": "assets/afd6c54104.jpg",
+    "image_id": "afd6c54104",
+    "source": "serper",
+    "page_url": "https://ameblo.jp/kumanecocoubou/entry-12678293941.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 71,
+    "group": 16,
+    "file": "assets/da0be71e24.jpg",
+    "image_id": "da0be71e24",
+    "source": "serper",
+    "page_url": "https://x.com/ken_sogoru83/status/748761800724754432",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 72,
+    "group": 16,
+    "file": "assets/a8acbee200.jpg",
+    "image_id": "a8acbee200",
+    "source": "serper",
+    "page_url": "https://www.reddit.com/r/OldSchoolCool/comments/uiv063/toshiro_mifune_1950s/?tl=ja",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 73,
+    "group": 2,
+    "file": "assets/d6e53a7f2b.jpg",
+    "image_id": "d6e53a7f2b",
+    "source": "brave",
+    "page_url": "https://showa-g.org/men/view/41",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 74,
+    "group": 18,
+    "file": "assets/70bc37c04f.jpg",
+    "image_id": "70bc37c04f",
+    "source": "serper",
+    "page_url": "https://press.moviewalker.jp/mv28517/gallery/4/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 75,
+    "group": 18,
+    "file": "assets/ee02737b0d.jpg",
+    "image_id": "ee02737b0d",
+    "source": "serper",
+    "page_url": "https://x.com/MOMAT_museum/status/1309055202578833419",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 76,
+    "group": 18,
+    "file": "assets/d07e6cebc4.jpg",
+    "image_id": "d07e6cebc4",
+    "source": "serper",
+    "page_url": "https://www.charliessalon.com/rashomon-1950/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 77,
+    "group": 2,
+    "file": "assets/05fa143fbb.jpg",
+    "image_id": "05fa143fbb",
+    "source": "brave",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01038071&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 78,
+    "group": 13,
+    "file": "assets/45a9fb7cc3.jpg",
+    "image_id": "45a9fb7cc3",
+    "source": "serper",
+    "page_url": "https://www2.nhk.or.jp/archives/articles/?id=D0009072801_00000",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 79,
+    "group": 13,
+    "file": "assets/25ba11a553.jpg",
+    "image_id": "25ba11a553",
+    "source": "serper",
+    "page_url": "https://www.nfaj.go.jp/film-program/yamamoto202207/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 80,
+    "group": 12,
+    "file": "assets/f83b1f1198.jpg",
+    "image_id": "f83b1f1198",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 81,
+    "group": 19,
+    "file": "assets/405c2b7b94.jpg",
+    "image_id": "405c2b7b94",
+    "source": "serper",
+    "page_url": "https://www.asahi.com/special/manchukuo-opium/gallery/15.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 82,
+    "group": 20,
+    "file": "assets/3850108685.jpg",
+    "image_id": "3850108685",
+    "source": "serper",
+    "page_url": "https://natalie.mu/stage/gallery/news/620189/2574235",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 83,
+    "group": 20,
+    "file": "assets/c2d0d8186d.jpg",
+    "image_id": "c2d0d8186d",
+    "source": "serper",
+    "page_url": "https://natalie.mu/eiga/news/156936",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 84,
+    "group": 20,
+    "file": "assets/76533aaae2.jpg",
+    "image_id": "76533aaae2",
+    "source": "serper",
+    "page_url": "https://jp.pinterest.com/pin/288863763600004961/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 85,
+    "group": 16,
+    "file": "assets/27403eb50c.jpg",
+    "image_id": "27403eb50c",
+    "source": "serper",
+    "page_url": "https://x.com/285tama/status/1572454782811648000",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 86,
+    "group": 21,
+    "file": "assets/555bc7af7f.jpg",
+    "image_id": "555bc7af7f",
+    "source": "serper",
+    "page_url": "https://www.seijo.ac.jp/social-activity/lifelearn/open-college/archives/jtmo42000000i4v4.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 87,
+    "group": 21,
+    "file": "assets/935cbe5773.jpg",
+    "image_id": "935cbe5773",
+    "source": "serper",
+    "page_url": "https://www.cinematoday.jp/news/N0100629",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 88,
+    "group": 18,
+    "file": "assets/557a2c305f.jpg",
+    "image_id": "557a2c305f",
+    "source": "serper",
+    "page_url": "https://x.com/shunmura0607/status/845418038048436224",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 89,
+    "group": 16,
+    "file": "assets/8009188ad6.jpg",
+    "image_id": "8009188ad6",
+    "source": "serper",
+    "page_url": "https://x.com/icjk2019/status/1781237222995579353",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 90,
+    "group": 2,
+    "file": "assets/abda46c979.jpg",
+    "image_id": "abda46c979",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 91,
+    "group": 16,
+    "file": "assets/26eac95590.jpg",
+    "image_id": "26eac95590",
+    "source": "brave",
+    "page_url": "https://samurai-trader.net/mifune-toshiro-wakaikoro",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 92,
+    "group": 2,
+    "file": "assets/f9ac182858.jpg",
+    "image_id": "f9ac182858",
+    "source": "serper",
+    "page_url": "https://press.moviewalker.jp/news/article/230281/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 93,
+    "group": 15,
+    "file": "assets/d6ffb80f95.jpg",
+    "image_id": "d6ffb80f95",
+    "source": "serper",
+    "page_url": "https://www.reddit.com/r/Moviesinthemaking/comments/j67tcm/akira_kurosawa_shaving_toshiro_mifunes_beard_on/?tl=ja",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 94,
+    "group": 22,
+    "file": "assets/9cb5f86aca.jpg",
+    "image_id": "9cb5f86aca",
+    "source": "serper",
+    "page_url": "https://www.allcinema.net/cinema/87913",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 95,
+    "group": 23,
+    "file": "assets/51ce3658d2.jpg",
+    "image_id": "51ce3658d2",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp050984402&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 96,
+    "group": 24,
+    "file": "assets/a9dbf981e3.jpg",
+    "image_id": "a9dbf981e3",
+    "source": "serper",
+    "page_url": "https://eiga.com/movie/20052/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 97,
+    "group": 25,
+    "file": "assets/83dbb37cf6.jpg",
+    "image_id": "83dbb37cf6",
+    "source": "serper",
+    "page_url": "https://eiga.com/movie/2979/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 98,
+    "group": 2,
+    "file": "assets/415f2b08ff.jpg",
+    "image_id": "415f2b08ff",
+    "source": "serper",
+    "page_url": "http://cinema-magazine.com/p/1326",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 99,
+    "group": 22,
+    "file": "assets/8545905533.jpg",
+    "image_id": "8545905533",
+    "source": "serper",
+    "page_url": "https://www.amazon.co.jp/Posterazzi-Seven-%E4%B8%83%E4%BA%BA%E3%81%AE%E4%BE%8D-1954-%E6%98%A0%E7%94%BB%E5%90%8D%E7%94%BB%E3%83%9D%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%97%E3%83%AA%E3%83%B3%E3%83%88/dp/B07GXHF45G",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 100,
+    "group": 26,
+    "file": "assets/cadfb1ad56.jpg",
+    "image_id": "cadfb1ad56",
+    "source": "serper",
+    "page_url": "https://www.47news.jp/8280667.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 101,
+    "group": 2,
+    "file": "assets/ed4500faab.jpg",
+    "image_id": "ed4500faab",
+    "source": "serper",
+    "page_url": "https://hominis.media/category/actor/post2058/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 102,
+    "group": 2,
+    "file": "assets/aa73d64483.jpg",
+    "image_id": "aa73d64483",
+    "source": "serper",
+    "page_url": "https://cinema.ne.jp/article/detail/36665",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 103,
+    "group": 27,
+    "file": "assets/07145566ec.jpg",
+    "image_id": "07145566ec",
+    "source": "serper",
+    "page_url": "https://note.com/seijo_university/n/nb4f2a4cb6937",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 104,
+    "group": 27,
+    "file": "assets/cee239723f.jpg",
+    "image_id": "cee239723f",
+    "source": "serper",
+    "page_url": "https://note.com/seijo_university/n/n501326aa398d",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 105,
+    "group": 27,
+    "file": "assets/57e49468ca.jpg",
+    "image_id": "57e49468ca",
+    "source": "serper",
+    "page_url": "https://www.conex-eco.co.jp/serial/seijou/61763/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 106,
+    "group": 21,
+    "file": "assets/64131e169a.jpg",
+    "image_id": "64131e169a",
+    "source": "serper",
+    "page_url": "https://www.daily.co.jp/gossip/2017/10/18/0010655311.shtml",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 107,
+    "group": 27,
+    "file": "assets/2955c4549c.jpg",
+    "image_id": "2955c4549c",
+    "source": "brave",
+    "page_url": "https://seijo.tokyo/node/79",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 108,
+    "group": 27,
+    "file": "assets/c838241d8e.jpg",
+    "image_id": "c838241d8e",
+    "source": "serper",
+    "page_url": "http://www.frontier-world.co.jp/bunjyouti/koukyu03seijyo.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 109,
+    "group": 27,
+    "file": "assets/9685cefd70.jpg",
+    "image_id": "9685cefd70",
+    "source": "serper",
+    "page_url": "https://www.luxuryhomesencyclopedia.net/area/seijyo.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 110,
+    "group": 28,
+    "file": "assets/e2c5a6e9d3.jpg",
+    "image_id": "e2c5a6e9d3",
+    "source": "serper",
+    "page_url": "https://x.com/icjk2019/status/2105251316008120403",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 111,
+    "group": 28,
+    "file": "assets/110a6cd8f7.jpg",
+    "image_id": "110a6cd8f7",
+    "source": "serper",
+    "page_url": "https://www.reddit.com/r/OldSchoolCool/comments/vn08vw/toshiro_mifune_circa_1960s/?tl=ja",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 112,
+    "group": 29,
+    "file": "assets/864a407e91.jpg",
+    "image_id": "864a407e91",
+    "source": "serper",
+    "page_url": "https://www.reddit.com/r/Moviesinthemaking/comments/1n0s37d/toshiro_mifune_akira_kurosawa_behind_the_scenes/?tl=ja",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 113,
+    "group": 29,
+    "file": "assets/8fe996ccc0.jpg",
+    "image_id": "8fe996ccc0",
+    "source": "serper",
+    "page_url": "https://x.com/odanii0414/status/1084735766289276928",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 114,
+    "group": 29,
+    "file": "assets/9647ff4003.jpg",
+    "image_id": "9647ff4003",
+    "source": "serper",
+    "page_url": "https://www.reddit.com/r/OldSchoolCool/comments/sq57n0/director_akira_kurosawa_with_actor_toshiro_mifune/?tl=ja",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 115,
+    "group": 30,
+    "file": "assets/d2b65351a1.jpg",
+    "image_id": "d2b65351a1",
+    "source": "brave",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 116,
+    "group": 31,
+    "file": "assets/2b3eb9f555.jpg",
+    "image_id": "2b3eb9f555",
+    "source": "serper",
+    "page_url": "https://jp.pinterest.com/pin/801500064929083445/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 117,
+    "group": 32,
+    "file": "assets/da21ac4e5c.jpg",
+    "image_id": "da21ac4e5c",
+    "source": "brave",
+    "page_url": "https://natalie.mu/eiga/news/601834",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 118,
+    "group": 31,
+    "file": "assets/3b19dd56f4.jpg",
+    "image_id": "3b19dd56f4",
+    "source": "serper",
+    "page_url": "https://aucview.aucfan.com/yahoo/s1045925063/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 119,
+    "group": 28,
+    "file": "assets/53c197a368.jpg",
+    "image_id": "53c197a368",
+    "source": "serper",
+    "page_url": "https://danshi-senka.com/archives/3683",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 120,
+    "group": 33,
+    "file": "assets/8009188ad6.jpg",
+    "image_id": "8009188ad6",
+    "source": "serper",
+    "page_url": "https://x.com/icjk2019/status/1781237222995579353",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 121,
+    "group": 28,
+    "file": "assets/118aaa1a6c.jpg",
+    "image_id": "118aaa1a6c",
+    "source": "brave",
+    "page_url": "https://jp.ign.com/mifune-the-last-samurai/25242/interview/mifune-the-last-samurai",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 122,
+    "group": 28,
+    "file": "assets/27119b5f7b.jpg",
+    "image_id": "27119b5f7b",
+    "source": "serper",
+    "page_url": "https://www.sponichi.co.jp/entertainment/news/2023/12/24/articles/20231224s00041000261000c.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 123,
+    "group": 28,
+    "file": "assets/42fb6c8acf.jpg",
+    "image_id": "42fb6c8acf",
+    "source": "serper",
+    "page_url": "https://hochi.news/articles/20220915-OHT1T51130.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 124,
+    "group": 34,
+    "file": "assets/ae7002ff9b.jpg",
+    "image_id": "ae7002ff9b",
+    "source": "serper",
+    "page_url": "https://hochi.news/articles/20210804-OHT1T51091.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 125,
+    "group": 34,
+    "file": "assets/82668959a7.jpg",
+    "image_id": "82668959a7",
+    "source": "serper",
+    "page_url": "https://www.crank-in.net/news/138885/1",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 126,
+    "group": 34,
+    "file": "assets/27119b5f7b.jpg",
+    "image_id": "27119b5f7b",
+    "source": "serper",
+    "page_url": "https://www.sponichi.co.jp/entertainment/news/2023/12/24/kiji/20231224s00041000261000c.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 127,
+    "group": 34,
+    "file": "assets/42fb6c8acf.jpg",
+    "image_id": "42fb6c8acf",
+    "source": "serper",
+    "page_url": "https://hochi.news/articles/20220915-OHT1T51130.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 128,
+    "group": 35,
+    "file": "assets/80300ce5cf.jpg",
+    "image_id": "80300ce5cf",
+    "source": "serper",
+    "page_url": "https://ameblo.jp/caesar2222/entry-12336869968.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 129,
+    "group": 35,
+    "file": "assets/e17c106cc0.jpg",
+    "image_id": "e17c106cc0",
+    "source": "serper",
+    "page_url": "https://hongkongkisaragi.hatenablog.com/entry/2018/05/21/040000",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 130,
+    "group": 23,
+    "file": "assets/119ce550aa.jpg",
+    "image_id": "119ce550aa",
+    "source": "brave",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 131,
+    "group": 34,
+    "file": "assets/4b1916f577.jpg",
+    "image_id": "4b1916f577",
+    "source": "serper",
+    "page_url": "https://times.abema.tv/articles/-/10107552",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 132,
+    "group": 27,
+    "file": "assets/ff5627725a.jpg",
+    "image_id": "ff5627725a",
+    "source": "serper",
+    "page_url": "https://r100tokyo.com/curiosity/in-this-place/250601/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 133,
+    "group": 33,
+    "file": "assets/27403eb50c.jpg",
+    "image_id": "27403eb50c",
+    "source": "serper",
+    "page_url": "https://x.com/285tama/status/1572454782811648000",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 134,
+    "group": 28,
+    "file": "assets/82668959a7.jpg",
+    "image_id": "82668959a7",
+    "source": "serper",
+    "page_url": "https://www.crank-in.net/news/138885/1",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 135,
+    "group": 29,
+    "file": "assets/774c0eb6f6.jpg",
+    "image_id": "774c0eb6f6",
+    "source": "brave",
+    "page_url": "https://www.gettyimages.co.jp/%E5%86%99%E7%9C%9F/%E4%B8%89%E8%88%B9-%E6%95%8F%E9%83%8E",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 136,
+    "group": 36,
+    "file": "assets/158cf8a580.jpg",
+    "image_id": "158cf8a580",
+    "source": "brave",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp00981547&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 137,
+    "group": 36,
+    "file": "assets/560d2fc39d.jpg",
+    "image_id": "560d2fc39d",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01135303&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 138,
+    "group": 36,
+    "file": "assets/febb92a48e.jpg",
+    "image_id": "febb92a48e",
+    "source": "serper",
+    "page_url": "https://note.com/sukebezizy/n/n31ec6e6e93f2",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 139,
+    "group": 36,
+    "file": "assets/61eaa0357b.jpg",
+    "image_id": "61eaa0357b",
+    "source": "serper",
+    "page_url": "https://natalie.mu/stage/gallery/news/620189/2574236",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 140,
+    "group": 36,
+    "file": "assets/6a51df93ba.jpg",
+    "image_id": "6a51df93ba",
+    "source": "serper",
+    "page_url": "http://mifuneproductions.co.jp/history.php",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 141,
+    "group": 36,
+    "file": "assets/f75d14c552.jpg",
+    "image_id": "f75d14c552",
+    "source": "serper",
+    "page_url": "https://mainichi.jp/articles/20160319/k00/00e/040/206000c",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 142,
+    "group": 29,
+    "file": "assets/110a6cd8f7.jpg",
+    "image_id": "110a6cd8f7",
+    "source": "serper",
+    "page_url": "https://www.reddit.com/r/OldSchoolCool/comments/vn08vw/toshiro_mifune_circa_1960s/?tl=ja",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 143,
+    "group": 37,
+    "file": "assets/d6ffb80f95.jpg",
+    "image_id": "d6ffb80f95",
+    "source": "serper",
+    "page_url": "https://www.reddit.com/r/Moviesinthemaking/comments/j67tcm/akira_kurosawa_shaving_toshiro_mifunes_beard_on/?tl=ja",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 144,
+    "group": 25,
+    "file": "assets/b808fd2a5f.jpg",
+    "image_id": "b808fd2a5f",
+    "source": "serper",
+    "page_url": "https://lp.p.pia.jp/article/news/447469/index.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 145,
+    "group": 25,
+    "file": "assets/8fe996ccc0.jpg",
+    "image_id": "8fe996ccc0",
+    "source": "serper",
+    "page_url": "https://x.com/odanii0414/status/1084735766289276928",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 146,
+    "group": 25,
+    "file": "assets/8ea524a849.jpg",
+    "image_id": "8ea524a849",
+    "source": "brave",
+    "page_url": "https://gensanart.com/red-beard",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 147,
+    "group": 37,
+    "file": "assets/8fe996ccc0.jpg",
+    "image_id": "8fe996ccc0",
+    "source": "serper",
+    "page_url": "https://x.com/odanii0414/status/1084735766289276928",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 148,
+    "group": 37,
+    "file": "assets/647d7b32a8.jpg",
+    "image_id": "647d7b32a8",
+    "source": "serper",
+    "page_url": "https://jfdb.jp/title/7521",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 149,
+    "group": 37,
+    "file": "assets/186d28f8a2.jpg",
+    "image_id": "186d28f8a2",
+    "source": "serper",
+    "page_url": "https://natalie.mu/eiga/news/658307",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 150,
+    "group": 37,
+    "file": "assets/b808fd2a5f.jpg",
+    "image_id": "b808fd2a5f",
+    "source": "serper",
+    "page_url": "https://lp.p.pia.jp/article/news/447469/index.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 151,
+    "group": 37,
+    "file": "assets/355485c90b.jpg",
+    "image_id": "355485c90b",
+    "source": "serper",
+    "page_url": "https://jfdb.jp/title/7521",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 152,
+    "group": 37,
+    "file": "assets/d48ae2d9dc.jpg",
+    "image_id": "d48ae2d9dc",
+    "source": "serper",
+    "page_url": "https://news.at-s.com/article/1666435",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 153,
+    "group": 37,
+    "file": "assets/2ea5758738.jpg",
+    "image_id": "2ea5758738",
+    "source": "serper",
+    "page_url": "https://jfdb.jp/title/7521",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 154,
+    "group": 25,
+    "file": "assets/9fdf2b0f16.jpg",
+    "image_id": "9fdf2b0f16",
+    "source": "serper",
+    "page_url": "https://ameblo.jp/eigaoyaji/entry-12873753849.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 155,
+    "group": 37,
+    "file": "assets/984e9a9d93.jpg",
+    "image_id": "984e9a9d93",
+    "source": "brave",
+    "page_url": "https://play.rakuten.co.jp/article/2379",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 156,
+    "group": 36,
+    "file": "assets/cc12073175.jpg",
+    "image_id": "cc12073175",
+    "source": "serper",
+    "page_url": "http://mifuneproductions.co.jp/history.php",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 157,
+    "group": 36,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "brave",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 158,
+    "group": 15,
+    "file": "assets/61eaa0357b.jpg",
+    "image_id": "61eaa0357b",
+    "source": "serper",
+    "page_url": "https://natalie.mu/stage/gallery/news/620189/2574236",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 159,
+    "group": 36,
+    "file": "assets/28714afd0d.jpg",
+    "image_id": "28714afd0d",
+    "source": "serper",
+    "page_url": "http://www.mifuneproductions.co.jp/exhibition.php",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 160,
+    "group": 37,
+    "file": "assets/8ea524a849.jpg",
+    "image_id": "8ea524a849",
+    "source": "brave",
+    "page_url": "https://gensanart.com/red-beard",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 161,
+    "group": 38,
+    "file": "assets/c2b8c0d4dd.jpg",
+    "image_id": "c2b8c0d4dd",
+    "source": "serper",
+    "page_url": "https://www.daily.co.jp/gossip/2018/05/12/0011248789.shtml",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 162,
+    "group": 38,
+    "file": "assets/9647ff4003.jpg",
+    "image_id": "9647ff4003",
+    "source": "serper",
+    "page_url": "https://www.reddit.com/r/OldSchoolCool/comments/sq57n0/director_akira_kurosawa_with_actor_toshiro_mifune/?tl=ja",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 163,
+    "group": 38,
+    "file": "assets/6190f7e7a5.jpg",
+    "image_id": "6190f7e7a5",
+    "source": "brave",
+    "page_url": "https://news.livedoor.com/article/detail/11010002/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 164,
+    "group": 38,
+    "file": "assets/110a6cd8f7.jpg",
+    "image_id": "110a6cd8f7",
+    "source": "serper",
+    "page_url": "https://www.reddit.com/r/OldSchoolCool/comments/vn08vw/toshiro_mifune_circa_1960s/?tl=ja",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 165,
+    "group": 29,
+    "file": "assets/9dfa1d068d.jpg",
+    "image_id": "9dfa1d068d",
+    "source": "serper",
+    "page_url": "https://news.yahoo.co.jp/expert/articles/21a7b8cfd81e2e3430d703363543c6e352ec31a7",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 166,
+    "group": 29,
+    "file": "assets/621f9deceb.jpg",
+    "image_id": "621f9deceb",
+    "source": "brave",
+    "page_url": "https://www.gettyimages.co.jp/%E5%86%99%E7%9C%9F/%E4%B8%89%E8%88%B9-%E6%95%8F%E9%83%8E",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 167,
+    "group": 38,
+    "file": "assets/ef1d463a8e.jpg",
+    "image_id": "ef1d463a8e",
+    "source": "serper",
+    "page_url": "https://www.pinterest.com/pin/585890232768193136/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 168,
+    "group": 33,
+    "file": "assets/7e3bb5a4e8.jpg",
+    "image_id": "7e3bb5a4e8",
+    "source": "serper",
+    "page_url": "https://it.pinterest.com/pin/522699100503040083/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 169,
+    "group": 33,
+    "file": "assets/12158c145c.jpg",
+    "image_id": "12158c145c",
+    "source": "serper",
+    "page_url": "https://x.com/dfv1nj9qfBdImTT/status/1907024810670252308",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 170,
+    "group": 38,
+    "file": "assets/b2a3492293.jpg",
+    "image_id": "b2a3492293",
+    "source": "serper",
+    "page_url": "https://jp.pinterest.com/pin/33706697203511357/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 171,
+    "group": 38,
+    "file": "assets/fb2eadfd12.jpg",
+    "image_id": "fb2eadfd12",
+    "source": "brave",
+    "page_url": "https://news.ameba.jp/entry/20151229-231",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 172,
+    "group": 38,
+    "file": "assets/88cf85d2b4.jpg",
+    "image_id": "88cf85d2b4",
+    "source": "serper",
+    "page_url": "https://x.com/ken_sogoru83/status/771871763445579777",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 173,
+    "group": 33,
+    "file": "assets/da0be71e24.jpg",
+    "image_id": "da0be71e24",
+    "source": "serper",
+    "page_url": "https://x.com/ken_sogoru83/status/748761800724754432",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 174,
+    "group": 33,
+    "file": "assets/86d919b371.jpg",
+    "image_id": "86d919b371",
+    "source": "serper",
+    "page_url": "https://gossip-history.com/g00644/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 175,
+    "group": 38,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "brave",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01035863&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 176,
+    "group": 38,
+    "file": "assets/dd2b8f3897.jpg",
+    "image_id": "dd2b8f3897",
+    "source": "serper",
+    "page_url": "http://www.mifuneproductions.co.jp/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 177,
+    "group": 28,
+    "file": "assets/ae7002ff9b.jpg",
+    "image_id": "ae7002ff9b",
+    "source": "serper",
+    "page_url": "https://hochi.news/articles/20210804-OHT1T51091.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 178,
+    "group": 38,
+    "file": "assets/158cf8a580.jpg",
+    "image_id": "158cf8a580",
+    "source": "brave",
+    "page_url": "https://jiji.com/jc/d4?d=d4_movie&p=mfn001-jpp00981547",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 179,
+    "group": 34,
+    "file": "assets/118aaa1a6c.jpg",
+    "image_id": "118aaa1a6c",
+    "source": "brave",
+    "page_url": "https://jp.ign.com/mifune-the-last-samurai/25242/interview/mifune-the-last-samurai",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 180,
+    "group": 29,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "brave",
+    "page_url": "https://jiji.com/jc/d4?d=d4_movie&p=mfn001",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 181,
+    "group": 33,
+    "file": "assets/0a4877e366.jpg",
+    "image_id": "0a4877e366",
+    "source": "serper",
+    "page_url": "https://www.cinematoday.jp/gallery/E0007927",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 182,
+    "group": 33,
+    "file": "assets/f3497c4347.jpg",
+    "image_id": "f3497c4347",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 183,
+    "group": 33,
+    "file": "assets/1ba1c83284.jpg",
+    "image_id": "1ba1c83284",
+    "source": "serper",
+    "page_url": "https://showa-g.org/photos/view/873",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 184,
+    "group": 28,
+    "file": "assets/dc758c91e2.jpg",
+    "image_id": "dc758c91e2",
+    "source": "serper",
+    "page_url": "https://nlab.itmedia.co.jp/cont/articles/3369886/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 185,
+    "group": 39,
+    "file": "assets/8009188ad6.jpg",
+    "image_id": "8009188ad6",
+    "source": "serper",
+    "page_url": "https://x.com/icjk2019/status/1781237222995579353",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 186,
+    "group": 5,
+    "file": "assets/4c874f84d9.jpg",
+    "image_id": "4c874f84d9",
+    "source": "brave",
+    "page_url": "https://www.oricon.co.jp/prof/486750/tv/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 187,
+    "group": 31,
+    "file": "assets/bb5d025564.jpg",
+    "image_id": "bb5d025564",
+    "source": "serper",
+    "page_url": "https://jp.pinterest.com/pin/1971--290130400993259114/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 188,
+    "group": 31,
+    "file": "assets/90bca67b68.jpg",
+    "image_id": "90bca67b68",
+    "source": "serper",
+    "page_url": "https://www.pinterest.com/pin/522699100500857922/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 189,
+    "group": 40,
+    "file": "assets/a2603c3469.jpg",
+    "image_id": "a2603c3469",
+    "source": "brave",
+    "page_url": "https://collider.com/charles-bronson-toshiro-mifune-western-red-sun/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 190,
+    "group": 31,
+    "file": "assets/fb4eb6e224.jpg",
+    "image_id": "fb4eb6e224",
+    "source": "serper",
+    "page_url": "https://watch.plex.tv/ja/movie/red-sun",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 191,
+    "group": 31,
+    "file": "assets/da8735140c.jpg",
+    "image_id": "da8735140c",
+    "source": "serper",
+    "page_url": "https://www.pinterest.com/pin/747597606872241657/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 192,
+    "group": 5,
+    "file": "assets/bbad263173.jpg",
+    "image_id": "bbad263173",
+    "source": "serper",
+    "page_url": "https://thetv.jp/person/0000008441/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 193,
+    "group": 39,
+    "file": "assets/7e3bb5a4e8.jpg",
+    "image_id": "7e3bb5a4e8",
+    "source": "serper",
+    "page_url": "https://jp.pinterest.com/pin/1950--747597606870923701/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 194,
+    "group": 39,
+    "file": "assets/9e8196a0b4.jpg",
+    "image_id": "9e8196a0b4",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/14598.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 195,
+    "group": 39,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 196,
+    "group": 5,
+    "file": "assets/566c6b4fe5.jpg",
+    "image_id": "566c6b4fe5",
+    "source": "brave",
+    "page_url": "https://prof.stylemap.co.jp/28643.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 197,
+    "group": 5,
+    "file": "assets/fbad31b1b9.jpg",
+    "image_id": "fbad31b1b9",
+    "source": "serper",
+    "page_url": "https://www.crank-in.net/gallery/news/138885/2",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 198,
+    "group": 21,
+    "file": "assets/ff98542ae8.jpg",
+    "image_id": "ff98542ae8",
+    "source": "serper",
+    "page_url": "https://www.sanspo.com/article/20180519-MZFFKNPGNJJOFB3YSAQ5WCTEEE/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 199,
+    "group": 5,
+    "file": "assets/00b3565a14.jpg",
+    "image_id": "00b3565a14",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/202312200000226.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 200,
+    "group": 25,
+    "file": "assets/c615b5bdd9.jpg",
+    "image_id": "c615b5bdd9",
+    "source": "serper",
+    "page_url": "http://hurec.bz/book-movie/archives/2014/10/2191_196504_195902.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 201,
+    "group": 25,
+    "file": "assets/91cb808451.jpg",
+    "image_id": "91cb808451",
+    "source": "serper",
+    "page_url": "https://aucview.aucfan.com/yahoo/v1229528764/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 202,
+    "group": 37,
+    "file": "assets/9fdf2b0f16.jpg",
+    "image_id": "9fdf2b0f16",
+    "source": "serper",
+    "page_url": "https://ameblo.jp/eigaoyaji/entry-12873753849.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 203,
+    "group": 41,
+    "file": "assets/d10dd3b1f8.jpg",
+    "image_id": "d10dd3b1f8",
+    "source": "brave",
+    "page_url": "https://eiga.com/person/162348/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 204,
+    "group": 41,
+    "file": "assets/b7c1ca6ecb.jpg",
+    "image_id": "b7c1ca6ecb",
+    "source": "brave",
+    "page_url": "https://nlab.itmedia.co.jp/nl/articles/2312/20/news098.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 205,
+    "group": 25,
+    "file": "assets/8364b4ddc9.jpg",
+    "image_id": "8364b4ddc9",
+    "source": "serper",
+    "page_url": "https://play.rakuten.co.jp/article/2379",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 206,
+    "group": 25,
+    "file": "assets/3460db2a52.jpg",
+    "image_id": "3460db2a52",
+    "source": "serper",
+    "page_url": "https://note.com/shigeru146/n/ne85b5d094915",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 207,
+    "group": 41,
+    "file": "assets/594b946519.jpg",
+    "image_id": "594b946519",
+    "source": "brave",
+    "page_url": "https://press.moviewalker.jp/person/97425/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 208,
+    "group": 36,
+    "file": "assets/f3497c4347.jpg",
+    "image_id": "f3497c4347",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 209,
+    "group": 25,
+    "file": "assets/94b18ad3c2.jpg",
+    "image_id": "94b18ad3c2",
+    "source": "serper",
+    "page_url": "https://www.kajak.is/?k=eu6jrjux73usmgb",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 210,
+    "group": 41,
+    "file": "assets/49b056709f.jpg",
+    "image_id": "49b056709f",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/72648.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 211,
+    "group": 25,
+    "file": "assets/ca70697c92.jpg",
+    "image_id": "ca70697c92",
+    "source": "serper",
+    "page_url": "https://popmaster.jp/movie/akahige/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 212,
+    "group": 41,
+    "file": "assets/4b49aa690f.jpg",
+    "image_id": "4b49aa690f",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/72648.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 213,
+    "group": 41,
+    "file": "assets/2e727cd5c2.jpg",
+    "image_id": "2e727cd5c2",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/72648.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 214,
+    "group": 41,
+    "file": "assets/cd54710bbb.jpg",
+    "image_id": "cd54710bbb",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/72648.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 215,
+    "group": 25,
+    "file": "assets/f02a22417c.jpg",
+    "image_id": "f02a22417c",
+    "source": "serper",
+    "page_url": "https://moviework-orenchi.com/akahige/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 216,
+    "group": 25,
+    "file": "assets/3cf16a3ddb.jpg",
+    "image_id": "3cf16a3ddb",
+    "source": "serper",
+    "page_url": "https://aucview.aucfan.com/yahoo/v1229528764/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 217,
+    "group": 41,
+    "file": "assets/c0138dbad0.jpg",
+    "image_id": "c0138dbad0",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/72648.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 218,
+    "group": 36,
+    "file": "assets/3bff1b320d.jpg",
+    "image_id": "3bff1b320d",
+    "source": "serper",
+    "page_url": "http://www.mifuneproductions.co.jp/gallery.php",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 219,
+    "group": 41,
+    "file": "assets/feb5d0eaeb.jpg",
+    "image_id": "feb5d0eaeb",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/72648.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 220,
+    "group": 42,
+    "file": "assets/104bfe300d.jpg",
+    "image_id": "104bfe300d",
+    "source": "serper",
+    "page_url": "https://www.sponichi.co.jp/entertainment/news/2024/02/10/kiji/20240210s00041000380000c.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 221,
+    "group": 36,
+    "file": "assets/694bd4379f.jpg",
+    "image_id": "694bd4379f",
+    "source": "serper",
+    "page_url": "https://prtimes.jp/main/html/rd/p/000000130.000047048.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 222,
+    "group": 29,
+    "file": "assets/35e4832fd7.jpg",
+    "image_id": "35e4832fd7",
+    "source": "serper",
+    "page_url": "https://showa-g.org/photos/view/54",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 223,
+    "group": 35,
+    "file": "assets/0185394fb6.jpg",
+    "image_id": "0185394fb6",
+    "source": "serper",
+    "page_url": "https://minkara.carview.co.jp/userid/177171/blog/1360957/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 224,
+    "group": 41,
+    "file": "assets/79ef1ed872.jpg",
+    "image_id": "79ef1ed872",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/72648.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 225,
+    "group": 42,
+    "file": "assets/43db744844.jpg",
+    "image_id": "43db744844",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/69470.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 226,
+    "group": 43,
+    "file": "assets/79705fe492.jpg",
+    "image_id": "79705fe492",
+    "source": "serper",
+    "page_url": "https://www.allcinema.net/cinema/143087",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 227,
+    "group": 41,
+    "file": "assets/3adc4b6526.jpg",
+    "image_id": "3adc4b6526",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/72648.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 228,
+    "group": 43,
+    "file": "assets/b4961442d7.jpg",
+    "image_id": "b4961442d7",
+    "source": "serper",
+    "page_url": "https://natalie.mu/eiga/film/132226",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 229,
+    "group": 41,
+    "file": "assets/5d9a5d1d52.jpg",
+    "image_id": "5d9a5d1d52",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/72648.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 230,
+    "group": 41,
+    "file": "assets/21667133d1.jpg",
+    "image_id": "21667133d1",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/72648.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 231,
+    "group": 44,
+    "file": "assets/6232e3d720.jpg",
+    "image_id": "6232e3d720",
+    "source": "serper",
+    "page_url": "https://www.themoviedb.org/movie/20528?language=ja-JP",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 232,
+    "group": 44,
+    "file": "assets/5cc65111cb.jpg",
+    "image_id": "5cc65111cb",
+    "source": "serper",
+    "page_url": "https://100mifune.com/machibuse-1970/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 233,
+    "group": 44,
+    "file": "assets/ad39deffaa.jpg",
+    "image_id": "ad39deffaa",
+    "source": "brave",
+    "page_url": "https://eiga3mai.exblog.jp/29175616/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 234,
+    "group": 42,
+    "file": "assets/fbad31b1b9.jpg",
+    "image_id": "fbad31b1b9",
+    "source": "serper",
+    "page_url": "https://www.crank-in.net/gallery/news/138885/2",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 235,
+    "group": 45,
+    "file": "assets/feaeb7f177.jpg",
+    "image_id": "feaeb7f177",
+    "source": "brave",
+    "page_url": "https://www.geihinkan.go.jp/akasaka/akasaka_guest_book/18-21_november_1974/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 236,
+    "group": 46,
+    "file": "assets/eb5841529a.jpg",
+    "image_id": "eb5841529a",
+    "source": "brave",
+    "page_url": "https://www.aflo.com/ja/editorial-images/search?package_id=40264095",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 237,
+    "group": 47,
+    "file": "assets/875b6b4d71.jpg",
+    "image_id": "875b6b4d71",
+    "source": "brave",
+    "page_url": "https://www.jiji.com/jc/d4?p=ghk000-jpp002416763&d=d4_museum",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 238,
+    "group": 47,
+    "file": "assets/216b8bfc02.jpg",
+    "image_id": "216b8bfc02",
+    "source": "serper",
+    "page_url": "https://www.geihinkan.go.jp/akasaka/history/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 239,
+    "group": 45,
+    "file": "assets/8ca4bc6070.jpg",
+    "image_id": "8ca4bc6070",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp064723238&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 240,
+    "group": 45,
+    "file": "assets/158cf8a580.jpg",
+    "image_id": "158cf8a580",
+    "source": "brave",
+    "page_url": "https://jiji.com/jc/d4?d=d4_movie&p=mfn001-jpp00981547",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 241,
+    "group": 45,
+    "file": "assets/ea3ffccf6a.jpg",
+    "image_id": "ea3ffccf6a",
+    "source": "serper",
+    "page_url": "https://www.crank-in.net/gallery/news/138885/2",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 242,
+    "group": 45,
+    "file": "assets/2d3f8e7ee5.jpg",
+    "image_id": "2d3f8e7ee5",
+    "source": "serper",
+    "page_url": "https://mainichi.jp/articles/20160319/k00/00e/040/206000c",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 243,
+    "group": 48,
+    "file": "assets/8009188ad6.jpg",
+    "image_id": "8009188ad6",
+    "source": "serper",
+    "page_url": "https://x.com/icjk2019/status/1781237222995579353",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 244,
+    "group": 48,
+    "file": "assets/000166047b.jpg",
+    "image_id": "000166047b",
+    "source": "brave",
+    "page_url": "https://koimousagi.com/69470.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 245,
+    "group": 45,
+    "file": "assets/7e6bd21d3f.jpg",
+    "image_id": "7e6bd21d3f",
+    "source": "serper",
+    "page_url": "https://mantan-web.jp/article/20231220dog00m200024000c.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 246,
+    "group": 45,
+    "file": "assets/062b72ca50.jpg",
+    "image_id": "062b72ca50",
+    "source": "brave",
+    "page_url": "https://www.jnpc.or.jp/archive/conferences/21618/report",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 247,
+    "group": 46,
+    "file": "assets/2a6ac1b432.jpg",
+    "image_id": "2a6ac1b432",
+    "source": "serper",
+    "page_url": "https://jaa2100.org/entry/detail/045249.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 248,
+    "group": 45,
+    "file": "assets/721a1ca7d6.jpg",
+    "image_id": "721a1ca7d6",
+    "source": "serper",
+    "page_url": "https://times.abema.tv/articles/photo/10107552",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 249,
+    "group": 48,
+    "file": "assets/86d919b371.jpg",
+    "image_id": "86d919b371",
+    "source": "serper",
+    "page_url": "https://gossip-history.com/g00644/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 250,
+    "group": 39,
+    "file": "assets/d2b47dbf5a.jpg",
+    "image_id": "d2b47dbf5a",
+    "source": "serper",
+    "page_url": "https://showa-g.org/photos/view/572",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 251,
+    "group": 39,
+    "file": "assets/852658e9e2.jpg",
+    "image_id": "852658e9e2",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01035862&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 252,
+    "group": 39,
+    "file": "assets/8c8ecb9c78.jpg",
+    "image_id": "8c8ecb9c78",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp02243774&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 253,
+    "group": 27,
+    "file": "assets/92d59ed8d2.jpg",
+    "image_id": "92d59ed8d2",
+    "source": "serper",
+    "page_url": "https://www.conex-eco.co.jp/serial/seijou/71540/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 254,
+    "group": 21,
+    "file": "assets/4d11c23b1b.jpg",
+    "image_id": "4d11c23b1b",
+    "source": "brave",
+    "page_url": "https://natalie.mu/eiga/artist/24575/gallery",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 255,
+    "group": 28,
+    "file": "assets/8ff755d14c.jpg",
+    "image_id": "8ff755d14c",
+    "source": "serper",
+    "page_url": "https://times.abema.tv/articles/photo/10107552",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 256,
+    "group": 27,
+    "file": "assets/6237e1f394.jpg",
+    "image_id": "6237e1f394",
+    "source": "serper",
+    "page_url": "https://g.kyoto-art.ac.jp/reports/11037/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 257,
+    "group": 39,
+    "file": "assets/1ba1c83284.jpg",
+    "image_id": "1ba1c83284",
+    "source": "serper",
+    "page_url": "https://showa-g.org/photos/view/572",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 258,
+    "group": 49,
+    "file": "assets/5a6ad32e77.jpg",
+    "image_id": "5a6ad32e77",
+    "source": "serper",
+    "page_url": "https://www.nikkan-gendai.com/articles/view/geino/256461",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 259,
+    "group": 39,
+    "file": "assets/dd2b8f3897.jpg",
+    "image_id": "dd2b8f3897",
+    "source": "serper",
+    "page_url": "http://www.mifuneproductions.co.jp/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 260,
+    "group": 39,
+    "file": "assets/f3497c4347.jpg",
+    "image_id": "f3497c4347",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 261,
+    "group": 39,
+    "file": "assets/54ca89126d.jpg",
+    "image_id": "54ca89126d",
+    "source": "brave",
+    "page_url": "https://baike.baidu.com/item/%E4%B8%89%E8%88%B9%E6%95%8F%E9%83%8E/2608304",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 262,
+    "group": 39,
+    "file": "assets/0eb274be82.jpg",
+    "image_id": "0eb274be82",
+    "source": "serper",
+    "page_url": "https://therakejapan.com/special/heart-of-a-warrior/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 263,
+    "group": 50,
+    "file": "assets/e71e498527.jpg",
+    "image_id": "e71e498527",
+    "source": "serper",
+    "page_url": "https://riko-net.com/divorce-column/divorce-mediation-courts-tokyo",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 264,
+    "group": 48,
+    "file": "assets/127a61bbd4.jpg",
+    "image_id": "127a61bbd4",
+    "source": "serper",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 265,
+    "group": 48,
+    "file": "assets/34d6160314.jpg",
+    "image_id": "34d6160314",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/14598.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 266,
+    "group": 49,
+    "file": "assets/8c8ecb9c78.jpg",
+    "image_id": "8c8ecb9c78",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp02243774&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 267,
+    "group": 48,
+    "file": "assets/f1e49de823.jpg",
+    "image_id": "f1e49de823",
+    "source": "serper",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 268,
+    "group": 49,
+    "file": "assets/560d2fc39d.jpg",
+    "image_id": "560d2fc39d",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01135303&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 269,
+    "group": 49,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "brave",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01035863&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 270,
+    "group": 48,
+    "file": "assets/3041ebc7ff.jpg",
+    "image_id": "3041ebc7ff",
+    "source": "serper",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 271,
+    "group": 49,
+    "file": "assets/ee6d152d50.jpg",
+    "image_id": "ee6d152d50",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01035861&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 272,
+    "group": 50,
+    "file": "assets/36ba737e52.jpg",
+    "image_id": "36ba737e52",
+    "source": "brave",
+    "page_url": "https://imagelink.kyodonews.jp/search?product_type=1%2C2%2C11&keyword=%E6%9D%B1%E4%BA%AC%E5%AE%B6%E5%BA%AD%E8%A3%81%E5%88%A4%E6%89%80",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 273,
+    "group": 48,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 274,
+    "group": 49,
+    "file": "assets/05fa143fbb.jpg",
+    "image_id": "05fa143fbb",
+    "source": "brave",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01038071&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 275,
+    "group": 42,
+    "file": "assets/250e234205.jpg",
+    "image_id": "250e234205",
+    "source": "serper",
+    "page_url": "https://hochi.news/articles/20220915-OHT1T51130.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 276,
+    "group": 42,
+    "file": "assets/7e6bd21d3f.jpg",
+    "image_id": "7e6bd21d3f",
+    "source": "serper",
+    "page_url": "https://mantan-web.jp/article/20231220dog00m200024000c.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 277,
+    "group": 42,
+    "file": "assets/566c6b4fe5.jpg",
+    "image_id": "566c6b4fe5",
+    "source": "brave",
+    "page_url": "https://prof.stylemap.co.jp/28643.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 278,
+    "group": 51,
+    "file": "assets/ea3ffccf6a.jpg",
+    "image_id": "ea3ffccf6a",
+    "source": "serper",
+    "page_url": "https://www.crank-in.net/gallery/news/138885/2",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 279,
+    "group": 51,
+    "file": "assets/493cc0122a.jpg",
+    "image_id": "493cc0122a",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/202312200000226.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 280,
+    "group": 52,
+    "file": "assets/0e40d3eb99.jpg",
+    "image_id": "0e40d3eb99",
+    "source": "serper",
+    "page_url": "https://www.oricon.co.jp/news/2202428/full/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 281,
+    "group": 53,
+    "file": "assets/7c9acf4202.jpg",
+    "image_id": "7c9acf4202",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01199666&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 282,
+    "group": 53,
+    "file": "assets/e643d42988.jpg",
+    "image_id": "e643d42988",
+    "source": "serper",
+    "page_url": "https://100mifune.com/shogun-1980/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 283,
+    "group": 51,
+    "file": "assets/7e6bd21d3f.jpg",
+    "image_id": "7e6bd21d3f",
+    "source": "serper",
+    "page_url": "https://mantan-web.jp/article/20231220dog00m200024000c.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 284,
+    "group": 51,
+    "file": "assets/82668959a7.jpg",
+    "image_id": "82668959a7",
+    "source": "serper",
+    "page_url": "https://www.crank-in.net/news/138885/1",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 285,
+    "group": 51,
+    "file": "assets/f8a27eba28.jpg",
+    "image_id": "f8a27eba28",
+    "source": "brave",
+    "page_url": "https://www.crank-in.net/news/138885",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 286,
+    "group": 51,
+    "file": "assets/05a3fb2cb6.jpg",
+    "image_id": "05a3fb2cb6",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/202312200000226.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 287,
+    "group": 51,
+    "file": "assets/fe26f4eb92.jpg",
+    "image_id": "fe26f4eb92",
+    "source": "brave",
+    "page_url": "https://www.crank-in.net/gallery/news/138885/1",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 288,
+    "group": 51,
+    "file": "assets/e56508d120.jpg",
+    "image_id": "e56508d120",
+    "source": "brave",
+    "page_url": "https://www.crank-in.net/news/138885",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 289,
+    "group": 48,
+    "file": "assets/d51fbaec9a.jpg",
+    "image_id": "d51fbaec9a",
+    "source": "serper",
+    "page_url": "https://www.nfaj.go.jp/film-program/mifune202009/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 290,
+    "group": 48,
+    "file": "assets/27b6c0a222.jpg",
+    "image_id": "27b6c0a222",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 291,
+    "group": 48,
+    "file": "assets/1ba1c83284.jpg",
+    "image_id": "1ba1c83284",
+    "source": "serper",
+    "page_url": "https://showa-g.org/photos/view/873",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 292,
+    "group": 42,
+    "file": "assets/702f704dbc.jpg",
+    "image_id": "702f704dbc",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/202312200000226.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 293,
+    "group": 52,
+    "file": "assets/ea3ffccf6a.jpg",
+    "image_id": "ea3ffccf6a",
+    "source": "serper",
+    "page_url": "https://www.crank-in.net/gallery/news/138885/2",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 294,
+    "group": 51,
+    "file": "assets/495c618d03.jpg",
+    "image_id": "495c618d03",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/202312200000226.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 295,
+    "group": 48,
+    "file": "assets/3d4c51f9b1.jpg",
+    "image_id": "3d4c51f9b1",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/1748327.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 296,
+    "group": 48,
+    "file": "assets/a18b43e166.jpg",
+    "image_id": "a18b43e166",
+    "source": "serper",
+    "page_url": "https://eiga.com/news/20200307/7/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 297,
+    "group": 1,
+    "file": "assets/86d919b371.jpg",
+    "image_id": "86d919b371",
+    "source": "serper",
+    "page_url": "https://gossip-history.com/g00644/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 298,
+    "group": 54,
+    "file": "assets/831b37e0f7.jpg",
+    "image_id": "831b37e0f7",
+    "source": "serper",
+    "page_url": "https://jaa2100.org/entry/detail/032170.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 299,
+    "group": 54,
+    "file": "assets/4e1f81e083.jpg",
+    "image_id": "4e1f81e083",
+    "source": "brave",
+    "page_url": "https://www.asahi.com/topics/word/%E6%9D%B1%E4%BA%AC%E5%9C%B0%E8%A3%81.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 300,
+    "group": 3,
+    "file": "assets/ee6d152d50.jpg",
+    "image_id": "ee6d152d50",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01035861&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 301,
+    "group": 3,
+    "file": "assets/8c8ecb9c78.jpg",
+    "image_id": "8c8ecb9c78",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp02243774&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 302,
+    "group": 54,
+    "file": "assets/49980fb67a.jpg",
+    "image_id": "49980fb67a",
+    "source": "serper",
+    "page_url": "https://jaa2100.org/entry/detail/058513.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 303,
+    "group": 3,
+    "file": "assets/ac0ad0005c.jpg",
+    "image_id": "ac0ad0005c",
+    "source": "brave",
+    "page_url": "https://www.asahi.com/topics/word/%E4%B8%89%E8%88%B9%E6%95%8F%E9%83%8E.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 304,
+    "group": 54,
+    "file": "assets/b5e053520f.jpg",
+    "image_id": "b5e053520f",
+    "source": "brave",
+    "page_url": "https://www.courts.go.jp/tokyo/about/syozai/tokyotisai/index.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 305,
+    "group": 3,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "brave",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01035863&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 306,
+    "group": 3,
+    "file": "assets/6340280f28.jpg",
+    "image_id": "6340280f28",
+    "source": "serper",
+    "page_url": "http://www.mifuneproductions.co.jp/profile.php",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 307,
+    "group": 3,
+    "file": "assets/852658e9e2.jpg",
+    "image_id": "852658e9e2",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01035862&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 308,
+    "group": 54,
+    "file": "assets/80b1af0ab2.jpg",
+    "image_id": "80b1af0ab2",
+    "source": "serper",
+    "page_url": "https://www.gettyimages.co.jp/%E5%86%99%E7%9C%9F/%E6%9D%B1%E4%BA%AC%E5%9C%B0%E6%96%B9%E8%A3%81%E5%88%A4%E6%89%80",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 309,
+    "group": 54,
+    "file": "assets/d6e4dbf1d4.jpg",
+    "image_id": "d6e4dbf1d4",
+    "source": "brave",
+    "page_url": "https://www.yomiuri.co.jp/keyword/336363/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 310,
+    "group": 3,
+    "file": "assets/685549e716.jpg",
+    "image_id": "685549e716",
+    "source": "serper",
+    "page_url": "https://news.ntv.co.jp/category/culture/kk0584abb521bd4621a39ed4fb929c1a16",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 311,
+    "group": 49,
+    "file": "assets/158cf8a580.jpg",
+    "image_id": "158cf8a580",
+    "source": "brave",
+    "page_url": "https://jiji.com/jc/d4?d=d4_movie&p=mfn001-jpp00981547",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 312,
+    "group": 49,
+    "file": "assets/51ce3658d2.jpg",
+    "image_id": "51ce3658d2",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp050984402&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 313,
+    "group": 49,
+    "file": "assets/ac0ad0005c.jpg",
+    "image_id": "ac0ad0005c",
+    "source": "brave",
+    "page_url": "https://www.asahi.com/topics/word/%E4%B8%89%E8%88%B9%E6%95%8F%E9%83%8E.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 314,
+    "group": 49,
+    "file": "assets/d51fbaec9a.jpg",
+    "image_id": "d51fbaec9a",
+    "source": "serper",
+    "page_url": "https://www.nfaj.go.jp/film-program/mifune202009/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 315,
+    "group": 3,
+    "file": "assets/9b22847d6d.jpg",
+    "image_id": "9b22847d6d",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01038068&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 316,
+    "group": 3,
+    "file": "assets/3d4c51f9b1.jpg",
+    "image_id": "3d4c51f9b1",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/1748327.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 317,
+    "group": 54,
+    "file": "assets/556cf5f75c.jpg",
+    "image_id": "556cf5f75c",
+    "source": "serper",
+    "page_url": "https://pixta.jp/photo/50710647",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 318,
+    "group": 1,
+    "file": "assets/50377105d0.jpg",
+    "image_id": "50377105d0",
+    "source": "serper",
+    "page_url": "https://books.bunshun.jp/articles/-/1792",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 319,
+    "group": 1,
+    "file": "assets/34d6160314.jpg",
+    "image_id": "34d6160314",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/14598.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 320,
+    "group": 1,
+    "file": "assets/32f2e19da2.jpg",
+    "image_id": "32f2e19da2",
+    "source": "serper",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 321,
+    "group": 1,
+    "file": "assets/9e8196a0b4.jpg",
+    "image_id": "9e8196a0b4",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/69470.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 322,
+    "group": 1,
+    "file": "assets/dcc0c921e4.jpg",
+    "image_id": "dcc0c921e4",
+    "source": "brave",
+    "page_url": "https://gensanart.com/christmas-eve-mifune-scandal/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 323,
+    "group": 55,
+    "file": "assets/86d919b371.jpg",
+    "image_id": "86d919b371",
+    "source": "serper",
+    "page_url": "https://gossip-history.com/g00644/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 324,
+    "group": 56,
+    "file": "assets/cb681b3a70.jpg",
+    "image_id": "cb681b3a70",
+    "source": "serper",
+    "page_url": "https://dot.asahi.com/articles/-/18301?page=1",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 325,
+    "group": 55,
+    "file": "assets/9e8196a0b4.jpg",
+    "image_id": "9e8196a0b4",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/14598.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 326,
+    "group": 28,
+    "file": "assets/238b95dc2a.jpg",
+    "image_id": "238b95dc2a",
+    "source": "serper",
+    "page_url": "https://times.abema.tv/articles/-/10107552",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 327,
+    "group": 21,
+    "file": "assets/f51fc06317.jpg",
+    "image_id": "f51fc06317",
+    "source": "brave",
+    "page_url": "https://natalie.mu/eiga/artist/24575",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 328,
+    "group": 28,
+    "file": "assets/c70456f1ce.jpg",
+    "image_id": "c70456f1ce",
+    "source": "serper",
+    "page_url": "https://www.crank-in.net/gallery/news/37584/2",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 329,
+    "group": 57,
+    "file": "assets/84e2047ff7.jpg",
+    "image_id": "84e2047ff7",
+    "source": "serper",
+    "page_url": "https://jasipa.jp/sumiyoshi/2006/11/%E4%BD%8F%E5%90%89%E5%AE%B6%E3%80%81%E5%AE%B6%E6%97%8F%E5%86%99%E7%9C%9F%E7%99%BA%E6%8E%98%EF%BC%881970%E5%B9%B411%E6%9C%88%EF%BC%89/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 330,
+    "group": 57,
+    "file": "assets/34c2f0c329.jpg",
+    "image_id": "34c2f0c329",
+    "source": "serper",
+    "page_url": "https://www.homes.co.jp/cont/press/reform/reform_01205/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 331,
+    "group": 55,
+    "file": "assets/3d4c51f9b1.jpg",
+    "image_id": "3d4c51f9b1",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/1748327.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 332,
+    "group": 57,
+    "file": "assets/eb59a5b039.jpg",
+    "image_id": "eb59a5b039",
+    "source": "serper",
+    "page_url": "https://pixta.jp/photo/67884294",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 333,
+    "group": 55,
+    "file": "assets/f10719a9ad.jpg",
+    "image_id": "f10719a9ad",
+    "source": "brave",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 334,
+    "group": 16,
+    "file": "assets/1ba1c83284.jpg",
+    "image_id": "1ba1c83284",
+    "source": "serper",
+    "page_url": "https://showa-g.org/photos/view/873",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 335,
+    "group": 55,
+    "file": "assets/32f2e19da2.jpg",
+    "image_id": "32f2e19da2",
+    "source": "serper",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 336,
+    "group": 55,
+    "file": "assets/3b4da9cfd0.jpg",
+    "image_id": "3b4da9cfd0",
+    "source": "serper",
+    "page_url": "https://sebastianoarmelibattana.com/2018/12/23/mifunetosiro/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 337,
+    "group": 55,
+    "file": "assets/127a61bbd4.jpg",
+    "image_id": "127a61bbd4",
+    "source": "serper",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 338,
+    "group": 55,
+    "file": "assets/27403eb50c.jpg",
+    "image_id": "27403eb50c",
+    "source": "serper",
+    "page_url": "https://x.com/285tama/status/1572454782811648000",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 339,
+    "group": 3,
+    "file": "assets/670e48cc11.jpg",
+    "image_id": "670e48cc11",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp050982552&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 340,
+    "group": 3,
+    "file": "assets/555bc7af7f.jpg",
+    "image_id": "555bc7af7f",
+    "source": "serper",
+    "page_url": "https://www.seijo.ac.jp/social-activity/lifelearn/open-college/archives/jtmo42000000i4v4.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 341,
+    "group": 1,
+    "file": "assets/5c13605c33.jpg",
+    "image_id": "5c13605c33",
+    "source": "serper",
+    "page_url": "https://kikisrandomthoughs.blog.fc2.com/blog-entry-821.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 342,
+    "group": 1,
+    "file": "assets/0a36468929.jpg",
+    "image_id": "0a36468929",
+    "source": "serper",
+    "page_url": "https://gensanart.com/christmas-eve-mifune-scandal/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 343,
+    "group": 42,
+    "file": "assets/37079aba30.jpg",
+    "image_id": "37079aba30",
+    "source": "serper",
+    "page_url": "https://www.oricon.co.jp/news/2344855/full/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 344,
+    "group": 58,
+    "file": "assets/86d919b371.jpg",
+    "image_id": "86d919b371",
+    "source": "serper",
+    "page_url": "https://gossip-history.com/g00644/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 345,
+    "group": 58,
+    "file": "assets/27403eb50c.jpg",
+    "image_id": "27403eb50c",
+    "source": "serper",
+    "page_url": "https://x.com/wataridori333/status/1572459641443094528",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 346,
+    "group": 27,
+    "file": "assets/c7c009d064.jpg",
+    "image_id": "c7c009d064",
+    "source": "serper",
+    "page_url": "https://note.com/seijo_university/n/nca8d051fce36",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 347,
+    "group": 28,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "brave",
+    "page_url": "https://jiji.com/jc/d4?d=d4_movie&p=mfn001",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 348,
+    "group": 34,
+    "file": "assets/935cbe5773.jpg",
+    "image_id": "935cbe5773",
+    "source": "serper",
+    "page_url": "https://www.cinematoday.jp/news/N0100629",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 349,
+    "group": 58,
+    "file": "assets/8009188ad6.jpg",
+    "image_id": "8009188ad6",
+    "source": "serper",
+    "page_url": "https://x.com/icjk2019/status/1781237222995579353",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 350,
+    "group": 58,
+    "file": "assets/26eac95590.jpg",
+    "image_id": "26eac95590",
+    "source": "brave",
+    "page_url": "https://samurai-trader.net/mifune-toshiro-wakaikoro",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 351,
+    "group": 58,
+    "file": "assets/7e3bb5a4e8.jpg",
+    "image_id": "7e3bb5a4e8",
+    "source": "serper",
+    "page_url": "https://jp.pinterest.com/pin/1950--747597606870923701/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 352,
+    "group": 51,
+    "file": "assets/e46c4d294c.jpg",
+    "image_id": "e46c4d294c",
+    "source": "serper",
+    "page_url": "https://www.crank-in.net/news/138885/1",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 353,
+    "group": 52,
+    "file": "assets/da2d00e351.jpg",
+    "image_id": "da2d00e351",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/202312200000226.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 354,
+    "group": 58,
+    "file": "assets/32f2e19da2.jpg",
+    "image_id": "32f2e19da2",
+    "source": "serper",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 355,
+    "group": 58,
+    "file": "assets/3b4da9cfd0.jpg",
+    "image_id": "3b4da9cfd0",
+    "source": "serper",
+    "page_url": "https://sebastianoarmelibattana.com/2018/12/23/mifunetosiro/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 356,
+    "group": 58,
+    "file": "assets/000166047b.jpg",
+    "image_id": "000166047b",
+    "source": "brave",
+    "page_url": "https://koimousagi.com/69470.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 357,
+    "group": 53,
+    "file": "assets/9ca238fdee.jpg",
+    "image_id": "9ca238fdee",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01199666&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 358,
+    "group": 58,
+    "file": "assets/f1e49de823.jpg",
+    "image_id": "f1e49de823",
+    "source": "serper",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 359,
+    "group": 51,
+    "file": "assets/702f704dbc.jpg",
+    "image_id": "702f704dbc",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/202312200000226.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 360,
+    "group": 51,
+    "file": "assets/8ff755d14c.jpg",
+    "image_id": "8ff755d14c",
+    "source": "serper",
+    "page_url": "https://times.abema.tv/articles/photo/10107552",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 361,
+    "group": 52,
+    "file": "assets/751a957a4e.jpg",
+    "image_id": "751a957a4e",
+    "source": "serper",
+    "page_url": "https://mainichikirei.jp/article/20210804dog00m100025000c.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 362,
+    "group": 53,
+    "file": "assets/65339e1667.jpg",
+    "image_id": "65339e1667",
+    "source": "serper",
+    "page_url": "https://electionanalysis.uk/?b=c0y1c2l0o6p2e0a0n2803",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 363,
+    "group": 51,
+    "file": "assets/ae7002ff9b.jpg",
+    "image_id": "ae7002ff9b",
+    "source": "serper",
+    "page_url": "https://hochi.news/articles/20210804-OHT1T51091.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 364,
+    "group": 58,
+    "file": "assets/336b106780.jpg",
+    "image_id": "336b106780",
+    "source": "serper",
+    "page_url": "https://sebastianoarmelibattana.com/2018/12/23/mifunetosiro/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 365,
+    "group": 58,
+    "file": "assets/aed79fa835.jpg",
+    "image_id": "aed79fa835",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/14598.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 366,
+    "group": 58,
+    "file": "assets/127a61bbd4.jpg",
+    "image_id": "127a61bbd4",
+    "source": "serper",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 367,
+    "group": 58,
+    "file": "assets/9e8196a0b4.jpg",
+    "image_id": "9e8196a0b4",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/69470.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 368,
+    "group": 55,
+    "file": "assets/e32b37cfa4.jpg",
+    "image_id": "e32b37cfa4",
+    "source": "serper",
+    "page_url": "https://x.com/aska_nekokia/status/734391419037585409",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 369,
+    "group": 42,
+    "file": "assets/49b056709f.jpg",
+    "image_id": "49b056709f",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/72648.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 370,
+    "group": 52,
+    "file": "assets/fe26f4eb92.jpg",
+    "image_id": "fe26f4eb92",
+    "source": "brave",
+    "page_url": "https://www.crank-in.net/gallery/news/138885/1",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 371,
+    "group": 42,
+    "file": "assets/ae7002ff9b.jpg",
+    "image_id": "ae7002ff9b",
+    "source": "serper",
+    "page_url": "https://hochi.news/articles/20210804-OHT1T51091.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 372,
+    "group": 55,
+    "file": "assets/8009188ad6.jpg",
+    "image_id": "8009188ad6",
+    "source": "serper",
+    "page_url": "https://x.com/icjk2019/status/1781237222995579353",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 373,
+    "group": 58,
+    "file": "assets/f10719a9ad.jpg",
+    "image_id": "f10719a9ad",
+    "source": "brave",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 374,
+    "group": 55,
+    "file": "assets/7e3bb5a4e8.jpg",
+    "image_id": "7e3bb5a4e8",
+    "source": "serper",
+    "page_url": "https://jp.pinterest.com/pin/1950--747597606870923701/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 375,
+    "group": 55,
+    "file": "assets/88786df424.jpg",
+    "image_id": "88786df424",
+    "source": "serper",
+    "page_url": "https://x.com/aska_nekokia/status/734391419037585409",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 376,
+    "group": 55,
+    "file": "assets/da0be71e24.jpg",
+    "image_id": "da0be71e24",
+    "source": "serper",
+    "page_url": "https://x.com/ken_sogoru83/status/748761800724754432",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 377,
+    "group": 55,
+    "file": "assets/91f2686ccf.jpg",
+    "image_id": "91f2686ccf",
+    "source": "serper",
+    "page_url": "https://x.com/dfv1nj9qfBdImTT/status/1907024810670252308",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 378,
+    "group": 53,
+    "file": "assets/c0ea45b14c.jpg",
+    "image_id": "c0ea45b14c",
+    "source": "serper",
+    "page_url": "https://www.reddit.com/r/ShogunTVShow/comments/1nzm04u/which_toranaga_did_you_prefer_toshir%C5%8D_mifune_1980/?tl=ja",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 379,
+    "group": 51,
+    "file": "assets/4b1916f577.jpg",
+    "image_id": "4b1916f577",
+    "source": "serper",
+    "page_url": "https://times.abema.tv/articles/-/10107552",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 380,
+    "group": 59,
+    "file": "assets/f10719a9ad.jpg",
+    "image_id": "f10719a9ad",
+    "source": "brave",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 381,
+    "group": 59,
+    "file": "assets/bd44969bb7.jpg",
+    "image_id": "bd44969bb7",
+    "source": "brave",
+    "page_url": "https://koimousagi.com/14598.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 382,
+    "group": 59,
+    "file": "assets/770bccbbab.jpg",
+    "image_id": "770bccbbab",
+    "source": "serper",
+    "page_url": "https://nlab.itmedia.co.jp/cont/articles/3369886/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 383,
+    "group": 60,
+    "file": "assets/70ce8a2e1d.jpg",
+    "image_id": "70ce8a2e1d",
+    "source": "brave",
+    "page_url": "https://www.imdb.com/title/tt0105377/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 384,
+    "group": 60,
+    "file": "assets/9836c1f410.jpg",
+    "image_id": "9836c1f410",
+    "source": "serper",
+    "page_url": "https://ameblo.jp/southerncrossagency/entry-12724232950.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 385,
+    "group": 59,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 386,
+    "group": 60,
+    "file": "assets/8cd4e5d33a.jpg",
+    "image_id": "8cd4e5d33a",
+    "source": "serper",
+    "page_url": "https://filmarks.com/movies/46539",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 387,
+    "group": 59,
+    "file": "assets/ac0ad0005c.jpg",
+    "image_id": "ac0ad0005c",
+    "source": "brave",
+    "page_url": "https://www.asahi.com/topics/word/%E4%B8%89%E8%88%B9%E6%95%8F%E9%83%8E.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 388,
+    "group": 59,
+    "file": "assets/158cf8a580.jpg",
+    "image_id": "158cf8a580",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp00981547&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 389,
+    "group": 59,
+    "file": "assets/8efb6851b6.jpg",
+    "image_id": "8efb6851b6",
+    "source": "brave",
+    "page_url": "https://www.daily.co.jp/gossip/2024/02/12/0017324184.shtml",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 390,
+    "group": 6,
+    "file": "assets/670e48cc11.jpg",
+    "image_id": "670e48cc11",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp050982552&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 391,
+    "group": 6,
+    "file": "assets/f10719a9ad.jpg",
+    "image_id": "f10719a9ad",
+    "source": "brave",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 392,
+    "group": 6,
+    "file": "assets/9b22847d6d.jpg",
+    "image_id": "9b22847d6d",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01038068&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 393,
+    "group": 42,
+    "file": "assets/27119b5f7b.jpg",
+    "image_id": "27119b5f7b",
+    "source": "serper",
+    "page_url": "https://www.sponichi.co.jp/entertainment/news/2023/12/24/articles/20231224s00041000261000c.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 394,
+    "group": 21,
+    "file": "assets/4e9735fd43.jpg",
+    "image_id": "4e9735fd43",
+    "source": "serper",
+    "page_url": "https://natalie.mu/eiga/news/649859",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 395,
+    "group": 61,
+    "file": "assets/c33bd3a8f0.jpg",
+    "image_id": "c33bd3a8f0",
+    "source": "brave",
+    "page_url": "https://gekiyasu-butsudan.com/SHOP/193080/list.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 396,
+    "group": 61,
+    "file": "assets/a423ccd64e.jpg",
+    "image_id": "a423ccd64e",
+    "source": "brave",
+    "page_url": "https://www.hasegawa.jp/blogs/butsudan/ihai-place",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 397,
+    "group": 61,
+    "file": "assets/937d936233.jpg",
+    "image_id": "937d936233",
+    "source": "brave",
+    "page_url": "https://hirutabutsuguten.shop/?mode=f29",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 398,
+    "group": 61,
+    "file": "assets/d71ab07962.jpg",
+    "image_id": "d71ab07962",
+    "source": "serper",
+    "page_url": "https://s-unzando.com/blog/ihaiburogu-20251208.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 399,
+    "group": 61,
+    "file": "assets/2ef242ac15.jpg",
+    "image_id": "2ef242ac15",
+    "source": "brave",
+    "page_url": "https://lumiere8.com/pages/choice-ihai",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 400,
+    "group": 19,
+    "file": "assets/6d7a0648d4.jpg",
+    "image_id": "6d7a0648d4",
+    "source": "serper",
+    "page_url": "https://www.nishinippon.co.jp/image/443812/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 401,
+    "group": 61,
+    "file": "assets/12c55cee41.jpg",
+    "image_id": "12c55cee41",
+    "source": "serper",
+    "page_url": "https://mizuhogroup.co.jp/2025/04/07/%E4%BD%8D%E7%89%8C%E3%81%AE%E9%A3%BE%E3%82%8A%E6%96%B9/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 402,
+    "group": 42,
+    "file": "assets/82668959a7.jpg",
+    "image_id": "82668959a7",
+    "source": "serper",
+    "page_url": "https://www.crank-in.net/news/138885/1",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 403,
+    "group": 59,
+    "file": "assets/ee6d152d50.jpg",
+    "image_id": "ee6d152d50",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01035861&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 404,
+    "group": 21,
+    "file": "assets/5945e1ca9f.jpg",
+    "image_id": "5945e1ca9f",
+    "source": "serper",
+    "page_url": "https://kamakura-kawakita.org/kevents/%E3%83%88%E3%83%BC%E3%82%AF%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%80%8C%E4%B8%96%E7%95%8C%E3%81%8C%E6%84%9B%E3%81%99%E3%82%8B%E4%BF%B3%E5%84%AA-%E4%B8%89%E8%88%B9%E6%95%8F%E9%83%8E%E3%81%AE%E7%B4%A0/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 405,
+    "group": 42,
+    "file": "assets/8ff755d14c.jpg",
+    "image_id": "8ff755d14c",
+    "source": "serper",
+    "page_url": "https://times.abema.tv/articles/photo/10107552",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 406,
+    "group": 21,
+    "file": "assets/33ae15e31f.jpg",
+    "image_id": "33ae15e31f",
+    "source": "serper",
+    "page_url": "https://cinefil.tokyo/_ct/17167919",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 407,
+    "group": 59,
+    "file": "assets/5cbef7745f.jpg",
+    "image_id": "5cbef7745f",
+    "source": "brave",
+    "page_url": "https://www.daily.co.jp/gossip/2024/02/12/0017324184.shtml",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 408,
+    "group": 61,
+    "file": "assets/23bbcc8355.jpg",
+    "image_id": "23bbcc8355",
+    "source": "brave",
+    "page_url": "https://e-butsudan.com/guide/2464",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 409,
+    "group": 59,
+    "file": "assets/50e71fafb2.jpg",
+    "image_id": "50e71fafb2",
+    "source": "brave",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01199666&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 410,
+    "group": 6,
+    "file": "assets/5ce8b3a9eb.jpg",
+    "image_id": "5ce8b3a9eb",
+    "source": "serper",
+    "page_url": "https://note.com/jasminemariko/n/na08b3be365ca",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 411,
+    "group": 6,
+    "file": "assets/4fc61928fa.jpg",
+    "image_id": "4fc61928fa",
+    "source": "serper",
+    "page_url": "https://showa-g.org/events/view/885",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 412,
+    "group": 6,
+    "file": "assets/e1a0cf1097.jpg",
+    "image_id": "e1a0cf1097",
+    "source": "serper",
+    "page_url": "https://www.pinterest.com/pin/681521356085731061/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 413,
+    "group": 21,
+    "file": "assets/861142e4ea.jpg",
+    "image_id": "861142e4ea",
+    "source": "serper",
+    "page_url": "https://www.oricon.co.jp/prof/274371/photo/p0020141019004971900141371398401/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 414,
+    "group": 21,
+    "file": "assets/5151e60549.jpg",
+    "image_id": "5151e60549",
+    "source": "serper",
+    "page_url": "https://thetv.jp/person/0000107969/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 415,
+    "group": 7,
+    "file": "assets/4d8b5068ec.jpg",
+    "image_id": "4d8b5068ec",
+    "source": "serper",
+    "page_url": "https://pl.pinterest.com/pin/297800594130681630/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 416,
+    "group": 7,
+    "file": "assets/8009188ad6.jpg",
+    "image_id": "8009188ad6",
+    "source": "serper",
+    "page_url": "https://x.com/icjk2019/status/1781237222995579353",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 417,
+    "group": 7,
+    "file": "assets/7e3bb5a4e8.jpg",
+    "image_id": "7e3bb5a4e8",
+    "source": "serper",
+    "page_url": "https://jp.pinterest.com/pin/1950--747597606870923701/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 418,
+    "group": 7,
+    "file": "assets/12158c145c.jpg",
+    "image_id": "12158c145c",
+    "source": "serper",
+    "page_url": "https://x.com/dfv1nj9qfBdImTT/status/1907024810670252308",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 419,
+    "group": 21,
+    "file": "assets/ff8cde6990.jpg",
+    "image_id": "ff8cde6990",
+    "source": "brave",
+    "page_url": "https://natalie.mu/eiga/gallery/news/253233/795126",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 420,
+    "group": 7,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "brave",
+    "page_url": "https://jiji.com/jc/d4?d=d4_movie&p=mfn001",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 421,
+    "group": 7,
+    "file": "assets/f3497c4347.jpg",
+    "image_id": "f3497c4347",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 422,
+    "group": 7,
+    "file": "assets/54ca89126d.jpg",
+    "image_id": "54ca89126d",
+    "source": "brave",
+    "page_url": "https://baike.baidu.com/item/%E4%B8%89%E8%88%B9%E6%95%8F%E9%83%8E/2608304",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 423,
+    "group": 7,
+    "file": "assets/e3f93ea3f1.jpg",
+    "image_id": "e3f93ea3f1",
+    "source": "serper",
+    "page_url": "https://natalie.mu/eiga/news/401189",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 424,
+    "group": 7,
+    "file": "assets/fe46799c70.jpg",
+    "image_id": "fe46799c70",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 425,
+    "group": 53,
+    "file": "assets/bd269b3043.jpg",
+    "image_id": "bd269b3043",
+    "source": "serper",
+    "page_url": "https://x.com/jidaigekich/status/946304889138876417",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 426,
+    "group": 52,
+    "file": "assets/7e6bd21d3f.jpg",
+    "image_id": "7e6bd21d3f",
+    "source": "serper",
+    "page_url": "https://mantan-web.jp/article/20231220dog00m200024000c.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 427,
+    "group": 54,
+    "file": "assets/ff4650845e.jpg",
+    "image_id": "ff4650845e",
+    "source": "serper",
+    "page_url": "https://www.photolibrary.jp/img337/102301_3055407.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 428,
+    "group": 7,
+    "file": "assets/f47f63d290.jpg",
+    "image_id": "f47f63d290",
+    "source": "brave",
+    "page_url": "https://books.bunshun.jp/articles/-/1792?page=2",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 429,
+    "group": 62,
+    "file": "assets/86d919b371.jpg",
+    "image_id": "86d919b371",
+    "source": "serper",
+    "page_url": "https://gossip-history.com/g00644/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 430,
+    "group": 62,
+    "file": "assets/bd44969bb7.jpg",
+    "image_id": "bd44969bb7",
+    "source": "brave",
+    "page_url": "https://koimousagi.com/14598.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 431,
+    "group": 62,
+    "file": "assets/9e8196a0b4.jpg",
+    "image_id": "9e8196a0b4",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/69470.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 432,
+    "group": 8,
+    "file": "assets/dc2a1dab40.jpg",
+    "image_id": "dc2a1dab40",
+    "source": "serper",
+    "page_url": "https://note.com/jasminemariko/n/na08b3be365ca",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 433,
+    "group": 8,
+    "file": "assets/000166047b.jpg",
+    "image_id": "000166047b",
+    "source": "brave",
+    "page_url": "https://koimousagi.com/69470.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 434,
+    "group": 62,
+    "file": "assets/f10719a9ad.jpg",
+    "image_id": "f10719a9ad",
+    "source": "brave",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 435,
+    "group": 62,
+    "file": "assets/000166047b.jpg",
+    "image_id": "000166047b",
+    "source": "brave",
+    "page_url": "https://koimousagi.com/69470.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 436,
+    "group": 8,
+    "file": "assets/670e48cc11.jpg",
+    "image_id": "670e48cc11",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp050982552&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 437,
+    "group": 8,
+    "file": "assets/1152ae88af.jpg",
+    "image_id": "1152ae88af",
+    "source": "serper",
+    "page_url": "https://imagelink.kyodonews.jp/detail?id=3784576",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 438,
+    "group": 62,
+    "file": "assets/aed79fa835.jpg",
+    "image_id": "aed79fa835",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/14598.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 439,
+    "group": 33,
+    "file": "assets/53c197a368.jpg",
+    "image_id": "53c197a368",
+    "source": "serper",
+    "page_url": "https://danshi-senka.com/archives/3683",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 440,
+    "group": 8,
+    "file": "assets/c1637721fb.jpg",
+    "image_id": "c1637721fb",
+    "source": "serper",
+    "page_url": "https://www2.nhk.or.jp/archives/articles/?id=D0009250249_00000",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 441,
+    "group": 8,
+    "file": "assets/3d4c51f9b1.jpg",
+    "image_id": "3d4c51f9b1",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/1748327.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 442,
+    "group": 8,
+    "file": "assets/4fc61928fa.jpg",
+    "image_id": "4fc61928fa",
+    "source": "serper",
+    "page_url": "https://showa-g.org/men/view/41",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 443,
+    "group": 16,
+    "file": "assets/35e4832fd7.jpg",
+    "image_id": "35e4832fd7",
+    "source": "serper",
+    "page_url": "https://showa-g.org/photos/view/54",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 444,
+    "group": 28,
+    "file": "assets/4fc61928fa.jpg",
+    "image_id": "4fc61928fa",
+    "source": "serper",
+    "page_url": "https://showa-g.org/men/view/41",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 445,
+    "group": 27,
+    "file": "assets/8c604efb7b.jpg",
+    "image_id": "8c604efb7b",
+    "source": "serper",
+    "page_url": "https://note.com/seijo_university/n/nb4f2a4cb6937",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 446,
+    "group": 8,
+    "file": "assets/b427b01f86.jpg",
+    "image_id": "b427b01f86",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 447,
+    "group": 62,
+    "file": "assets/27403eb50c.jpg",
+    "image_id": "27403eb50c",
+    "source": "serper",
+    "page_url": "https://x.com/285tama/status/1572454782811648000",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 448,
+    "group": 62,
+    "file": "assets/8009188ad6.jpg",
+    "image_id": "8009188ad6",
+    "source": "serper",
+    "page_url": "https://x.com/icjk2019/status/1781237222995579353",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 449,
+    "group": 1,
+    "file": "assets/2822291731.jpg",
+    "image_id": "2822291731",
+    "source": "brave",
+    "page_url": "https://killy.biz/star/%E4%B8%89%E8%88%B9%E6%95%8F%E9%83%8E/%E8%A3%81%E5%88%A4",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 450,
+    "group": 62,
+    "file": "assets/7e3bb5a4e8.jpg",
+    "image_id": "7e3bb5a4e8",
+    "source": "serper",
+    "page_url": "https://jp.pinterest.com/pin/1950--747597606870923701/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 451,
+    "group": 8,
+    "file": "assets/7da74deab0.jpg",
+    "image_id": "7da74deab0",
+    "source": "serper",
+    "page_url": "https://eiga.com/person/72229/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 452,
+    "group": 62,
+    "file": "assets/da0be71e24.jpg",
+    "image_id": "da0be71e24",
+    "source": "serper",
+    "page_url": "https://x.com/ken_sogoru83/status/748761800724754432",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 453,
+    "group": 62,
+    "file": "assets/0eed6e8fe0.jpg",
+    "image_id": "0eed6e8fe0",
+    "source": "brave",
+    "page_url": "https://showa-g.org/men/view/41",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 454,
+    "group": 8,
+    "file": "assets/770bccbbab.jpg",
+    "image_id": "770bccbbab",
+    "source": "serper",
+    "page_url": "https://nlab.itmedia.co.jp/cont/articles/3369886/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 455,
+    "group": 62,
+    "file": "assets/dd2b8f3897.jpg",
+    "image_id": "dd2b8f3897",
+    "source": "serper",
+    "page_url": "http://www.mifuneproductions.co.jp/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 456,
+    "group": 62,
+    "file": "assets/852658e9e2.jpg",
+    "image_id": "852658e9e2",
+    "source": "brave",
+    "page_url": "https://jiji.com/jc/d4?d=d4_movie&p=mfn001-jpp01035862",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 457,
+    "group": 63,
+    "file": "assets/8009188ad6.jpg",
+    "image_id": "8009188ad6",
+    "source": "serper",
+    "page_url": "https://x.com/icjk2019/status/1781237222995579353",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 458,
+    "group": 63,
+    "file": "assets/f10719a9ad.jpg",
+    "image_id": "f10719a9ad",
+    "source": "brave",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 459,
+    "group": 8,
+    "file": "assets/9113df427d.jpg",
+    "image_id": "9113df427d",
+    "source": "serper",
+    "page_url": "https://www2.nhk.or.jp/archives/articles/?id=D0009250249_00000",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 460,
+    "group": 62,
+    "file": "assets/158cf8a580.jpg",
+    "image_id": "158cf8a580",
+    "source": "brave",
+    "page_url": "https://jiji.com/jc/d4?d=d4_movie&p=mfn001-jpp00981547",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 461,
+    "group": 33,
+    "file": "assets/4fc61928fa.jpg",
+    "image_id": "4fc61928fa",
+    "source": "serper",
+    "page_url": "https://showa-g.org/men/view/41",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 462,
+    "group": 42,
+    "file": "assets/ef45cb85cb.jpg",
+    "image_id": "ef45cb85cb",
+    "source": "serper",
+    "page_url": "https://www.oricon.co.jp/news/2384840/full/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 463,
+    "group": 54,
+    "file": "assets/fd6993ad46.jpg",
+    "image_id": "fd6993ad46",
+    "source": "serper",
+    "page_url": "https://www.gettyimages.co.jp/%E5%86%99%E7%9C%9F/%E6%9D%B1%E4%BA%AC%E5%9C%B0%E6%96%B9%E8%A3%81%E5%88%A4%E6%89%80",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 464,
+    "group": 8,
+    "file": "assets/b3b13e347d.jpg",
+    "image_id": "b3b13e347d",
+    "source": "brave",
+    "page_url": "https://hakameguri.exblog.jp/31239564/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 465,
+    "group": 8,
+    "file": "assets/774c0eb6f6.jpg",
+    "image_id": "774c0eb6f6",
+    "source": "brave",
+    "page_url": "https://www.gettyimages.co.jp/%E5%86%99%E7%9C%9F/%E4%B8%89%E8%88%B9-%E6%95%8F%E9%83%8E",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 466,
+    "group": 64,
+    "file": "assets/c70456f1ce.jpg",
+    "image_id": "c70456f1ce",
+    "source": "serper",
+    "page_url": "https://www.crank-in.net/gallery/news/37584/2",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 467,
+    "group": 64,
+    "file": "assets/438ecfa355.jpg",
+    "image_id": "438ecfa355",
+    "source": "serper",
+    "page_url": "https://www.tokyo-sports.co.jp/articles/photo/141377",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 468,
+    "group": 65,
+    "file": "assets/670e48cc11.jpg",
+    "image_id": "670e48cc11",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp050982552&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 469,
+    "group": 64,
+    "file": "assets/5c7d61af5c.jpg",
+    "image_id": "5c7d61af5c",
+    "source": "brave",
+    "page_url": "https://www.daily.co.jp/newsflash/gossip/2015/06/25/0008152907.shtml",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 470,
+    "group": 66,
+    "file": "assets/c146e7fdd0.jpg",
+    "image_id": "c146e7fdd0",
+    "source": "serper",
+    "page_url": "https://www.kyorin-u.ac.jp/hospital/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 471,
+    "group": 67,
+    "file": "assets/9e8196a0b4.jpg",
+    "image_id": "9e8196a0b4",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/69470.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 472,
+    "group": 64,
+    "file": "assets/775979374d.jpg",
+    "image_id": "775979374d",
+    "source": "brave",
+    "page_url": "https://www.cinematoday.jp/news/N0035796",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 473,
+    "group": 64,
+    "file": "assets/be49cbdeaf.jpg",
+    "image_id": "be49cbdeaf",
+    "source": "serper",
+    "page_url": "https://eiga.com/news/20090311/8/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 474,
+    "group": 67,
+    "file": "assets/000166047b.jpg",
+    "image_id": "000166047b",
+    "source": "brave",
+    "page_url": "https://koimousagi.com/72648.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 475,
+    "group": 67,
+    "file": "assets/bd44969bb7.jpg",
+    "image_id": "bd44969bb7",
+    "source": "brave",
+    "page_url": "https://koimousagi.com/72648.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 476,
+    "group": 63,
+    "file": "assets/e1a0cf1097.jpg",
+    "image_id": "e1a0cf1097",
+    "source": "serper",
+    "page_url": "https://tr.pinterest.com/pin/751608625347926092/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 477,
+    "group": 63,
+    "file": "assets/9fc5b46c7a.jpg",
+    "image_id": "9fc5b46c7a",
+    "source": "serper",
+    "page_url": "https://www.daily.co.jp/gossip/2024/02/12/0017324184.shtml",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 478,
+    "group": 63,
+    "file": "assets/9b22847d6d.jpg",
+    "image_id": "9b22847d6d",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01038068&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 479,
+    "group": 63,
+    "file": "assets/1152ae88af.jpg",
+    "image_id": "1152ae88af",
+    "source": "serper",
+    "page_url": "https://imagelink.kyodonews.jp/detail?id=3784576",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 480,
+    "group": 63,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 481,
+    "group": 65,
+    "file": "assets/9fc5b46c7a.jpg",
+    "image_id": "9fc5b46c7a",
+    "source": "serper",
+    "page_url": "https://www.daily.co.jp/gossip/2024/02/12/0017324184.shtml",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 482,
+    "group": 65,
+    "file": "assets/f10719a9ad.jpg",
+    "image_id": "f10719a9ad",
+    "source": "brave",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 483,
+    "group": 65,
+    "file": "assets/5ce8b3a9eb.jpg",
+    "image_id": "5ce8b3a9eb",
+    "source": "serper",
+    "page_url": "https://note.com/jasminemariko/n/na08b3be365ca",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 484,
+    "group": 65,
+    "file": "assets/bd44969bb7.jpg",
+    "image_id": "bd44969bb7",
+    "source": "brave",
+    "page_url": "https://koimousagi.com/14598.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 485,
+    "group": 63,
+    "file": "assets/7a180afa2c.jpg",
+    "image_id": "7a180afa2c",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp050982552&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 486,
+    "group": 65,
+    "file": "assets/10d2c5d8bd.jpg",
+    "image_id": "10d2c5d8bd",
+    "source": "serper",
+    "page_url": "https://www.cinematoday.jp/news/N0099433",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 487,
+    "group": 65,
+    "file": "assets/e44cbe86e6.jpg",
+    "image_id": "e44cbe86e6",
+    "source": "serper",
+    "page_url": "https://eiga.com/news/20161013/24/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 488,
+    "group": 65,
+    "file": "assets/085ab4d8b9.jpg",
+    "image_id": "085ab4d8b9",
+    "source": "serper",
+    "page_url": "https://www.cinematoday.jp/news/N0099433",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 489,
+    "group": 16,
+    "file": "assets/3d4c51f9b1.jpg",
+    "image_id": "3d4c51f9b1",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/1748327.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 490,
+    "group": 63,
+    "file": "assets/486d53b735.jpg",
+    "image_id": "486d53b735",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/general/photonews/photonews_nsInc_202212230000596-0.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 491,
+    "group": 65,
+    "file": "assets/cc915a47c4.jpg",
+    "image_id": "cc915a47c4",
+    "source": "serper",
+    "page_url": "https://www.oricon.co.jp/news/2079906/full/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 492,
+    "group": 65,
+    "file": "assets/5f685044d0.jpg",
+    "image_id": "5f685044d0",
+    "source": "serper",
+    "page_url": "https://www.cinematoday.jp/news/N0099433",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 493,
+    "group": 66,
+    "file": "assets/69ec5684d1.jpg",
+    "image_id": "69ec5684d1",
+    "source": "serper",
+    "page_url": "https://pixta.jp/photo/92637903",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 494,
+    "group": 21,
+    "file": "assets/32e7615b49.jpg",
+    "image_id": "32e7615b49",
+    "source": "brave",
+    "page_url": "https://natalie.mu/eiga/artist/24575/gallery",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 495,
+    "group": 65,
+    "file": "assets/a1de29dd87.jpg",
+    "image_id": "a1de29dd87",
+    "source": "serper",
+    "page_url": "https://eiga.com/news/20161013/24/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 496,
+    "group": 65,
+    "file": "assets/1db33ba48a.jpg",
+    "image_id": "1db33ba48a",
+    "source": "serper",
+    "page_url": "https://www.cinematoday.jp/news/N0099433",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 497,
+    "group": 65,
+    "file": "assets/c1637721fb.jpg",
+    "image_id": "c1637721fb",
+    "source": "serper",
+    "page_url": "https://www2.nhk.or.jp/archives/articles/?id=D0009250249_00000",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 498,
+    "group": 23,
+    "file": "assets/f227f01b6c.jpg",
+    "image_id": "f227f01b6c",
+    "source": "serper",
+    "page_url": "https://www.allcinema.net/cinema/87948",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 499,
+    "group": 2,
+    "file": "assets/27b6c0a222.jpg",
+    "image_id": "27b6c0a222",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 500,
+    "group": 22,
+    "file": "assets/0fb7b4890a.jpg",
+    "image_id": "0fb7b4890a",
+    "source": "brave",
+    "page_url": "https://www.reddit.com/r/TrueFilm/comments/yc22b0/what_constitutes_a_samurai_an_indepth_look_at/?tl=ja",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 501,
+    "group": 24,
+    "file": "assets/96e52f4df1.jpg",
+    "image_id": "96e52f4df1",
+    "source": "serper",
+    "page_url": "https://natalie.mu/eiga/film/114622",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 502,
+    "group": 23,
+    "file": "assets/8b5bf598b7.jpg",
+    "image_id": "8b5bf598b7",
+    "source": "brave",
+    "page_url": "https://press.moviewalker.jp/mv20041/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 503,
+    "group": 22,
+    "file": "assets/5c31db9d67.jpg",
+    "image_id": "5c31db9d67",
+    "source": "serper",
+    "page_url": "https://aucview.aucfan.com/yahoo/b1083660560/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 504,
+    "group": 65,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "brave",
+    "page_url": "https://jiji.com/jc/d4?d=d4_movie&p=mfn001",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 505,
+    "group": 65,
+    "file": "assets/01af3d6b73.jpg",
+    "image_id": "01af3d6b73",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp022742292&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 506,
+    "group": 2,
+    "file": "assets/80d7368e61.jpg",
+    "image_id": "80d7368e61",
+    "source": "serper",
+    "page_url": "http://blog.livedoor.jp/sinumadeni-mitaieiga/archives/23345890.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 507,
+    "group": 2,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 508,
+    "group": 68,
+    "file": "assets/c4b583a4e8.jpg",
+    "image_id": "c4b583a4e8",
+    "source": "serper",
+    "page_url": "https://www.aflo.com/ja/contents/6532553",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 509,
+    "group": 66,
+    "file": "assets/07f964cd95.jpg",
+    "image_id": "07f964cd95",
+    "source": "serper",
+    "page_url": "https://www.mec-h.com/town/mh-mitaka/16",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 510,
+    "group": 66,
+    "file": "assets/46385ab6d3.jpg",
+    "image_id": "46385ab6d3",
+    "source": "serper",
+    "page_url": "https://www.kyorin-u.ac.jp/hospital/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 511,
+    "group": 68,
+    "file": "assets/c09b49b7e3.jpg",
+    "image_id": "c09b49b7e3",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp010380691&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 512,
+    "group": 68,
+    "file": "assets/1152ae88af.jpg",
+    "image_id": "1152ae88af",
+    "source": "serper",
+    "page_url": "https://imagelink.kyodonews.jp/detail?id=3784576",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 513,
+    "group": 68,
+    "file": "assets/670e48cc11.jpg",
+    "image_id": "670e48cc11",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp050982552&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 514,
+    "group": 20,
+    "file": "assets/340995f600.jpg",
+    "image_id": "340995f600",
+    "source": "serper",
+    "page_url": "https://gendai.media/articles/-/106671?page=3",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 515,
+    "group": 20,
+    "file": "assets/a424c0e155.jpg",
+    "image_id": "a424c0e155",
+    "source": "serper",
+    "page_url": "https://ghidorahcula719.hatenablog.jp/entry/2022/12/18/%E5%B9%B4%E6%9C%AB%E4%BD%95%E3%81%A7%E3%82%82%E3%82%AF%E3%82%A4%E3%82%BA%E7%AC%AC%EF%BC%92%E5%95%8F_%E4%B8%83%E4%BA%BA%E3%81%AE%E4%BE%8D%E3%81%AE%E4%B8%89%E8%88%B9%E6%95%8F%E9%83%8E%E3%81%AB",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 516,
+    "group": 20,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "brave",
+    "page_url": "https://jiji.com/jc/d4?d=d4_movie&p=mfn001",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 517,
+    "group": 20,
+    "file": "assets/158cf8a580.jpg",
+    "image_id": "158cf8a580",
+    "source": "brave",
+    "page_url": "https://jiji.com/jc/d4?d=d4_movie&p=mfn001-jpp00981547",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 518,
+    "group": 68,
+    "file": "assets/819a5780a8.jpg",
+    "image_id": "819a5780a8",
+    "source": "serper",
+    "page_url": "https://www.47news.jp/11943362.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 519,
+    "group": 68,
+    "file": "assets/9b22847d6d.jpg",
+    "image_id": "9b22847d6d",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01038068&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 520,
+    "group": 12,
+    "file": "assets/cc12073175.jpg",
+    "image_id": "cc12073175",
+    "source": "serper",
+    "page_url": "http://mifuneproductions.co.jp/history.php",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 521,
+    "group": 15,
+    "file": "assets/864a407e91.jpg",
+    "image_id": "864a407e91",
+    "source": "serper",
+    "page_url": "https://www.reddit.com/r/Moviesinthemaking/comments/1n0s37d/toshiro_mifune_akira_kurosawa_behind_the_scenes/?tl=ja",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 522,
+    "group": 18,
+    "file": "assets/c90a87f67c.jpg",
+    "image_id": "c90a87f67c",
+    "source": "serper",
+    "page_url": "http://arazatu.blog48.fc2.com/blog-entry-1471.html?sp",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 523,
+    "group": 22,
+    "file": "assets/3216b0a53b.jpg",
+    "image_id": "3216b0a53b",
+    "source": "brave",
+    "page_url": "https://www.reddit.com/r/TrueFilm/comments/yc22b0/what_constitutes_a_samurai_an_indepth_look_at/?tl=ja",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 524,
+    "group": 16,
+    "file": "assets/f3497c4347.jpg",
+    "image_id": "f3497c4347",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 525,
+    "group": 68,
+    "file": "assets/a9384d1845.jpg",
+    "image_id": "a9384d1845",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/1748327.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 526,
+    "group": 68,
+    "file": "assets/f466d9b99c.jpg",
+    "image_id": "f466d9b99c",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp050982555&d=d4_movie",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 527,
+    "group": 16,
+    "file": "assets/f83b1f1198.jpg",
+    "image_id": "f83b1f1198",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 528,
+    "group": 69,
+    "file": "assets/1a5bd05fb2.jpg",
+    "image_id": "1a5bd05fb2",
+    "source": "serper",
+    "page_url": "https://www.flickr.com/photos/35986016@N07/6091321886",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 529,
+    "group": 69,
+    "file": "assets/994ce7625d.jpg",
+    "image_id": "994ce7625d",
+    "source": "serper",
+    "page_url": "https://pc633hk2047.pixnet.net/blog/posts/8022141513",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 530,
+    "group": 69,
+    "file": "assets/c9f2ef7f6b.jpg",
+    "image_id": "c9f2ef7f6b",
+    "source": "serper",
+    "page_url": "https://hakamiler.blogspot.com/2013/09/blog-post_10.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 531,
+    "group": 4,
+    "file": "assets/32f2e19da2.jpg",
+    "image_id": "32f2e19da2",
+    "source": "serper",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 532,
+    "group": 55,
+    "file": "assets/abda46c979.jpg",
+    "image_id": "abda46c979",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 533,
+    "group": 69,
+    "file": "assets/3b1984fd93.jpg",
+    "image_id": "3b1984fd93",
+    "source": "brave",
+    "page_url": "https://www.shunjuen.or.jp/cemetery",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 534,
+    "group": 1,
+    "file": "assets/2a92073b6e.jpg",
+    "image_id": "2a92073b6e",
+    "source": "serper",
+    "page_url": "https://gensanart.com/christmas-eve-mifune-scandal/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 535,
+    "group": 4,
+    "file": "assets/9e8196a0b4.jpg",
+    "image_id": "9e8196a0b4",
+    "source": "serper",
+    "page_url": "https://koimousagi.com/14598.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 536,
+    "group": 4,
+    "file": "assets/f1e49de823.jpg",
+    "image_id": "f1e49de823",
+    "source": "serper",
+    "page_url": "https://puppy-stepbystep.com/mifunetoshiro-kakeizu/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 537,
+    "group": 58,
+    "file": "assets/3d4c51f9b1.jpg",
+    "image_id": "3d4c51f9b1",
+    "source": "serper",
+    "page_url": "https://www.nikkansports.com/entertainment/news/1748327.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 538,
+    "group": 7,
+    "file": "assets/f83b1f1198.jpg",
+    "image_id": "f83b1f1198",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 539,
+    "group": 4,
+    "file": "assets/0eed6e8fe0.jpg",
+    "image_id": "0eed6e8fe0",
+    "source": "brave",
+    "page_url": "https://showa-g.org/men/view/41",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 540,
+    "group": 4,
+    "file": "assets/9beaea5896.jpg",
+    "image_id": "9beaea5896",
+    "source": "brave",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01035863&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 541,
+    "group": 4,
+    "file": "assets/852658e9e2.jpg",
+    "image_id": "852658e9e2",
+    "source": "brave",
+    "page_url": "https://jiji.com/jc/d4?d=d4_movie&p=mfn001-jpp01035862",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 542,
+    "group": 4,
+    "file": "assets/158cf8a580.jpg",
+    "image_id": "158cf8a580",
+    "source": "brave",
+    "page_url": "https://jiji.com/jc/d4?d=d4_movie&p=mfn001-jpp00981547",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 543,
+    "group": 16,
+    "file": "assets/fe46799c70.jpg",
+    "image_id": "fe46799c70",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 544,
+    "group": 69,
+    "file": "assets/265f5a60f6.jpg",
+    "image_id": "265f5a60f6",
+    "source": "brave",
+    "page_url": "https://www.ishichou.co.jp/ohaka/review_grave/shunjyuen-2",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 545,
+    "group": 69,
+    "file": "assets/afae49c2fa.jpg",
+    "image_id": "afae49c2fa",
+    "source": "serper",
+    "page_url": "https://copperdentalclinic.blog.fc2.com/blog-entry-84.html",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 546,
+    "group": 4,
+    "file": "assets/ac0ad0005c.jpg",
+    "image_id": "ac0ad0005c",
+    "source": "brave",
+    "page_url": "https://www.asahi.com/topics/word/%E4%B8%89%E8%88%B9%E6%95%8F%E9%83%8E.html",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 547,
+    "group": 7,
+    "file": "assets/685549e716.jpg",
+    "image_id": "685549e716",
+    "source": "serper",
+    "page_url": "https://news.ntv.co.jp/category/culture/kk0584abb521bd4621a39ed4fb929c1a16",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 548,
+    "group": 16,
+    "file": "assets/abda46c979.jpg",
+    "image_id": "abda46c979",
+    "source": "serper",
+    "page_url": "https://www.nippon.com/ja/column/g00317/",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 549,
+    "group": 16,
+    "file": "assets/54ca89126d.jpg",
+    "image_id": "54ca89126d",
+    "source": "brave",
+    "page_url": "https://baike.baidu.com/item/%E4%B8%89%E8%88%B9%E6%95%8F%E9%83%8E/2608304",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 550,
+    "group": 2,
+    "file": "assets/a088a5f2bd.jpg",
+    "image_id": "a088a5f2bd",
+    "source": "serper",
+    "page_url": "https://www.themoviedb.org/person/7450?language=ja-JP",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 551,
+    "group": 22,
+    "file": "assets/e6c5678ef8.jpg",
+    "image_id": "e6c5678ef8",
+    "source": "serper",
+    "page_url": "https://blockbuster01.com/seven-samurai-reviews",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 552,
+    "group": 18,
+    "file": "assets/27cba575a8.jpg",
+    "image_id": "27cba575a8",
+    "source": "serper",
+    "page_url": "https://popmaster.jp/movie/rashomon/",
+    "reused": false,
+    "manual": false
+  },
+  {
+    "scene": 553,
+    "group": 2,
+    "file": "assets/852658e9e2.jpg",
+    "image_id": "852658e9e2",
+    "source": "serper",
+    "page_url": "https://www.jiji.com/jc/d4?p=mfn001-jpp01035862&d=d4_movie",
+    "reused": true,
+    "manual": false
+  },
+  {
+    "scene": 554,
+    "group": 23,
+    "file": "assets/864a407e91.jpg",
+    "image_id": "864a407e91",
+    "source": "serper",
+    "page_url": "https://www.reddit.com/r/Moviesinthemaking/comments/1n0s37d/toshiro_mifune_akira_kurosawa_behind_the_scenes/?tl=ja",
+    "reused": true,
+    "manual": false
+  }
+]

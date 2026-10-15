@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-SRT to documentary video tool. Input is an SRT plus its narration audio. The Python pipeline (`pipeline/`, package `docugen`) runs plan, search, select, download and timeline; the Remotion project (`video/`) renders `timeline.json`. Details: `docs/PIPELINE.md`.
+SRT to documentary video tool. Input is an SRT plus its narration audio. The Python pipeline (`pipeline/`, package `docugen`) runs plan, search, select, download and timeline; the Remotion project (`video/`) renders `timeline.json`. Details: `docs/PIPELINE.md`. Current work state and next steps: `docs/HANDOFF.md`.
 
 ## Commands
 
