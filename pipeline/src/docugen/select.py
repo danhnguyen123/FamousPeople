@@ -1,4 +1,4 @@
-"""Stage select: Claude checks each group's search results from their metadata.
+"""Stage select: an LLM (Claude or OpenAI) checks each group's search results from their metadata.
 
 A group needs at least DOCUGEN_MIN_POOL accepted images, and one for every
 DOCUGEN_SCENES_PER_IMAGE of its scenes, so a large group does not show the same

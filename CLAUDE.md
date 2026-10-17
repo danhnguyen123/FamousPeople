@@ -19,7 +19,7 @@ SRT to documentary video tool. Input is an SRT plus its narration audio. The Pyt
 - The select step can run on OpenAI instead (`DOCUGEN_SELECT_PROVIDER=openai`, `openai_llm.py`, model from `DOCUGEN_OPENAI_MODEL`, default `gpt-6.1-sol`), with the same prompt and Verdict schema. The plan step is Claude only.
 - Gemini is used only for the review page's Vietnamese translations (`translate.py`, prompt `translator.md`, model from `DOCUGEN_TRANSLATE_MODEL`). The pipeline never depends on it.
 - `video/src/schema.ts` and `pipeline/src/docugen/timeline.py` describe the same JSON. Change both together.
-- Identity is judged from metadata (name in the title or site name), by Claude in the select step. Never by face recognition.
+- The select step judges identity from metadata (name in the title or site name).
 - Image search only through third-party APIs: DataForSEO (Google), SearchAPI.io (Google and Bing), Serper (Google), Brave. `DOCUGEN_SEARCH` is a JSON object mapping each search engine to its API provider (`search.PROVIDERS`). Never write scrapers for Google, Bing, Pinterest or YouTube. Keep the per-project search cache (`projects/<slug>/cache/`) when changing a source.
 - No copyright filtering. The only hard filters are `DOCUGEN_BLOCKED_DOMAINS`, YouTube and TikTok video thumbnails (also YouTube thumbnail file names such as `hqdefault.jpg` re-hosted on other sites), and failed downloads. Small and duplicate images are kept.
 - Narration scripts and prompts must not contain em dashes.

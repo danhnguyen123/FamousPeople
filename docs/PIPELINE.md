@@ -77,7 +77,7 @@ Mỗi nhóm gọi Claude một lần (`DOCUGEN_SELECT_MODEL`, effort `medium`, 6
 - **Cache câu trả lời:** mỗi câu trả lời được lưu ở `cache/select/` (khóa gồm nhà cung cấp, model, effort, prompt và tin nhắn). Nhóm bị lỗi API (hết credit, request lỗi) không bị coi là đã duyệt và không chuyển sang keyword kế tiếp; bước select báo lỗi ở cuối, chạy lại thì chỉ gửi các nhóm còn thiếu.
 - **OpenAI thay cho Claude:** `DOCUGEN_SELECT_PROVIDER=openai` gửi cùng prompt, cùng tin nhắn và cùng schema `{"accepted": [...]}` tới OpenAI Chat Completions (structured outputs strict), model `DOCUGEN_OPENAI_MODEL` (mặc định `gpt-6.1-sol`), key `OPENAI_API_KEY` (hoặc `DOCUGEN_OPENAI_API_KEY`), `reasoning_effort` lấy từ `DOCUGEN_SELECT_EFFORT`. Có `DOCUGEN_SELECT_BATCH=1` thì dùng Batch API của OpenAI (upload file JSONL, chờ batch xong, đọc file kết quả và file lỗi). Code ở `openai_llm.py`. Bước plan vẫn chỉ dùng Claude.
 
-Claude chỉ đọc chữ, không xem ảnh và không nhận diện khuôn mặt. Danh tính dựa vào tên trong tiêu đề hoặc tên site.
+Bước này chỉ đọc chữ, không xem ảnh. Danh tính dựa vào tên trong tiêu đề hoặc tên site.
 
 ## 4. download
 
